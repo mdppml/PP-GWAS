@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --job-name=ppREGENIE
-#SBATCH --nodes=3  
-#SBATCH --ntasks=3
+#SBATCH --job-name=PPF-GWAS
+#SBATCH --nodes=7
+#SBATCH --ntasks=7
 #SBATCH --cpus-per-task=16
 #SBATCH --mem=128G 
 #SBATCH --time=03:00:00
