@@ -1,0 +1,111 @@
+Starting job script for server
+Activating conda environment for server
+Starting job script for client 1
+Starting job script for client 2
+Starting job script for client 3
+Starting job script for client 4
+Starting job script for client 5
+Starting job script for client 6
+Activating conda environment for client 1
+Activating conda environment for client 2
+Activating conda environment for client 3
+Activating conda environment for client 4
+Activating conda environment for client 5
+Activating conda environment for client 6
+Server is listening on port 8451
+server ready file exists
+CLient 1 connecting via 8451
+Accepted connection from ('10.158.1.4', 49054)
+Server is listening on port 8452
+server ready file exists
+CLient 2 connecting via 8452
+Accepted connection from ('10.158.1.5', 49334)
+Server is listening on port 8453
+server ready file exists
+CLient 3 connecting via 8453
+Accepted connection from ('10.158.1.6', 59428)
+Server is listening on port 8454
+server ready file exists
+CLient 4 connecting via 8454
+Accepted connection from ('10.158.1.7', 46332)
+Server is listening on port 8455
+server ready file exists
+CLient 5 connecting via 8455
+Accepted connection from ('10.158.1.8', 35924)
+Server is listening on port 8456
+server ready file exists
+CLient 6 connecting via 8456
+Accepted connection from ('10.158.1.9', 44388)
+SERVER: time taken to establish connections is 2.4819085597991943
+RAM usage: 112.00 MB
+RAM usage: 1464.51 MB
+RAM usage: 1414.66 MB
+RAM usage: 1413.30 MB
+RAM usage: 1446.47 MB
+RAM usage: 1447.32 MB
+RAM usage: 1446.23 MB
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:461: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:461: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:461: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:461: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:461: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:461: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+printing delta for p = 1 with parameters (612794, 75, 1, 6, 9178, 2, 8170, 88, 26)
+printing delta for p = 2 with parameters (612794, 75, 2, 6, 9178, 2, 8170, 65, 25)
+printing delta for p = 3 with parameters (612794, 75, 3, 6, 9178, 2, 8170, 25, 24)
+RAM usage: 18581.37 MB
+RAM usage: 18579.37 MB
+RAM usage: 17835.16 MB
+RAM usage: 18441.38 MB
+RAM usage: 18487.91 MB
+RAM usage: 17835.25 MB
+RAM usage: 88774.23 MB
+DONE! Took for all 27 blocks, 2293.453107357025
+printing delta for p = 3 with parameters (612794, 75, 3, 6, 9178, 2, 8170, 53, 51)
+printing delta for p = 2 with parameters (612794, 75, 2, 6, 9178, 2, 8170, 21, 52)
+printing delta for p = 1 with parameters (612794, 75, 1, 6, 9178, 2, 8170, 64, 53)
+RAM usage: 18154.67 MB
+RAM usage: 18382.99 MB
+RAM usage: 17914.66 MB
+RAM usage: 17866.73 MB
+RAM usage: 18207.69 MB
+RAM usage: 18271.25 MB
+RAM usage: 96737.79 MB
+DONE! Took for all 27 blocks, 2265.3830721378326
+printing delta for p = 1 with parameters (612794, 75, 1, 6, 9178, 2, 8214, 45, 74)
+printing delta for p = 2 with parameters (612794, 75, 2, 6, 9178, 2, 8170, 73, 73)
+printing delta for p = 3 with parameters (612794, 75, 3, 6, 9178, 2, 8170, 58, 72)
+TIME TAKEN FOR 75 blocks is 7375.734116315842
+reduce from server 0.01807117462158203
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.85364699736238
+TIME TAKEN FOR 75 blocks is 7376.548739671707
+reduce from server 0.016829967498779297
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.85364699736238
+TIME TAKEN FOR 75 blocks is 7376.3052797317505
+reduce from server 0.016698122024536133
+TIME TAKEN FOR 75 blocks is 7376.943857192993
+reduce from server 0.018503904342651367
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.85364699736238
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.85364699736238
+TIME TAKEN FOR 75 blocks is 7376.686068058014
+reduce from server 0.01568770408630371
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.85364699736238
+TIME TAKEN FOR 75 blocks is 7376.663180351257
+reduce from server 0.018412351608276367
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.85364699736238
+RAM usage: 77915.02 MB
+DONE! Took for all 27 blocks, 1719.995323896408
+RAM usage: 77918.17 MB
+TIME RESULTS
+Time taken for pre_gwas_communication and computations - 6284.405231714249
+Time taken for level 0 - 1528.9050061702728
+Time taken for level 1 - 287.60470962524414
+TOTAL TIME FOR PROGRAM is 8100.914947509766
+Formatted - 0.0d 2.0h 15.0m 0.914947509765625s
+Job script finished

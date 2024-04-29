@@ -1,0 +1,167 @@
+Starting job script for server
+Activating conda environment for server
+Starting job script for client 1
+Starting job script for client 2
+Starting job script for client 3
+Starting job script for client 4
+Starting job script for client 5
+Starting job script for client 6
+Starting job script for client 7
+Starting job script for client 8
+Activating conda environment for client 1
+Activating conda environment for client 2
+Activating conda environment for client 3
+Activating conda environment for client 4
+Activating conda environment for client 5
+Activating conda environment for client 6
+Activating conda environment for client 7
+Activating conda environment for client 8
+Server is listening on port 8521
+server ready file exists
+CLient 1 connecting via 8521
+Accepted connection from ('10.158.1.13', 47636)
+Server is listening on port 8522
+server ready file exists
+CLient 2 connecting via 8522
+Accepted connection from ('10.158.1.14', 35126)
+Server is listening on port 8523
+server ready file exists
+CLient 3 connecting via 8523
+Accepted connection from ('10.158.1.15', 52156)
+Server is listening on port 8524
+server ready file exists
+CLient 4 connecting via 8524
+Accepted connection from ('10.158.1.16', 44708)
+Server is listening on port 8525
+server ready file exists
+CLient 5 connecting via 8525
+Accepted connection from ('10.158.1.17', 41576)
+Server is listening on port 8526
+server ready file exists
+CLient 6 connecting via 8526
+Accepted connection from ('10.158.1.18', 45440)
+Server is listening on port 8527
+server ready file exists
+CLient 7 connecting via 8527
+Accepted connection from ('10.158.1.19', 41942)
+Server is listening on port 8528
+server ready file exists
+CLient 8 connecting via 8528
+Accepted connection from ('10.158.1.20', 34834)
+SERVER: time taken to establish connections is 2.2395553588867188
+RAM usage: 111.89 MB
+RAM usage: 971.70 MB
+RAM usage: 959.11 MB
+RAM usage: 949.70 MB
+RAM usage: 992.27 MB
+RAM usage: 971.56 MB
+RAM usage: 971.98 MB
+RAM usage: 971.97 MB
+RAM usage: 951.24 MB
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:461: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:461: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:461: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:461: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:461: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:461: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:461: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:461: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+printing delta for p = 2 with parameters (612794, 75, 2, 8, 9178, 2, 8170, 33, 21)
+printing delta for p = 6 with parameters (612794, 75, 6, 8, 9178, 2, 8170, 97, 17)
+printing delta for p = 4 with parameters (612794, 75, 4, 8, 9178, 2, 8170, 95, 19)
+printing delta for p = 1 with parameters (612794, 75, 1, 8, 9178, 2, 8170, 51, 22)
+printing delta for p = 5 with parameters (612794, 75, 5, 8, 9178, 2, 8170, 41, 18)
+printing delta for p = 7 with parameters (612794, 75, 7, 8, 9178, 2, 8170, 93, 16)
+printing delta for p = 3 with parameters (612794, 75, 3, 8, 9178, 2, 8170, 63, 20)
+RAM usage: 15746.77 MB
+RAM usage: 15554.64 MB
+RAM usage: 15743.98 MB
+RAM usage: 15741.62 MB
+RAM usage: 15024.16 MB
+RAM usage: 15024.21 MB
+RAM usage: 15752.22 MB
+RAM usage: 15746.30 MB
+RAM usage: 77401.06 MB
+DONE! Took for all 23 blocks, 2653.9804980754852
+printing delta for p = 4 with parameters (612794, 75, 4, 8, 9178, 2, 8170, 59, 42)
+printing delta for p = 3 with parameters (612794, 75, 3, 8, 9178, 2, 8170, 58, 43)
+printing delta for p = 7 with parameters (612794, 75, 7, 8, 9178, 2, 8170, 70, 39)
+printing delta for p = 2 with parameters (612794, 75, 2, 8, 9178, 2, 8170, 87, 44)
+printing delta for p = 1 with parameters (612794, 75, 1, 8, 9178, 2, 8170, 44, 45)
+printing delta for p = 5 with parameters (612794, 75, 5, 8, 9178, 2, 8170, 35, 41)
+printing delta for p = 6 with parameters (612794, 75, 6, 8, 9178, 2, 8170, 6, 40)
+RAM usage: 15691.11 MB
+RAM usage: 15656.57 MB
+RAM usage: 15429.63 MB
+RAM usage: 15070.93 MB
+RAM usage: 15049.48 MB
+RAM usage: 15620.19 MB
+RAM usage: 15627.74 MB
+RAM usage: 15686.36 MB
+RAM usage: 84251.90 MB
+DONE! Took for all 23 blocks, 2595.7178518772125
+printing delta for p = 3 with parameters (612794, 75, 3, 8, 9178, 2, 8170, 47, 66)
+printing delta for p = 4 with parameters (612794, 75, 4, 8, 9178, 2, 8170, 73, 65)
+printing delta for p = 5 with parameters (612794, 75, 5, 8, 9178, 2, 8170, 99, 64)
+printing delta for p = 1 with parameters (612794, 75, 1, 8, 9178, 2, 8170, 89, 68)
+printing delta for p = 6 with parameters (612794, 75, 6, 8, 9178, 2, 8170, 40, 63)
+printing delta for p = 2 with parameters (612794, 75, 2, 8, 9178, 2, 8170, 13, 67)
+printing delta for p = 7 with parameters (612794, 75, 7, 8, 9178, 2, 8170, 42, 62)
+RAM usage: 15454.75 MB
+RAM usage: 14930.95 MB
+RAM usage: 15478.47 MB
+RAM usage: 15138.49 MB
+RAM usage: 14925.08 MB
+RAM usage: 15473.93 MB
+RAM usage: 15552.42 MB
+RAM usage: 15371.15 MB
+RAM usage: 84182.80 MB
+DONE! Took for all 23 blocks, 2620.2734713554382
+printing delta for p = 3 with parameters (612794, 75, 3, 8, 9178, 2, 8170, 9, 72)
+printing delta for p = 6 with parameters (612794, 75, 6, 8, 9178, 2, 8170, 49, 69)
+printing delta for p = 5 with parameters (612794, 75, 5, 8, 9178, 2, 8170, 59, 70)
+printing delta for p = 4 with parameters (612794, 75, 4, 8, 9178, 2, 8170, 81, 71)
+printing delta for p = 1 with parameters (612794, 75, 1, 8, 9178, 2, 8214, 56, 74)
+printing delta for p = 2 with parameters (612794, 75, 2, 8, 9178, 2, 8170, 63, 73)
+TIME TAKEN FOR 75 blocks is 9948.066663980484
+reduce from server 0.01709723472595215
+TIME TAKEN FOR 75 blocks is 9947.956087827682
+reduce from server 0.017507076263427734
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.87655467912555
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.87655467912555
+TIME TAKEN FOR 75 blocks is 9948.62253165245
+reduce from server 0.017120838165283203
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.87655467912555
+TIME TAKEN FOR 75 blocks is 9948.40676355362
+reduce from server 0.013819456100463867
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.87655467912555
+TIME TAKEN FOR 75 blocks is 9948.493825435638
+reduce from server 0.020259380340576172
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.87655467912555
+TIME TAKEN FOR 75 blocks is 9947.610642194748
+reduce from server 0.016565561294555664
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.87655467912555
+TIME TAKEN FOR 75 blocks is 9947.976072788239
+reduce from server 0.01671147346496582
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.87655467912555
+TIME TAKEN FOR 75 blocks is 9949.407111406326
+reduce from server 0.019601821899414062
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.87655467912555
+RAM usage: 37287.31 MB
+DONE! Took for all 23 blocks, 693.5009922981262
+RAM usage: 37290.84 MB
+TIME RESULTS
+Time taken for pre_gwas_communication and computations - 8568.301944494247
+Time taken for level 0 - 1510.5201687812805
+Time taken for level 1 - 250.9682867527008
+TOTAL TIME FOR PROGRAM is 10329.790400028229
+Formatted - 0.0d 2.0h 52.0m 9.79040002822876s
+Job script finished

@@ -1,0 +1,49 @@
+Starting job script for server
+Activating conda environment for server
+Starting job script for client 1
+Starting job script for client 2
+Activating conda environment for client 1
+Activating conda environment for client 2
+Server is listening on port 8151
+server ready file exists
+CLient 1 connecting via 8151
+Accepted connection from ('10.158.1.38', 59908)
+Server is listening on port 8152
+server ready file exists
+CLient 2 connecting via 8152
+Accepted connection from ('10.158.1.39', 55518)
+SERVER: time taken to establish connections is 2.4680521488189697
+RAM usage: 111.91 MB
+RAM usage: 4097.25 MB
+RAM usage: 4010.62 MB
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:460: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:460: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+printing delta for p = 1 with parameters (612794, 75, 1, 2, 9178, 2, 8170, 11, 26)
+RAM usage: 86321.62 MB
+DONE! Took for all 27 blocks, 821.9092836380005
+RAM usage: 20498.81 MB
+RAM usage: 20441.24 MB
+printing delta for p = 1 with parameters (612794, 75, 1, 2, 9178, 2, 8170, 29, 53)
+RAM usage: 94340.09 MB
+DONE! Took for all 27 blocks, 810.7932741641998
+RAM usage: 19652.66 MB
+RAM usage: 19612.45 MB
+printing delta for p = 1 with parameters (612794, 75, 1, 2, 9178, 2, 8214, 31, 74)
+TIME TAKEN FOR 75 blocks is 3356.7689962387085
+reduce from server 0.016891002655029297
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.86616216227412
+TIME TAKEN FOR 75 blocks is 3356.3958308696747
+reduce from server 0.0158843994140625
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.86616216227412
+RAM usage: 83203.25 MB
+DONE! Took for all 27 blocks, 632.9776177406311
+RAM usage: 83206.85 MB
+TIME RESULTS
+Time taken for pre_gwas_communication and computations - 2270.446521997452
+Time taken for level 0 - 1519.4495222568512
+Time taken for level 1 - 75.29655575752258
+TOTAL TIME FOR PROGRAM is 3865.1926000118256
+Formatted - 0.0d 1.0h 4.0m 25.19260001182556s
+Job script finished

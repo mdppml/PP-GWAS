@@ -1,0 +1,90 @@
+Starting job script for server
+Activating conda environment for server
+Starting job script for client 1
+Starting job script for client 2
+Activating conda environment for client 1
+Activating conda environment for client 2
+Server is listening on port 9341
+server ready file exists
+CLient 1 connecting via 9341
+Accepted connection from ('10.158.1.16', 33266)
+Server is listening on port 9342
+server ready file exists
+CLient 2 connecting via 9342
+Accepted connection from ('10.158.1.17', 42374)
+SERVER: time taken to establish connections is 2.0767745971679688
+RAM usage: 112.00 MB
+RAM usage: 3363.75 MB
+RAM usage: 3291.85 MB
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:461: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:461: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+RAM usage: 70589.38 MB
+DONE! Took for all 22 blocks, 690.9231150150299
+RAM usage: 16834.07 MB
+RAM usage: 16790.54 MB
+RAM usage: 77173.84 MB
+DONE! Took for all 22 blocks, 670.0464355945587
+RAM usage: 16824.62 MB
+RAM usage: 16871.78 MB
+RAM usage: 83473.43 MB
+DONE! Took for all 22 blocks, 688.3435680866241
+RAM usage: 16835.02 MB
+RAM usage: 16883.72 MB
+RAM usage: 89760.96 MB
+DONE! Took for all 22 blocks, 652.7814712524414
+RAM usage: 16880.02 MB
+RAM usage: 16825.57 MB
+RAM usage: 96057.37 MB
+DONE! Took for all 22 blocks, 658.6577661037445
+RAM usage: 16819.84 MB
+RAM usage: 16874.62 MB
+RAM usage: 102352.61 MB
+DONE! Took for all 22 blocks, 656.4731187820435
+RAM usage: 16876.25 MB
+RAM usage: 16825.18 MB
+RAM usage: 108647.33 MB
+DONE! Took for all 22 blocks, 656.819757938385
+RAM usage: 16884.87 MB
+RAM usage: 16827.61 MB
+RAM usage: 114936.97 MB
+DONE! Took for all 22 blocks, 658.5425956249237
+RAM usage: 16875.98 MB
+RAM usage: 16825.43 MB
+RAM usage: 117069.04 MB
+DONE! Took for all 22 blocks, 660.7270038127899
+RAM usage: 16839.86 MB
+RAM usage: 16889.61 MB
+RAM usage: 117188.38 MB
+DONE! Took for all 22 blocks, 732.9796602725983
+RAM usage: 16827.15 MB
+RAM usage: 16881.00 MB
+RAM usage: 117194.40 MB
+DONE! Took for all 22 blocks, 689.1222066879272
+RAM usage: 16838.70 MB
+RAM usage: 16885.48 MB
+RAM usage: 117170.34 MB
+DONE! Took for all 22 blocks, 663.2830481529236
+RAM usage: 16829.62 MB
+RAM usage: 16876.94 MB
+RAM usage: 117137.29 MB
+DONE! Took for all 22 blocks, 648.940678358078
+RAM usage: 15700.82 MB
+RAM usage: 15716.96 MB
+TIME TAKEN FOR 300 blocks is 15000.751506567001
+reduce from server 0.06999588012695312
+SIZE OF DATA IN TOTAL FOR 300 blocks is 755.4736988432705
+TIME TAKEN FOR 300 blocks is 15001.968767404556
+reduce from server 0.06033158302307129
+SIZE OF DATA IN TOTAL FOR 300 blocks is 755.4736988432705
+RAM usage: 98339.70 MB
+DONE! Took for all 22 blocks, 422.07922887802124
+RAM usage: 98351.96 MB
+TIME RESULTS
+Time taken for pre_gwas_communication and computations - 9154.699573278427
+Time taken for level 0 - 6138.403172016144
+Time taken for level 1 - 1092.2904422283173
+TOTAL TIME FOR PROGRAM is 16385.39318752289
+Formatted - 0.0d 4.0h 33.0m 5.393187522888184s
+Job script finished

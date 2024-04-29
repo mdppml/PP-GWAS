@@ -1,0 +1,79 @@
+Starting job script for server
+Activating conda environment for server
+Starting job script for client 1
+Starting job script for client 2
+Activating conda environment for client 1
+Activating conda environment for client 2
+Server is listening on port 9221
+server ready file exists
+CLient 1 connecting via 9221
+Accepted connection from ('10.158.1.38', 32992)
+Server is listening on port 9222
+server ready file exists
+CLient 2 connecting via 9222
+Accepted connection from ('10.158.1.39', 54904)
+SERVER: time taken to establish connections is 2.845775842666626
+RAM usage: 112.00 MB
+RAM usage: 3802.95 MB
+RAM usage: 3723.48 MB
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:461: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:461: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+printing delta for p = 1 with parameters (1838382, 225, 1, 2, 9178, 2, 8170, 99, 24)
+RAM usage: 80033.70 MB
+DONE! Took for all 25 blocks, 740.3158209323883
+RAM usage: 18979.83 MB
+RAM usage: 19039.09 MB
+printing delta for p = 1 with parameters (1838382, 225, 1, 2, 9178, 2, 8170, 75, 49)
+RAM usage: 87477.83 MB
+DONE! Took for all 25 blocks, 729.3973505496979
+RAM usage: 19011.20 MB
+RAM usage: 19061.86 MB
+printing delta for p = 1 with parameters (1838382, 225, 1, 2, 9178, 2, 8170, 35, 74)
+RAM usage: 94627.07 MB
+DONE! Took for all 25 blocks, 721.2222833633423
+RAM usage: 19026.26 MB
+RAM usage: 19086.99 MB
+printing delta for p = 1 with parameters (1838382, 225, 1, 2, 9178, 2, 8170, 99, 99)
+RAM usage: 101783.55 MB
+DONE! Took for all 25 blocks, 719.2354853153229
+RAM usage: 19020.08 MB
+RAM usage: 19085.53 MB
+printing delta for p = 1 with parameters (1838382, 225, 1, 2, 9178, 2, 8170, 50, 124)
+RAM usage: 108931.93 MB
+DONE! Took for all 25 blocks, 728.0282943248749
+RAM usage: 19013.61 MB
+RAM usage: 19071.82 MB
+printing delta for p = 1 with parameters (1838382, 225, 1, 2, 9178, 2, 8170, 13, 149)
+RAM usage: 115446.44 MB
+DONE! Took for all 25 blocks, 727.3146245479584
+RAM usage: 19017.38 MB
+RAM usage: 19079.61 MB
+printing delta for p = 1 with parameters (1838382, 225, 1, 2, 9178, 2, 8170, 38, 174)
+RAM usage: 115822.42 MB
+DONE! Took for all 25 blocks, 730.1093854904175
+RAM usage: 19077.40 MB
+RAM usage: 19021.30 MB
+printing delta for p = 1 with parameters (1838382, 225, 1, 2, 9178, 2, 8170, 72, 199)
+RAM usage: 116372.38 MB
+DONE! Took for all 25 blocks, 722.044561624527
+RAM usage: 19087.41 MB
+RAM usage: 19032.97 MB
+printing delta for p = 1 with parameters (1838382, 225, 1, 2, 9178, 2, 8302, 46, 224)
+TIME TAKEN FOR 225 blocks is 10348.923787355423
+reduce from server 0.04709315299987793
+SIZE OF DATA IN TOTAL FOR 225 blocks is 566.6629725955427
+TIME TAKEN FOR 225 blocks is 10348.856170654297
+reduce from server 0.04583263397216797
+SIZE OF DATA IN TOTAL FOR 225 blocks is 566.6629725955427
+RAM usage: 117249.97 MB
+DONE! Took for all 25 blocks, 732.901647567749
+RAM usage: 117259.37 MB
+TIME RESULTS
+Time taken for pre_gwas_communication and computations - 6555.762880325317
+Time taken for level 0 - 4281.216799736023
+Time taken for level 1 - 1120.9446775913239
+TOTAL TIME FOR PROGRAM is 11957.924357652664
+Formatted - 0.0d 3.0h 19.0m 17.924357652664185s
+Job script finished
