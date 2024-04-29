@@ -1,0 +1,1035 @@
+Starting job script for server
+Activating conda environment for server
+Starting job script for client 1
+Starting job script for client 2
+Starting job script for client 3
+Starting job script for client 4
+Starting job script for client 5
+Starting job script for client 6
+Activating conda environment for client 1
+Activating conda environment for client 2
+Activating conda environment for client 3
+Activating conda environment for client 4
+Activating conda environment for client 5
+Activating conda environment for client 6
+loop number 0
+Server is listening on port 8201
+server ready file exists
+CLient 1 connecting via 8201
+Accepted connection from ('10.158.1.6', 51414)
+loop number 1
+Server is listening on port 8202
+server ready file exists
+CLient 2 connecting via 8202
+Accepted connection from ('10.158.1.7', 38588)
+loop number 2
+Server is listening on port 8203
+server ready file exists
+CLient 3 connecting via 8203
+Accepted connection from ('10.158.1.8', 36992)
+loop number 3
+Server is listening on port 8204
+server ready file exists
+CLient 4 connecting via 8204
+Accepted connection from ('10.158.1.10', 57390)
+loop number 4
+Server is listening on port 8205
+server ready file exists
+CLient 5 connecting via 8205
+Accepted connection from ('10.158.1.14', 51168)
+loop number 5
+Server is listening on port 8206
+server ready file exists
+CLient 6 connecting via 8206
+Accepted connection from ('10.158.1.25', 53832)
+SERVER: time taken to establish connections is 0.5726046562194824
+RAM usage: 111.82 MB
+running gamma for N = 11429, K=1
+running gamma for N = 11429, K=1
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1909) and Y_tilde has shape (1909, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1909) and Y_tilde has shape (1909, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1909) and Y_tilde has shape (1909, 1)
+gamma2 has shape (11430, 1909) and Y_tilde has shape (1909, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1909) and Y_tilde has shape (1909, 1)
+gamma2 has shape (11430, 1909) and Y_tilde has shape (1909, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1909) and Y_tilde has shape (1909, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1909) and Y_tilde has shape (1909, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1904) and Y_tilde has shape (1904, 1)
+gamma2 has shape (11430, 1909) and Y_tilde has shape (1909, 1)
+gamma2 has shape (11430, 1909) and Y_tilde has shape (1909, 1)
+RAM usage: 2223.13 MB
+RAM usage: 2233.41 MB
+RAM usage: 2228.51 MB
+RAM usage: 2237.37 MB
+RAM usage: 2243.25 MB
+RAM usage: 2231.40 MB
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:463: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:463: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:463: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:463: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:463: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py:463: RuntimeWarning: invalid value encountered in sqrt
+  stds = np.sqrt(aggregated_vector - sum_5)[:-num_new_elements]
+running gamma for N = 8196, K=68
+running gamma for N = 8196, K=84
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=130
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=114
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=142
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=141
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=119
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=50
+running gamma for N = 8196, K=60
+running gamma for N = 8196, K=97
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=110
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=65
+printing delta for p = 2 with parameters (469999, 57, 2, 6, 11429, 2, 8196, 107, 12)
+running gamma for N = 8196, K=107
+ERROR ENCOUNTERED. Please enter K<81
+printing delta for p = 1 with parameters (469999, 57, 1, 6, 11429, 2, 8196, 61, 13)
+running gamma for N = 8196, K=61
+shape check (1909, 8196),(8337, 8196)
+shape check (1904, 8196),(8337, 8196)
+shape check (1904, 8196),(8337, 8196)
+shape check (1904, 8196),(8337, 8196)
+shape check (1904, 8196),(8337, 8196)
+shape check (1904, 8196),(8337, 8196)
+second shape check (11430, 1904), (1904, 8337)
+second shape check (11430, 1909), (1909, 8337)
+second shape check (11430, 1904), (1904, 8337)
+second shape check (11430, 1904), (1904, 8337)
+second shape check (11430, 1904), (1904, 8337)
+second shape check (11430, 1904), (1904, 8337)
+shape check (1904, 8196),(8264, 8196)
+shape check (1909, 8196),(8264, 8196)
+shape check (1904, 8196),(8264, 8196)
+shape check (1904, 8196),(8264, 8196)
+shape check (1904, 8196),(8264, 8196)
+shape check (1904, 8196),(8264, 8196)
+second shape check (11430, 1904), (1904, 8264)
+second shape check (11430, 1909), (1909, 8264)
+second shape check (11430, 1904), (1904, 8264)
+second shape check (11430, 1904), (1904, 8264)
+second shape check (11430, 1904), (1904, 8264)
+second shape check (11430, 1904), (1904, 8264)
+shape check (1904, 8196),(8280, 8196)
+shape check (1904, 8196),(8280, 8196)
+shape check (1909, 8196),(8280, 8196)
+shape check (1904, 8196),(8280, 8196)
+shape check (1904, 8196),(8280, 8196)
+shape check (1904, 8196),(8280, 8196)
+second shape check (11430, 1904), (1904, 8280)
+second shape check (11430, 1904), (1904, 8280)
+second shape check (11430, 1909), (1909, 8280)
+second shape check (11430, 1904), (1904, 8280)
+second shape check (11430, 1904), (1904, 8280)
+second shape check (11430, 1904), (1904, 8280)
+shape check (1904, 8196),(8326, 8196)
+shape check (1904, 8196),(8326, 8196)
+shape check (1909, 8196),(8326, 8196)
+shape check (1904, 8196),(8326, 8196)
+shape check (1904, 8196),(8326, 8196)
+second shape check (11430, 1904), (1904, 8326)
+shape check (1904, 8196),(8326, 8196)
+second shape check (11430, 1904), (1904, 8326)
+second shape check (11430, 1909), (1909, 8326)
+second shape check (11430, 1904), (1904, 8326)
+second shape check (11430, 1904), (1904, 8326)
+second shape check (11430, 1904), (1904, 8326)
+shape check (1904, 8196),(8338, 8196)
+shape check (1904, 8196),(8338, 8196)
+shape check (1909, 8196),(8338, 8196)
+shape check (1904, 8196),(8338, 8196)
+shape check (1904, 8196),(8338, 8196)
+second shape check (11430, 1904), (1904, 8338)
+shape check (1904, 8196),(8338, 8196)
+second shape check (11430, 1904), (1904, 8338)
+second shape check (11430, 1909), (1909, 8338)
+second shape check (11430, 1904), (1904, 8338)
+second shape check (11430, 1904), (1904, 8338)
+second shape check (11430, 1904), (1904, 8338)
+shape check (1904, 8196),(8310, 8196)
+shape check (1904, 8196),(8310, 8196)
+shape check (1909, 8196),(8310, 8196)
+shape check (1904, 8196),(8310, 8196)
+shape check (1904, 8196),(8310, 8196)
+shape check (1904, 8196),(8310, 8196)
+second shape check (11430, 1904), (1904, 8310)
+second shape check (11430, 1904), (1904, 8310)
+second shape check (11430, 1909), (1909, 8310)
+second shape check (11430, 1904), (1904, 8310)
+second shape check (11430, 1904), (1904, 8310)
+second shape check (11430, 1904), (1904, 8310)
+shape check (1904, 8196),(8293, 8196)
+shape check (1904, 8196),(8293, 8196)
+shape check (1909, 8196),(8293, 8196)
+shape check (1904, 8196),(8293, 8196)
+shape check (1904, 8196),(8293, 8196)
+shape check (1904, 8196),(8293, 8196)
+second shape check (11430, 1904), (1904, 8293)
+second shape check (11430, 1904), (1904, 8293)
+second shape check (11430, 1909), (1909, 8293)
+second shape check (11430, 1904), (1904, 8293)
+second shape check (11430, 1904), (1904, 8293)
+second shape check (11430, 1904), (1904, 8293)
+shape check (1904, 8196),(8306, 8196)
+shape check (1904, 8196),(8306, 8196)
+shape check (1909, 8196),(8306, 8196)
+shape check (1904, 8196),(8306, 8196)
+shape check (1904, 8196),(8306, 8196)
+shape check (1904, 8196),(8306, 8196)
+second shape check (11430, 1904), (1904, 8306)
+second shape check (11430, 1904), (1904, 8306)
+second shape check (11430, 1909), (1909, 8306)
+second shape check (11430, 1904), (1904, 8306)
+second shape check (11430, 1904), (1904, 8306)
+second shape check (11430, 1904), (1904, 8306)
+shape check (1904, 8196),(8261, 8196)
+shape check (1904, 8196),(8261, 8196)
+shape check (1909, 8196),(8261, 8196)
+shape check (1904, 8196),(8261, 8196)
+shape check (1904, 8196),(8261, 8196)
+shape check (1904, 8196),(8261, 8196)
+second shape check (11430, 1904), (1904, 8261)
+second shape check (11430, 1904), (1904, 8261)
+second shape check (11430, 1909), (1909, 8261)
+second shape check (11430, 1904), (1904, 8261)
+second shape check (11430, 1904), (1904, 8261)
+second shape check (11430, 1904), (1904, 8261)
+shape check (1904, 8196),(8315, 8196)
+shape check (1904, 8196),(8315, 8196)
+shape check (1909, 8196),(8315, 8196)
+shape check (1904, 8196),(8315, 8196)
+shape check (1904, 8196),(8315, 8196)
+shape check (1904, 8196),(8315, 8196)
+second shape check (11430, 1904), (1904, 8315)
+second shape check (11430, 1904), (1904, 8315)
+second shape check (11430, 1909), (1909, 8315)
+second shape check (11430, 1904), (1904, 8315)
+second shape check (11430, 1904), (1904, 8315)
+second shape check (11430, 1904), (1904, 8315)
+shape check (1904, 8196),(8246, 8196)
+shape check (1904, 8196),(8246, 8196)
+shape check (1909, 8196),(8246, 8196)
+shape check (1904, 8196),(8246, 8196)
+shape check (1904, 8196),(8246, 8196)
+shape check (1904, 8196),(8246, 8196)
+second shape check (11430, 1904), (1904, 8246)
+second shape check (11430, 1904), (1904, 8246)
+second shape check (11430, 1909), (1909, 8246)
+second shape check (11430, 1904), (1904, 8246)
+second shape check (11430, 1904), (1904, 8246)
+second shape check (11430, 1904), (1904, 8246)
+shape check (1904, 8196),(8256, 8196)
+shape check (1904, 8196),(8256, 8196)
+shape check (1909, 8196),(8256, 8196)
+shape check (1904, 8196),(8256, 8196)
+shape check (1904, 8196),(8256, 8196)
+shape check (1904, 8196),(8256, 8196)
+second shape check (11430, 1904), (1904, 8256)
+second shape check (11430, 1904), (1904, 8256)
+second shape check (11430, 1909), (1909, 8256)
+second shape check (11430, 1904), (1904, 8256)
+second shape check (11430, 1904), (1904, 8256)
+second shape check (11430, 1904), (1904, 8256)
+shape check (1904, 8196),(8303, 8196)
+shape check (1904, 8196),(8303, 8196)
+shape check (1909, 8196),(8303, 8196)
+shape check (1904, 8196),(8303, 8196)
+shape check (1904, 8196),(8303, 8196)
+shape check (1904, 8196),(8303, 8196)
+second shape check (11430, 1904), (1904, 8303)
+second shape check (11430, 1904), (1904, 8303)
+second shape check (11430, 1909), (1909, 8303)
+second shape check (11430, 1904), (1904, 8303)
+second shape check (11430, 1904), (1904, 8303)
+second shape check (11430, 1904), (1904, 8303)
+shape check (1904, 8196),(8257, 8196)
+shape check (1904, 8196),(8257, 8196)
+shape check (1909, 8196),(8257, 8196)
+shape check (1904, 8196),(8257, 8196)
+shape check (1904, 8196),(8257, 8196)
+shape check (1904, 8196),(8257, 8196)
+second shape check (11430, 1904), (1904, 8257)
+second shape check (11430, 1904), (1904, 8257)
+second shape check (11430, 1909), (1909, 8257)
+second shape check (11430, 1904), (1904, 8257)
+second shape check (11430, 1904), (1904, 8257)
+second shape check (11430, 1904), (1904, 8257)
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+RAM usage: 23609.55 MB
+RAM usage: 23607.65 MB
+RAM usage: 23594.89 MB
+RAM usage: 23610.52 MB
+RAM usage: 60333.08 MB
+DONE! Took for all 14 blocks, 1499.6065165996552
+RAM usage: 23612.97 MB
+RAM usage: 23611.44 MB
+running gamma for N = 8196, K=98
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=86
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=91
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=111
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=131
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=100
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=63
+running gamma for N = 8196, K=136
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=56
+running gamma for N = 8196, K=141
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=110
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=132
+ERROR ENCOUNTERED. Please enter K<81
+printing delta for p = 2 with parameters (469999, 57, 2, 6, 11429, 2, 8196, 126, 26)
+running gamma for N = 8196, K=126
+ERROR ENCOUNTERED. Please enter K<81
+printing delta for p = 1 with parameters (469999, 57, 1, 6, 11429, 2, 8196, 107, 27)
+running gamma for N = 8196, K=107
+ERROR ENCOUNTERED. Please enter K<81
+shape check (1904, 8196),(8296, 8196)
+shape check (1909, 8196),(8296, 8196)
+shape check (1904, 8196),(8296, 8196)
+shape check (1904, 8196),(8296, 8196)
+shape check (1904, 8196),(8296, 8196)
+shape check (1904, 8196),(8296, 8196)
+second shape check (11430, 1904), (1904, 8296)
+second shape check (11430, 1904), (1904, 8296)
+second shape check (11430, 1909), (1909, 8296)
+second shape check (11430, 1904), (1904, 8296)
+second shape check (11430, 1904), (1904, 8296)
+second shape check (11430, 1904), (1904, 8296)
+shape check (1904, 8196),(8327, 8196)
+shape check (1909, 8196),(8327, 8196)
+shape check (1904, 8196),(8327, 8196)
+shape check (1904, 8196),(8327, 8196)
+shape check (1904, 8196),(8327, 8196)
+shape check (1904, 8196),(8327, 8196)
+second shape check (11430, 1904), (1904, 8327)
+second shape check (11430, 1909), (1909, 8327)
+second shape check (11430, 1904), (1904, 8327)
+second shape check (11430, 1904), (1904, 8327)
+second shape check (11430, 1904), (1904, 8327)
+second shape check (11430, 1904), (1904, 8327)
+shape check (1904, 8196),(8307, 8196)
+shape check (1909, 8196),(8307, 8196)
+shape check (1904, 8196),(8307, 8196)
+shape check (1904, 8196),(8307, 8196)
+shape check (1904, 8196),(8307, 8196)
+shape check (1904, 8196),(8307, 8196)
+second shape check (11430, 1904), (1904, 8307)
+second shape check (11430, 1909), (1909, 8307)
+second shape check (11430, 1904), (1904, 8307)
+second shape check (11430, 1904), (1904, 8307)
+second shape check (11430, 1904), (1904, 8307)
+second shape check (11430, 1904), (1904, 8307)
+shape check (1904, 8196),(8287, 8196)
+shape check (1909, 8196),(8287, 8196)
+shape check (1904, 8196),(8287, 8196)
+shape check (1904, 8196),(8287, 8196)
+shape check (1904, 8196),(8287, 8196)
+shape check (1904, 8196),(8287, 8196)
+second shape check (11430, 1904), (1904, 8287)
+second shape check (11430, 1909), (1909, 8287)
+second shape check (11430, 1904), (1904, 8287)
+second shape check (11430, 1904), (1904, 8287)
+second shape check (11430, 1904), (1904, 8287)
+second shape check (11430, 1904), (1904, 8287)
+shape check (1904, 8196),(8294, 8196)
+shape check (1909, 8196),(8294, 8196)
+shape check (1904, 8196),(8294, 8196)
+shape check (1904, 8196),(8294, 8196)
+shape check (1904, 8196),(8294, 8196)
+shape check (1904, 8196),(8294, 8196)
+second shape check (11430, 1904), (1904, 8294)
+second shape check (11430, 1909), (1909, 8294)
+second shape check (11430, 1904), (1904, 8294)
+second shape check (11430, 1904), (1904, 8294)
+second shape check (11430, 1904), (1904, 8294)
+second shape check (11430, 1904), (1904, 8294)
+shape check (1904, 8196),(8282, 8196)
+shape check (1909, 8196),(8282, 8196)
+shape check (1904, 8196),(8282, 8196)
+shape check (1904, 8196),(8282, 8196)
+shape check (1904, 8196),(8282, 8196)
+shape check (1904, 8196),(8282, 8196)
+second shape check (11430, 1904), (1904, 8282)
+second shape check (11430, 1909), (1909, 8282)
+second shape check (11430, 1904), (1904, 8282)
+second shape check (11430, 1904), (1904, 8282)
+second shape check (11430, 1904), (1904, 8282)
+second shape check (11430, 1904), (1904, 8282)
+shape check (1904, 8196),(8252, 8196)
+shape check (1909, 8196),(8252, 8196)
+shape check (1904, 8196),(8252, 8196)
+shape check (1904, 8196),(8252, 8196)
+shape check (1904, 8196),(8252, 8196)
+shape check (1904, 8196),(8252, 8196)
+second shape check (11430, 1904), (1904, 8252)
+second shape check (11430, 1909), (1909, 8252)
+second shape check (11430, 1904), (1904, 8252)
+second shape check (11430, 1904), (1904, 8252)
+second shape check (11430, 1904), (1904, 8252)
+second shape check (11430, 1904), (1904, 8252)
+shape check (1904, 8196),(8306, 8196)
+shape check (1909, 8196),(8306, 8196)
+shape check (1904, 8196),(8306, 8196)
+shape check (1904, 8196),(8306, 8196)
+shape check (1904, 8196),(8306, 8196)
+shape check (1904, 8196),(8306, 8196)
+second shape check (11430, 1904), (1904, 8306)
+second shape check (11430, 1909), (1909, 8306)
+second shape check (11430, 1904), (1904, 8306)
+second shape check (11430, 1904), (1904, 8306)
+second shape check (11430, 1904), (1904, 8306)
+second shape check (11430, 1904), (1904, 8306)
+shape check (1904, 8196),(8259, 8196)
+shape check (1909, 8196),(8259, 8196)
+shape check (1904, 8196),(8259, 8196)
+shape check (1904, 8196),(8259, 8196)
+shape check (1904, 8196),(8259, 8196)
+shape check (1904, 8196),(8259, 8196)
+second shape check (11430, 1904), (1904, 8259)
+second shape check (11430, 1909), (1909, 8259)
+second shape check (11430, 1904), (1904, 8259)
+second shape check (11430, 1904), (1904, 8259)
+second shape check (11430, 1904), (1904, 8259)
+second shape check (11430, 1904), (1904, 8259)
+shape check (1904, 8196),(8328, 8196)
+shape check (1909, 8196),(8328, 8196)
+shape check (1904, 8196),(8328, 8196)
+shape check (1904, 8196),(8328, 8196)
+shape check (1904, 8196),(8328, 8196)
+shape check (1904, 8196),(8328, 8196)
+second shape check (11430, 1904), (1904, 8328)
+second shape check (11430, 1909), (1909, 8328)
+second shape check (11430, 1904), (1904, 8328)
+second shape check (11430, 1904), (1904, 8328)
+second shape check (11430, 1904), (1904, 8328)
+second shape check (11430, 1904), (1904, 8328)
+shape check (1904, 8196),(8332, 8196)
+shape check (1909, 8196),(8332, 8196)
+shape check (1904, 8196),(8332, 8196)
+shape check (1904, 8196),(8332, 8196)
+shape check (1904, 8196),(8332, 8196)
+shape check (1904, 8196),(8332, 8196)
+second shape check (11430, 1904), (1904, 8332)
+second shape check (11430, 1909), (1909, 8332)
+second shape check (11430, 1904), (1904, 8332)
+second shape check (11430, 1904), (1904, 8332)
+second shape check (11430, 1904), (1904, 8332)
+second shape check (11430, 1904), (1904, 8332)
+shape check (1904, 8196),(8337, 8196)
+shape check (1904, 8196),(8337, 8196)
+shape check (1909, 8196),(8337, 8196)
+shape check (1904, 8196),(8337, 8196)
+shape check (1904, 8196),(8337, 8196)
+shape check (1904, 8196),(8337, 8196)
+second shape check (11430, 1904), (1904, 8337)
+second shape check (11430, 1904), (1904, 8337)
+second shape check (11430, 1909), (1909, 8337)
+second shape check (11430, 1904), (1904, 8337)
+second shape check (11430, 1904), (1904, 8337)
+second shape check (11430, 1904), (1904, 8337)
+shape check (1904, 8196),(8322, 8196)
+shape check (1904, 8196),(8322, 8196)
+shape check (1904, 8196),(8322, 8196)
+shape check (1909, 8196),(8322, 8196)
+shape check (1904, 8196),(8322, 8196)
+shape check (1904, 8196),(8322, 8196)
+second shape check (11430, 1904), (1904, 8322)
+second shape check (11430, 1904), (1904, 8322)
+second shape check (11430, 1909), (1909, 8322)
+second shape check (11430, 1904), (1904, 8322)
+second shape check (11430, 1904), (1904, 8322)
+second shape check (11430, 1904), (1904, 8322)
+shape check (1904, 8196),(8303, 8196)
+shape check (1904, 8196),(8303, 8196)
+shape check (1909, 8196),(8303, 8196)
+shape check (1904, 8196),(8303, 8196)
+shape check (1904, 8196),(8303, 8196)
+shape check (1904, 8196),(8303, 8196)
+second shape check (11430, 1904), (1904, 8303)
+second shape check (11430, 1904), (1904, 8303)
+second shape check (11430, 1909), (1909, 8303)
+second shape check (11430, 1904), (1904, 8303)
+second shape check (11430, 1904), (1904, 8303)
+second shape check (11430, 1904), (1904, 8303)
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+RAM usage: 23631.38 MB
+RAM usage: 23667.07 MB
+RAM usage: 23677.64 MB
+RAM usage: 23668.29 MB
+RAM usage: 65642.52 MB
+DONE! Took for all 14 blocks, 1471.5425279140472
+RAM usage: 23677.17 MB
+RAM usage: 23668.38 MB
+running gamma for N = 8196, K=72
+running gamma for N = 8196, K=143
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=97
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=81
+running gamma for N = 8196, K=101
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=110
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=100
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=104
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=75
+running gamma for N = 8196, K=68
+running gamma for N = 8196, K=101
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=131
+ERROR ENCOUNTERED. Please enter K<81
+printing delta for p = 1 with parameters (469999, 57, 1, 6, 11429, 2, 8196, 83, 41)
+running gamma for N = 8196, K=83
+ERROR ENCOUNTERED. Please enter K<81
+printing delta for p = 2 with parameters (469999, 57, 2, 6, 11429, 2, 8196, 55, 40)
+running gamma for N = 8196, K=55
+shape check (1904, 8196),(8306, 8196)
+shape check (1909, 8196),(8306, 8196)
+shape check (1904, 8196),(8306, 8196)
+shape check (1904, 8196),(8306, 8196)
+shape check (1904, 8196),(8306, 8196)
+shape check (1904, 8196),(8306, 8196)
+second shape check (11430, 1904), (1904, 8306)
+second shape check (11430, 1909), (1909, 8306)
+second shape check (11430, 1904), (1904, 8306)
+second shape check (11430, 1904), (1904, 8306)
+second shape check (11430, 1904), (1904, 8306)
+second shape check (11430, 1904), (1904, 8306)
+shape check (1904, 8196),(8297, 8196)
+shape check (1904, 8196),(8297, 8196)
+shape check (1909, 8196),(8297, 8196)
+shape check (1904, 8196),(8297, 8196)
+shape check (1904, 8196),(8297, 8196)
+shape check (1904, 8196),(8297, 8196)
+second shape check (11430, 1904), (1904, 8297)
+second shape check (11430, 1904), (1904, 8297)
+second shape check (11430, 1904), (1904, 8297)
+second shape check (11430, 1904), (1904, 8297)
+second shape check (11430, 1909), (1909, 8297)
+second shape check (11430, 1904), (1904, 8297)
+shape check (1904, 8196),(8277, 8196)
+shape check (1904, 8196),(8277, 8196)
+shape check (1904, 8196),(8277, 8196)
+shape check (1909, 8196),(8277, 8196)
+shape check (1904, 8196),(8277, 8196)
+shape check (1904, 8196),(8277, 8196)
+second shape check (11430, 1904), (1904, 8277)
+second shape check (11430, 1904), (1904, 8277)
+second shape check (11430, 1904), (1904, 8277)
+second shape check (11430, 1909), (1909, 8277)
+second shape check (11430, 1904), (1904, 8277)
+second shape check (11430, 1904), (1904, 8277)
+shape check (1904, 8196),(8293, 8196)
+shape check (1904, 8196),(8293, 8196)
+shape check (1904, 8196),(8293, 8196)
+shape check (1909, 8196),(8293, 8196)
+shape check (1904, 8196),(8293, 8196)
+shape check (1904, 8196),(8293, 8196)
+second shape check (11430, 1904), (1904, 8293)
+second shape check (11430, 1904), (1904, 8293)
+second shape check (11430, 1904), (1904, 8293)
+second shape check (11430, 1909), (1909, 8293)
+second shape check (11430, 1904), (1904, 8293)
+second shape check (11430, 1904), (1904, 8293)
+shape check (1904, 8196),(8268, 8196)
+shape check (1904, 8196),(8268, 8196)
+shape check (1904, 8196),(8268, 8196)
+shape check (1909, 8196),(8268, 8196)
+shape check (1904, 8196),(8268, 8196)
+shape check (1904, 8196),(8268, 8196)
+second shape check (11430, 1904), (1904, 8268)
+second shape check (11430, 1904), (1904, 8268)
+second shape check (11430, 1904), (1904, 8268)
+second shape check (11430, 1909), (1909, 8268)
+second shape check (11430, 1904), (1904, 8268)
+second shape check (11430, 1904), (1904, 8268)
+shape check (1904, 8196),(8339, 8196)
+shape check (1904, 8196),(8339, 8196)
+shape check (1904, 8196),(8339, 8196)
+shape check (1909, 8196),(8339, 8196)
+shape check (1904, 8196),(8339, 8196)
+second shape check (11430, 1904), (1904, 8339)
+shape check (1904, 8196),(8339, 8196)
+second shape check (11430, 1904), (1904, 8339)
+second shape check (11430, 1904), (1904, 8339)
+second shape check (11430, 1909), (1909, 8339)
+second shape check (11430, 1904), (1904, 8339)
+second shape check (11430, 1904), (1904, 8339)
+shape check (1904, 8196),(8300, 8196)
+shape check (1904, 8196),(8300, 8196)
+shape check (1904, 8196),(8300, 8196)
+shape check (1909, 8196),(8300, 8196)
+shape check (1904, 8196),(8300, 8196)
+second shape check (11430, 1904), (1904, 8300)
+shape check (1904, 8196),(8300, 8196)
+second shape check (11430, 1904), (1904, 8300)
+second shape check (11430, 1904), (1904, 8300)
+second shape check (11430, 1909), (1909, 8300)
+second shape check (11430, 1904), (1904, 8300)
+second shape check (11430, 1904), (1904, 8300)
+shape check (1904, 8196),(8327, 8196)
+shape check (1904, 8196),(8327, 8196)
+shape check (1904, 8196),(8327, 8196)
+shape check (1909, 8196),(8327, 8196)
+shape check (1904, 8196),(8327, 8196)
+second shape check (11430, 1904), (1904, 8327)
+second shape check (11430, 1904), (1904, 8327)
+shape check (1904, 8196),(8327, 8196)
+second shape check (11430, 1904), (1904, 8327)
+second shape check (11430, 1909), (1909, 8327)
+second shape check (11430, 1904), (1904, 8327)
+second shape check (11430, 1904), (1904, 8327)
+shape check (1904, 8196),(8297, 8196)
+shape check (1904, 8196),(8297, 8196)
+shape check (1904, 8196),(8297, 8196)
+shape check (1909, 8196),(8297, 8196)
+shape check (1904, 8196),(8297, 8196)
+second shape check (11430, 1904), (1904, 8297)
+shape check (1904, 8196),(8297, 8196)
+second shape check (11430, 1904), (1904, 8297)
+second shape check (11430, 1904), (1904, 8297)
+second shape check (11430, 1909), (1909, 8297)
+second shape check (11430, 1904), (1904, 8297)
+second shape check (11430, 1904), (1904, 8297)
+shape check (1904, 8196),(8271, 8196)
+shape check (1904, 8196),(8271, 8196)
+shape check (1904, 8196),(8271, 8196)
+shape check (1909, 8196),(8271, 8196)
+shape check (1904, 8196),(8271, 8196)
+second shape check (11430, 1904), (1904, 8271)
+shape check (1904, 8196),(8271, 8196)
+second shape check (11430, 1904), (1904, 8271)
+second shape check (11430, 1904), (1904, 8271)
+second shape check (11430, 1909), (1909, 8271)
+second shape check (11430, 1904), (1904, 8271)
+second shape check (11430, 1904), (1904, 8271)
+shape check (1904, 8196),(8264, 8196)
+shape check (1904, 8196),(8264, 8196)
+shape check (1904, 8196),(8264, 8196)
+shape check (1909, 8196),(8264, 8196)
+shape check (1904, 8196),(8264, 8196)
+second shape check (11430, 1904), (1904, 8264)
+shape check (1904, 8196),(8264, 8196)
+second shape check (11430, 1904), (1904, 8264)
+second shape check (11430, 1904), (1904, 8264)
+second shape check (11430, 1909), (1909, 8264)
+second shape check (11430, 1904), (1904, 8264)
+second shape check (11430, 1904), (1904, 8264)
+shape check (1904, 8196),(8296, 8196)
+shape check (1904, 8196),(8296, 8196)
+shape check (1904, 8196),(8296, 8196)
+shape check (1909, 8196),(8296, 8196)
+second shape check (11430, 1904), (1904, 8296)
+shape check (1904, 8196),(8296, 8196)
+second shape check (11430, 1904), (1904, 8296)
+shape check (1904, 8196),(8296, 8196)
+second shape check (11430, 1904), (1904, 8296)
+second shape check (11430, 1909), (1909, 8296)
+second shape check (11430, 1904), (1904, 8296)
+second shape check (11430, 1904), (1904, 8296)
+shape check (1904, 8196),(8251, 8196)
+shape check (1904, 8196),(8251, 8196)
+shape check (1904, 8196),(8251, 8196)
+shape check (1909, 8196),(8251, 8196)
+shape check (1904, 8196),(8251, 8196)
+second shape check (11430, 1904), (1904, 8251)
+second shape check (11430, 1904), (1904, 8251)
+shape check (1904, 8196),(8251, 8196)
+second shape check (11430, 1904), (1904, 8251)
+second shape check (11430, 1909), (1909, 8251)
+second shape check (11430, 1904), (1904, 8251)
+second shape check (11430, 1904), (1904, 8251)
+shape check (1904, 8196),(8279, 8196)
+shape check (1904, 8196),(8279, 8196)
+shape check (1904, 8196),(8279, 8196)
+shape check (1909, 8196),(8279, 8196)
+second shape check (11430, 1904), (1904, 8279)
+shape check (1904, 8196),(8279, 8196)
+second shape check (11430, 1904), (1904, 8279)
+shape check (1904, 8196),(8279, 8196)
+second shape check (11430, 1904), (1904, 8279)
+second shape check (11430, 1909), (1909, 8279)
+second shape check (11430, 1904), (1904, 8279)
+second shape check (11430, 1904), (1904, 8279)
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+RAM usage: 23655.22 MB
+RAM usage: 23623.80 MB
+RAM usage: 23654.48 MB
+RAM usage: 23623.94 MB
+RAM usage: 23641.51 MB
+RAM usage: 70654.86 MB
+DONE! Took for all 14 blocks, 1496.9784650802612
+RAM usage: 23654.32 MB
+running gamma for N = 8196, K=70
+running gamma for N = 8196, K=63
+running gamma for N = 8196, K=60
+running gamma for N = 8196, K=136
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=146
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=56
+running gamma for N = 8196, K=88
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=87
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=117
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=110
+ERROR ENCOUNTERED. Please enter K<81
+running gamma for N = 8196, K=50
+running gamma for N = 8196, K=148
+ERROR ENCOUNTERED. Please enter K<81
+printing delta for p = 2 with parameters (469999, 57, 2, 6, 11429, 2, 8196, 87, 54)
+running gamma for N = 8196, K=87
+ERROR ENCOUNTERED. Please enter K<81
+printing delta for p = 1 with parameters (469999, 57, 1, 6, 11429, 2, 8196, 130, 55)
+running gamma for N = 8196, K=130
+ERROR ENCOUNTERED. Please enter K<81
+shape check (1909, 8196),(8266, 8196)
+shape check (1904, 8196),(8266, 8196)
+shape check (1904, 8196),(8266, 8196)
+shape check (1904, 8196),(8266, 8196)
+shape check (1904, 8196),(8266, 8196)
+shape check (1904, 8196),(8266, 8196)
+second shape check (11430, 1904), (1904, 8266)
+second shape check (11430, 1909), (1909, 8266)
+second shape check (11430, 1904), (1904, 8266)
+second shape check (11430, 1904), (1904, 8266)
+second shape check (11430, 1904), (1904, 8266)
+second shape check (11430, 1904), (1904, 8266)
+shape check (1904, 8196),(8342, 8196)
+shape check (1904, 8196),(8342, 8196)
+shape check (1904, 8196),(8342, 8196)
+shape check (1909, 8196),(8342, 8196)
+shape check (1904, 8196),(8342, 8196)
+shape check (1904, 8196),(8342, 8196)
+second shape check (11430, 1904), (1904, 8342)
+second shape check (11430, 1904), (1904, 8342)
+second shape check (11430, 1909), (1909, 8342)
+second shape check (11430, 1904), (1904, 8342)
+second shape check (11430, 1904), (1904, 8342)
+second shape check (11430, 1904), (1904, 8342)
+shape check (1904, 8196),(8256, 8196)
+shape check (1904, 8196),(8256, 8196)
+shape check (1909, 8196),(8256, 8196)
+shape check (1904, 8196),(8256, 8196)
+shape check (1904, 8196),(8256, 8196)
+shape check (1904, 8196),(8256, 8196)
+second shape check (11430, 1904), (1904, 8256)
+second shape check (11430, 1904), (1904, 8256)
+second shape check (11430, 1909), (1909, 8256)
+second shape check (11430, 1904), (1904, 8256)
+second shape check (11430, 1904), (1904, 8256)
+second shape check (11430, 1904), (1904, 8256)
+shape check (1904, 8196),(8252, 8196)
+shape check (1904, 8196),(8252, 8196)
+shape check (1904, 8196),(8252, 8196)
+shape check (1909, 8196),(8252, 8196)
+shape check (1904, 8196),(8252, 8196)
+shape check (1904, 8196),(8252, 8196)
+second shape check (11430, 1904), (1904, 8252)
+second shape check (11430, 1904), (1904, 8252)
+second shape check (11430, 1904), (1904, 8252)
+second shape check (11430, 1909), (1909, 8252)
+second shape check (11430, 1904), (1904, 8252)
+second shape check (11430, 1904), (1904, 8252)
+shape check (1904, 8196),(8332, 8196)
+shape check (1904, 8196),(8332, 8196)
+shape check (1904, 8196),(8332, 8196)
+shape check (1909, 8196),(8332, 8196)
+shape check (1904, 8196),(8332, 8196)
+shape check (1904, 8196),(8332, 8196)
+second shape check (11430, 1904), (1904, 8332)
+second shape check (11430, 1904), (1904, 8332)
+second shape check (11430, 1904), (1904, 8332)
+second shape check (11430, 1909), (1909, 8332)
+second shape check (11430, 1904), (1904, 8332)
+second shape check (11430, 1904), (1904, 8332)
+shape check (1904, 8196),(8259, 8196)
+shape check (1904, 8196),(8259, 8196)
+shape check (1909, 8196),(8259, 8196)
+shape check (1904, 8196),(8259, 8196)
+shape check (1904, 8196),(8259, 8196)
+shape check (1904, 8196),(8259, 8196)
+second shape check (11430, 1904), (1904, 8259)
+second shape check (11430, 1904), (1904, 8259)
+second shape check (11430, 1909), (1909, 8259)
+second shape check (11430, 1904), (1904, 8259)
+second shape check (11430, 1904), (1904, 8259)
+second shape check (11430, 1904), (1904, 8259)
+shape check (1904, 8196),(8344, 8196)
+shape check (1904, 8196),(8344, 8196)
+shape check (1909, 8196),(8344, 8196)
+shape check (1904, 8196),(8344, 8196)
+shape check (1904, 8196),(8344, 8196)
+shape check (1904, 8196),(8344, 8196)
+second shape check (11430, 1904), (1904, 8344)
+second shape check (11430, 1904), (1904, 8344)
+second shape check (11430, 1909), (1909, 8344)
+second shape check (11430, 1904), (1904, 8344)
+second shape check (11430, 1904), (1904, 8344)
+second shape check (11430, 1904), (1904, 8344)
+shape check (1904, 8196),(8283, 8196)
+shape check (1904, 8196),(8283, 8196)
+shape check (1909, 8196),(8283, 8196)
+shape check (1904, 8196),(8283, 8196)
+shape check (1904, 8196),(8283, 8196)
+shape check (1904, 8196),(8283, 8196)
+second shape check (11430, 1904), (1904, 8283)
+second shape check (11430, 1904), (1904, 8283)
+second shape check (11430, 1909), (1909, 8283)
+second shape check (11430, 1904), (1904, 8283)
+second shape check (11430, 1904), (1904, 8283)
+second shape check (11430, 1904), (1904, 8283)
+shape check (1904, 8196),(8313, 8196)
+shape check (1904, 8196),(8313, 8196)
+shape check (1909, 8196),(8313, 8196)
+shape check (1904, 8196),(8313, 8196)
+shape check (1904, 8196),(8313, 8196)
+shape check (1904, 8196),(8313, 8196)
+second shape check (11430, 1904), (1904, 8313)
+second shape check (11430, 1904), (1904, 8313)
+second shape check (11430, 1909), (1909, 8313)
+second shape check (11430, 1904), (1904, 8313)
+second shape check (11430, 1904), (1904, 8313)
+second shape check (11430, 1904), (1904, 8313)
+shape check (1904, 8196),(8246, 8196)
+shape check (1904, 8196),(8246, 8196)
+shape check (1909, 8196),(8246, 8196)
+shape check (1904, 8196),(8246, 8196)
+shape check (1904, 8196),(8246, 8196)
+shape check (1904, 8196),(8246, 8196)
+second shape check (11430, 1904), (1904, 8246)
+second shape check (11430, 1904), (1904, 8246)
+second shape check (11430, 1909), (1909, 8246)
+second shape check (11430, 1904), (1904, 8246)
+second shape check (11430, 1904), (1904, 8246)
+second shape check (11430, 1904), (1904, 8246)
+shape check (1904, 8196),(8284, 8196)
+shape check (1904, 8196),(8284, 8196)
+shape check (1909, 8196),(8284, 8196)
+shape check (1904, 8196),(8284, 8196)
+shape check (1904, 8196),(8284, 8196)
+shape check (1904, 8196),(8284, 8196)
+second shape check (11430, 1904), (1904, 8284)
+second shape check (11430, 1904), (1904, 8284)
+second shape check (11430, 1909), (1909, 8284)
+second shape check (11430, 1904), (1904, 8284)
+second shape check (11430, 1904), (1904, 8284)
+second shape check (11430, 1904), (1904, 8284)
+shape check (1904, 8196),(8306, 8196)
+shape check (1904, 8196),(8306, 8196)
+shape check (1909, 8196),(8306, 8196)
+shape check (1904, 8196),(8306, 8196)
+shape check (1904, 8196),(8306, 8196)
+shape check (1904, 8196),(8306, 8196)
+second shape check (11430, 1904), (1904, 8306)
+second shape check (11430, 1904), (1904, 8306)
+second shape check (11430, 1909), (1909, 8306)
+second shape check (11430, 1904), (1904, 8306)
+second shape check (11430, 1904), (1904, 8306)
+second shape check (11430, 1904), (1904, 8306)
+shape check (1904, 8196),(8283, 8196)
+shape check (1904, 8196),(8283, 8196)
+shape check (1909, 8196),(8283, 8196)
+shape check (1904, 8196),(8283, 8196)
+shape check (1904, 8196),(8283, 8196)
+shape check (1904, 8196),(8283, 8196)
+second shape check (11430, 1904), (1904, 8283)
+second shape check (11430, 1904), (1904, 8283)
+second shape check (11430, 1909), (1909, 8283)
+second shape check (11430, 1904), (1904, 8283)
+second shape check (11430, 1904), (1904, 8283)
+second shape check (11430, 1904), (1904, 8283)
+shape check (1904, 8196),(8326, 8196)
+shape check (1904, 8196),(8326, 8196)
+shape check (1909, 8196),(8326, 8196)
+shape check (1904, 8196),(8326, 8196)
+shape check (1904, 8196),(8326, 8196)
+shape check (1904, 8196),(8326, 8196)
+second shape check (11430, 1904), (1904, 8326)
+second shape check (11430, 1904), (1904, 8326)
+second shape check (11430, 1909), (1909, 8326)
+second shape check (11430, 1904), (1904, 8326)
+second shape check (11430, 1904), (1904, 8326)
+second shape check (11430, 1904), (1904, 8326)
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+running gamma for N = 8196, K=0
+RAM usage: 21720.61 MB
+RAM usage: 21729.45 MB
+RAM usage: 21742.00 MB
+RAM usage: 21699.77 MB
+RAM usage: 21733.75 MB
+RAM usage: 21727.81 MB
+RAM usage: 75703.16 MB
+DONE! Took for all 14 blocks, 1488.047904253006
+printing delta for p = 1 with parameters (469999, 57, 1, 6, 11429, 2, 8196, 98, 56)
+running gamma for N = 8196, K=98
+ERROR ENCOUNTERED. Please enter K<81
+shape check (1904, 8196),(8294, 8196)
+shape check (1909, 8196),(8294, 8196)
+shape check (1904, 8196),(8294, 8196)
+shape check (1904, 8196),(8294, 8196)
+shape check (1904, 8196),(8294, 8196)
+shape check (1904, 8196),(8294, 8196)
+second shape check (11430, 1904), (1904, 8294)
+second shape check (11430, 1904), (1904, 8294)
+second shape check (11430, 1904), (1904, 8294)
+second shape check (11430, 1909), (1909, 8294)
+second shape check (11430, 1904), (1904, 8294)
+second shape check (11430, 1904), (1904, 8294)
+running gamma for N = 8196, K=0
+TIME TAKEN FOR 57 blocks is 7342.299088478088
+reduce from server 0.020231246948242188
+SIZE OF DATA IN TOTAL FOR 57 blocks is 338.9055280610919
+TIME TAKEN FOR 57 blocks is 7342.5281682014465
+reduce from server 0.01079702377319336
+SIZE OF DATA IN TOTAL FOR 57 blocks is 338.9055280610919
+TIME TAKEN FOR 57 blocks is 7345.174231052399
+reduce from server 0.012927055358886719
+SIZE OF DATA IN TOTAL FOR 57 blocks is 338.9055280610919
+TIME TAKEN FOR 57 blocks is 7345.3822503089905
+reduce from server 0.01183629035949707
+SIZE OF DATA IN TOTAL FOR 57 blocks is 338.9055280610919
+TIME TAKEN FOR 57 blocks is 7345.512965679169
+reduce from server 0.011086702346801758
+SIZE OF DATA IN TOTAL FOR 57 blocks is 338.9055280610919
+TIME TAKEN FOR 57 blocks is 7345.743992567062
+reduce from server 0.012369632720947266
+SIZE OF DATA IN TOTAL FOR 57 blocks is 338.9055280610919
+RAM usage: 29582.52 MB
+DONE! Took for all 14 blocks, 132.35799860954285
+RAM usage: 29582.56 MB
+/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/server.py:355: RuntimeWarning: divide by zero encountered in log10
+  neg_log_p = -np.log10(p_values)
+TIME RESULTS
+Time taken for pre_gwas_communication and computations - 6094.129243135452
+Time taken for level 0 - 1277.1522319316864
+Time taken for level 1 - 62.20064854621887
+TOTAL TIME FOR PROGRAM is 7433.4821236133575
+Formatted - 0.0d 2.0h 3.0m 53.482123613357544s
+Job script finished
