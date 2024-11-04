@@ -1,1 +1,1 @@
-# PPF-GWAS
+# PP-GWAS
