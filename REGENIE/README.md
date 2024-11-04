@@ -1,3 +1,4 @@
+This folder contains scripts and commands to prepare data for and run REGENIE.
 
 ## Files
 
