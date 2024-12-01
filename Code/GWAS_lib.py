@@ -1,8 +1,7 @@
 import numpy as np
-from scipy.sparse import csr_matrix, vstack, hstack, diags, save_npz, csc_matrix, issparse
+from scipy.sparse import csr_matrix, vstack, hstack, diags, save_npz, csc_matrix, issparse, bmat
 import gc
 import random
-from scipy.sparse import bmat
 import os
 import struct
 import psutil
@@ -15,14 +14,15 @@ from threading import Thread, Lock
 import mkl
 CHUNK_SIZE = 60000
 from scipy.stats import chisquare
-from scipy.sparse import issparse
 
 def serialize_matrix_client_pickle(client_id,matrix):
+    # Function to serialize matrix on the client side using pickle
     data_to_send=[client_id,matrix]
     data_to_send=pickle.dumps(data_to_send)
     return data_to_send
 
 def serialize_matrix_client(client_id, matrix):
+    # Custom function to serialize data on the client side using various strategies based on data type
     if isinstance(matrix, np.ndarray):
         if len(matrix.shape) == 1:
             matrix_type = 0  # 1D array
@@ -61,10 +61,12 @@ def serialize_matrix_client(client_id, matrix):
 
 
 def serialize_matrix_server(matrix):
+    # Custom function to serialize data on the server side using pickle
     return pickle.dumps(matrix)
 
 
 def send_data_to_server(client_socket, matrix, client_id):
+    # Function to send both the matrix data and client_id to server
     tt=time.time()
     data = serialize_matrix_client(client_id, matrix)
     data_size = struct.pack('!Q', len(data))
@@ -73,6 +75,7 @@ def send_data_to_server(client_socket, matrix, client_id):
     client_socket.send(data)
 
 def send_data_to_client(client_socket, matrix):
+    # Function to send the aggregated results to one client via their respective socket
     data = serialize_matrix_server(matrix)
     data_size = struct.pack('!Q', len(data))
     client_socket.sendall(data_size)
@@ -83,6 +86,7 @@ def send_data_to_client(client_socket, matrix):
         chunk_count += len(chunk)
 
 def send_data_to_clients(client_sockets,matrices):
+    # Function to send the aggregated results to all clients via their respective sockets
     mkl.set_num_threads(4)
     with ThreadPoolExecutor(max_workers=len(client_sockets)) as executor:
         futures = []
@@ -93,15 +97,15 @@ def send_data_to_clients(client_sockets,matrices):
             future.result()
     mkl.set_num_threads(16)
 
-
-
 def deserialize_matrix_server_pickle(data):
+    # Function to deserialize data on the server side using pickle
     data=pickle.loads(data)
     client_id=data[0]
     matrix=data[1]
     return client_id, matrix
 
 def deserialize_matrix_server(serialized_data):
+    # Function to deserialize data on the server side using custom deserialization based on data type
     header_length = 4 * 4 + 1 * 8  
     client_id, rows, cols, matrix_type, data_length = struct.unpack('!4I1Q', serialized_data[:header_length])
     matrix_data = serialized_data[header_length:]
@@ -135,10 +139,12 @@ def deserialize_matrix_server(serialized_data):
 
 
 def deserialize_matrix_client(data):
+    # Function to deserialize data on the client side using pickle
     return pickle.loads(data)
 
 
 def receive_and_sum(client_sockets):
+    # Function to receive data from all clients and aggregate them
     raw_data = [None] * len(client_sockets)
     threads = []
     mkl.set_num_threads(1)
@@ -183,6 +189,7 @@ def receive_and_sum(client_sockets):
 
 
 def receive_data(client_socket):
+    # Function to receive data from one client
     tt=time.time()
     data_size_bytes = client_socket.recv(8)
     if len(data_size_bytes) != 8:
@@ -204,6 +211,7 @@ def receive_data(client_socket):
     return b''.join(chunks)
 
 def receive_sum_and_append(client_sockets):
+    # Function to receive data from all clients, aggregate them and also store them
     mkl.set_num_threads(1)
     raw_data = [None] * len(client_sockets)
     threads = []
@@ -235,6 +243,7 @@ def receive_sum_and_append(client_sockets):
 
 
 def receive_data_from_server(server_socket):
+    # Function to receive data from the server
     data_size_bytes = server_socket.recv(8)  
     data_size = struct.unpack('!Q', data_size_bytes)[0]
 
@@ -253,14 +262,14 @@ def receive_data_from_server(server_socket):
 
 np.random.seed(420)
 
-
 def get_delta(C, seed):
+    # QR Decomposition
     A = np.random.rand(C + 1, C)
     Q, R = np.linalg.qr(A)
     return Q
 
-
 def get_gamma(N, K, seed):
+    # Randomized Mask Generation 
     np.random.seed(seed)
     min_block_size = 95
     max_block_size = 100
@@ -308,6 +317,7 @@ def get_gamma(N, K, seed):
 
 
 def get_square_gamma(N, seed):
+    # Randomized Square Mask Generation
     np.random.seed(seed)
     min_block_size = 95
     max_block_size = 100
@@ -339,6 +349,7 @@ def get_square_gamma(N, seed):
 
 
 def random_permute_square_columns(matrix, seed):
+    # Function to randomly permute columns of a square matrix
     num_columns = matrix.shape[1]
     np.random.seed(seed)
     permuted_indices = np.random.permutation(num_columns)
@@ -352,6 +363,7 @@ def random_permute_square_columns(matrix, seed):
 
 
 def random_permute_columns(matrix, seed):
+    # Function to randomly permute columns of a matrix
     num_columns = matrix.shape[1]
     np.random.seed(seed)
     permuted_indices = np.random.permutation(num_columns)
@@ -362,6 +374,7 @@ def random_permute_columns(matrix, seed):
 
 
 def generate_random_orthogonal_matrix(size):
+    # Function to generate a random orthogonal matrix
     random_matrix = np.random.randn(size, size)
     tol = 1e-7
     Q, R = np.linalg.qr(random_matrix)
@@ -370,6 +383,7 @@ def generate_random_orthogonal_matrix(size):
 
 
 def generate_semi_orthogonal_matrix(rows, cols):
+    # Funciton to generate a random semi-orthogonal matrix
     A = np.random.randn(rows, cols)
     for i in range(cols):
         for j in range(i):
@@ -394,13 +408,14 @@ def standardization_normalizers(M, P, p, seed):
 
 
 def generate_beta(M, B, p, P, N, C, block_size,b):
+    # Function to generate betas
     if not os.path.exists(
-            '/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B)):
-        os.makedirs('/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B),
+            '/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B)):
+        os.makedirs('/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B),
                     exist_ok=True)
     gamma = get_gamma(block_size, 0, b)
     filename = os.path.join(
-        '/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B),
+        '/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B),
         "beta_block_{}.npz".format(b + 1))
     save_npz(filename, gamma)
     del gamma
@@ -408,13 +423,13 @@ def generate_beta(M, B, p, P, N, C, block_size,b):
 
 def save_matrices(X,b,N,M,C,P,B):
     if not os.path.exists(
-            '/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Server'.format(N, M, C, P, B)):
-        os.makedirs('/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Server'.format(N, M, C, P, B),
+            '/N{}_M{}_C{}_P{}_B{}/Server'.format(N, M, C, P, B)):
+        os.makedirs('/Data/N{}_M{}_C{}_P{}_B{}/Server'.format(N, M, C, P, B),
                     exist_ok=True)
-    np.save('/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Server/X_block_{}.npy'.format(N, M, C, P, B,b+1),X)
+    np.save('/Data/N{}_M{}_C{}_P{}_B{}/Server/X_block_{}.npy'.format(N, M, C, P, B,b+1),X)
 
 def generate_delta(M, B, p, P, N, C, block_size, additional_cols,b):
-    directory = '/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B)
+    directory = '/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B)
     if not os.path.exists(directory):
         os.makedirs(directory, exist_ok=True)
     if additional_cols<0:
@@ -429,23 +444,24 @@ def generate_delta(M, B, p, P, N, C, block_size, additional_cols,b):
 
 
 def generate_Z_mask(M, B, p, P, N, C):
-    directory = '/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B)
+    directory = '/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B)
     if not os.path.exists(directory):
         os.makedirs(directory, exist_ok=True)
     if p == 1:
         gamma = get_gamma(N, 1, 0)
         save_npz(
-            '/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Masks/Z_mask.npz'.format(N, M, C, P, B),
+            '/Data/N{}_M{}_C{}_P{}_B{}/Masks/Z_mask.npz'.format(N, M, C, P, B),
             gamma)
         del gamma
         gc.collect()
 
 
 def generate_gamma(M, B, K, p, P, N, C):
+    # Function to generate Gamma
     if p == 1:
         gamma = get_gamma(N, 1, 1)
         save_npz(
-            '/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Masks/gamma.npz'.format(N, M, C, P, B),
+            '/Data/N{}_M{}_C{}_P{}_B{}/Masks/gamma.npz'.format(N, M, C, P, B),
             gamma)
         del gamma
         gc.collect()
@@ -493,6 +509,7 @@ def calculate_param(k, N, K, p, P):
 
 
 def hwe_chi_square(obs_counts):
+    # Function to compute chi-square values
     total = sum(obs_counts)
     p = (2 * obs_counts[0] + obs_counts[1]) / (2 * total)
     q = 1 - p
@@ -525,7 +542,6 @@ def print_memory_usage():
 
 def compute_element(p, masked_X, ready_Z, total_X_matrix):
     return masked_X[p] - (ready_Z[p] @ total_X_matrix)
-
 
 
 def split_number(B, L):
