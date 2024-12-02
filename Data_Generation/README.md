@@ -1,7 +1,5 @@
 # Synthetic Genomic Data Generation
 
-This project provides tools to generate synthetic genomic data simulating a multi-site genome-wide association study (GWAS) environment. 
-
 ## Files and Structure
 
 ### Python Script: `data_generation_pysnptools.py`
