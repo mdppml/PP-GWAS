@@ -423,7 +423,7 @@ def generate_beta(M, B, p, P, N, C, block_size,b):
 
 def save_matrices(X,b,N,M,C,P,B):
     if not os.path.exists(
-            '/N{}_M{}_C{}_P{}_B{}/Server'.format(N, M, C, P, B)):
+            '/Data/N{}_M{}_C{}_P{}_B{}/Server'.format(N, M, C, P, B)):
         os.makedirs('/Data/N{}_M{}_C{}_P{}_B{}/Server'.format(N, M, C, P, B),
                     exist_ok=True)
     np.save('/Data/N{}_M{}_C{}_P{}_B{}/Server/X_block_{}.npy'.format(N, M, C, P, B,b+1),X)
