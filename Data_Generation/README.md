@@ -63,13 +63,16 @@ The generated data will be saved in the following directory structure:
     ├── Party_1/
     │   ├── X_block_1.npz
     │   ├── ...
+    │   ├── X_block_B.npz
+    │   ├── y.npy
     │   └── Z.npy
-    │
     ├── Party_2/
     │   ├── X_block_1.npz
     │   ├── ...
+    │   ├── X_block_B.npz
+    │   ├── y.npy
     │   └── Z.npy
-    │
+    ├── ...
     └── Party_P/
         ├── X_block_B.npz
         └── y.npy
