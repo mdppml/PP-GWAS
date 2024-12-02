@@ -18,13 +18,9 @@ def hwe_chi_square(obs_counts):
     total = sum(obs_counts)
     p = (2 * obs_counts[0] + obs_counts[1]) / (2 * total)
     q = 1 - p
-
     expected_counts = np.array([total * p ** 2, 2 * total * p * q, total * q ** 2])
     chi2, _ = chisquare(f_obs=obs_counts, f_exp=expected_counts)
-
-
     chi2, _ = chisquare(f_obs=obs_counts, f_exp=expected_counts, axis=0)
-
     return chi2
 
 
@@ -87,7 +83,7 @@ def worker_block(args):
         if isinstance(party_block, np.ndarray):
             party_block = csr_matrix(party_block)
 
-        save_npz(f'/home/swaminathan/ppREGENIE/Data/N{N}_M{M}_C{C}_P{P}_B{B}/Party_{i + 1}/X_block_{j + 1}.npz', party_block)
+        save_npz(f'../Code/Data/N{N}_M{M}_C{C}_P{P}_B{B}/Party_{i + 1}/X_block_{j + 1}.npz', party_block)
         print(f'Data generated for Party {i + 1} for block {j + 1}')
 
     del block
@@ -169,8 +165,8 @@ def main():
                                                                                                           B, p + 1)
         if not os.path.exists(directory[p]):
             os.makedirs(directory[p])
-    generate_Z(N, C, P, '/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}'.format(N, M, C, P, B))
-    generate_y(N, P, '/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}'.format(N, M, C, P, B))
+    generate_Z(N, C, P, '../Code/Data/N{}_M{}_C{}_P{}_B{}'.format(N, M, C, P, B))
+    generate_y(N, P, '../Code/Data/N{}_M{}_C{}_P{}_B{}'.format(N, M, C, P, B))
     generate_G(N, M, C, P, B)
     print(f'time taken to run the program = {time.time() - tt}')
 
