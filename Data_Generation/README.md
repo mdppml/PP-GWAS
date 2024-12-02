@@ -46,14 +46,6 @@ The SLURM script accepts the same arguments as the Python script. Example:
 sbatch data_generation_pysnptools_slurm.sh 100000 10000 5 3 2
 ```
 
-#### SLURM Script Parameters
-- `--job-name`: Name of the SLURM job.
-- `--ntasks`: Number of tasks (always set to 1).
-- `--cpus-per-task`: Number of CPUs for parallel processing.
-- `--mem`: Memory allocation for the job.
-- `--time`: Maximum job runtime.
-- `--partition`: SLURM partition to use.
-
 ---
 
 ## Output Structure
@@ -78,9 +70,9 @@ The generated data will be saved in the following directory structure:
         └── y.npy
 ```
 ### Files Generated:
-- **`X_block_{j}.npz`**: SNP data matrix for each block and party.
-- **`Z.npy`**: Covariate matrix for each party.
-- **`y.npy`**: Response vector for each party.
+- **`X_block_{j}.npz`**: Genomic data each block
+- **`Z.npy`**: Covariate data.
+- **`y.npy`**: Phenotype data.
 
 ---
 
