@@ -56,7 +56,7 @@ def load_X(N, M, C, P, B, p, b, idx, X_list):
             print(f"Data successfully loaded for block {idx}.")
         else:
             print(f"Warning: Loaded data for block {idx} is empty or None.")
-            X_list[idx] = None  
+            X_list[idx] = None
     except Exception as e:
         print(f"Error loading data for block {idx}: {e}")
         X_list[idx] = None
@@ -134,8 +134,8 @@ def compute_chunk(i, X_chunk, del_T, Z_mask_chunk):
 
 
 def chunk_and_multiply(X_temp, del_T, Z_mask_party):
-    n_chunks = os.cpu_count()  
-    rows_per_chunk = Z_mask_party.shape[0] // n_chunks  
+    n_chunks = os.cpu_count()
+    rows_per_chunk = Z_mask_party.shape[0] // n_chunks
 
     masked_X_result = None
 
@@ -146,7 +146,7 @@ def chunk_and_multiply(X_temp, del_T, Z_mask_party):
             end_idx = (i + 1) * rows_per_chunk if i != n_chunks - 1 else Z_mask_party.shape[0]
 
             Z_mask_chunk = Z_mask_party[start_idx:end_idx]
-            X_chunk = X_temp  
+            X_chunk = X_temp
 
             futures.append(executor.submit(compute_chunk, i, X_chunk, del_T, Z_mask_chunk))
 
@@ -174,7 +174,6 @@ def main():
     while not os.path.exists(f'/home/swaminathan/ppREGENIE/Data/server_ready_{p}.txt'):
         time.sleep(0.1)
     print('server ready file exists')
-    # Read the server's IP address from the file
     with open('/home/swaminathan/ppREGENIE/Data/ip_address_file.txt', 'r') as file:
         server_hostname = file.read().strip()
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -227,7 +226,7 @@ def main():
     file_loaded = False
     max_attempts = 1000
     attempts = 0
-    delay = 0.025 
+    delay = 0.025
     Z_mask = None
     while not file_loaded and attempts < max_attempts:
         try:
@@ -269,7 +268,7 @@ def main():
     file_loaded = False
     max_attempts = 1000
     attempts = 0
-    delay = 0.025  
+    delay = 0.025
     gamma = 0
     while not file_loaded and attempts < max_attempts:
         try:
@@ -299,10 +298,10 @@ def main():
         Y_tilde_copy = Y_tilde.copy()
 
         Y_tilde_copy[chunks[k], :] = 0
-        gamma2 = gamma2.astype(np.float64)
-        Y_tilde_copy = Y_tilde_copy.astype(np.float64)
+        gamma2 = gamma2.astype(np.float32)
+        Y_tilde_copy = Y_tilde_copy.astype(np.float32)
         masked_y_tilde = dot_product_mkl(gamma2, Y_tilde_copy)
-        masked_y_tilde *= k_1  
+        masked_y_tilde *= k_1
         red_time = time.time()
         total_comm_size += GWAS_lib.get_size_in_gb(masked_y_tilde)
         reduction_count += time.time() - red_time
@@ -313,10 +312,10 @@ def main():
         mask = np.ones(Y_tilde.shape[0], bool)
         mask[chunks[k]] = 0
         Y_tilde_copy[mask, :] = 0
-        gamma2 = gamma2.astype(np.float64)
-        Y_tilde_copy = Y_tilde_copy.astype(np.float64)
+        gamma2 = gamma2.astype(np.float32)
+        Y_tilde_copy = Y_tilde_copy.astype(np.float32)
         masked_y_tilde = dot_product_mkl(gamma2, Y_tilde_copy)
-        masked_y_tilde *= k_1 
+        masked_y_tilde *= k_1
         red_time = time.time()
         total_comm_size += GWAS_lib.get_size_in_gb(masked_y_tilde)
         reduction_count += time.time() - red_time
@@ -347,10 +346,10 @@ def main():
 
         for X in X_list:
             ones = np.array(
-                (X == 1).sum(axis=0)).ravel() 
+                (X == 1).sum(axis=0)).ravel()
             twos = np.array(
-                (X == 2).sum(axis=0)).ravel() 
-            sums = np.array(X.sum(axis=0)).ravel() 
+                (X == 2).sum(axis=0)).ravel()
+            sums = np.array(X.sum(axis=0)).ravel()
 
             ones_list.append(ones)
             twos_list.append(twos)
@@ -503,9 +502,12 @@ def main():
         right = [[] for _ in range(current_count)]
         masked_X = [[] for _ in range(current_count)]
         for i, X in enumerate(X_list):
-            X = X.astype(np.float64)
-            delta[i] = delta[i].astype(np.float64)
+            X = X.astype(np.float32)
+            delta[i] = delta[i].astype(np.float32)
+
             right[i] = dot_product_mkl(X, delta[i].T)
+            Z_mask_party=Z_mask_party.astype(np.float32)
+            
             masked_X[i] = dot_product_mkl(Z_mask_party, right[i])
         for _ in range(current_count):
             red_time = time.time()
@@ -520,12 +522,13 @@ def main():
             red_time = time.time()
             total_comm_size += GWAS_lib.get_size_in_gb(X)
             reduction_count += time.time() - red_time
-            S[_] = S[_].astype(np.float64)
+            S[_] = S[_].astype(np.float32)
             right = dot_product_mkl(delta[_], S[_])
-            X = X.astype(np.float64)
-            right = right.astype(np.float64)
+            X = X.astype(np.float32)
+            right = right.astype(np.float32)
             intermediate = dot_product_mkl(X, right)
             del right
+            Z_mask=Z_mask.astype(np.float32)
             X_tilde[_] = dot_product_mkl(Z_mask.T, intermediate)[start_index:end_index, :]
             del intermediate
             if (_ +1) % P == 0:
@@ -552,6 +555,8 @@ def main():
                     attempts += 1
                     time.sleep(delay)
         for _ in range(current_count):
+            X_tilde[_]=X_tilde[_].astype(np.float32)
+            beta[_]=beta[_].astype(np.float32)
             intermediate = dot_product_mkl(X_tilde[_], beta[_])
             sending[_] = dot_product_mkl(gamma2, intermediate)
         for _ in range(current_count):
@@ -570,6 +575,8 @@ def main():
                 X_tilde_k = X_tilde[_].copy()
                 idx = chunks[k]
                 X_tilde_k[idx, :] = 0
+                X_tilde_k=X_tilde_k.astype(np.float32)
+                beta[_]=beta[_].astype(np.float32)
                 intermediate = dot_product_mkl(X_tilde_k, beta[_])
                 X_tilde_k = dot_product_mkl(gamma2, intermediate)
                 red_time = time.time()
@@ -586,7 +593,7 @@ def main():
             diagonal_entries = diagonal_entries.astype(np.float32)
             D = diags(diagonal_entries).tocsr()
             intermediate = dot_product_mkl(gamma2, X_tilde[_])
-            D = D.astype(np.float64)
+            D = D.astype(np.float32)
             result_matrix= dot_product_mkl(intermediate,D)
             red_time = time.time()
             total_comm_size += GWAS_lib.get_size_in_gb(result_matrix)
