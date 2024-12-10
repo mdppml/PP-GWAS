@@ -27,16 +27,19 @@ def print_matrix_info(matrix):
     dtype = matrix.dtype
     size = matrix.size
     shape = matrix.shape
+
     if is_sparse:
-        non_zero_count = matrix.nnz  
+        non_zero_count = matrix.nnz
     else:
         non_zero_count = np.count_nonzero(matrix)
+
     sparsity = 1 - (non_zero_count / size)
     print(f"Matrix = {type(matrix)}")
     print(f"Matrix Type: {dtype}")
     print(f"Matrix Size: {size}")
     print(f"Matrix Shape: {shape}")
     print(f"Matrix Sparsity: {sparsity * 100:.2f}%")
+
     if dtype == np.float32:
         print("The matrix is of type float32.")
     elif dtype == np.float64:
@@ -44,12 +47,22 @@ def print_matrix_info(matrix):
     else:
         print("The matrix is neither float32 nor float64.")
 
-
 def load_X(N, M, C, P, B, p, b, idx, X_list):
-    X_list[idx] = load_npz(
-        '/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Party_{}/X_block_{}.npz'.format(N, M, C,
-                                                                                              P, B, p,
-                                                                                              b))
+    try:
+        loaded_data = load_npz('/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Party_{}/X_block_{}.npz'.format(N, M, C, P, B, p, b))
+        
+        if loaded_data is not None and loaded_data.size > 0:
+            X_list[idx] = loaded_data
+            print(f"Data successfully loaded for block {idx}.")
+        else:
+            print(f"Warning: Loaded data for block {idx} is empty or None.")
+            X_list[idx] = None  
+    except Exception as e:
+        print(f"Error loading data for block {idx}: {e}")
+        X_list[idx] = None
+
+    print(f"Finished processing block {idx}.")
+
 
 
 def print_sys_info():
@@ -120,6 +133,28 @@ def compute_chunk(i, X_chunk, del_T, Z_mask_chunk):
     return i, masked_X_chunk
 
 
+def chunk_and_multiply(X_temp, del_T, Z_mask_party):
+    n_chunks = os.cpu_count()  
+    rows_per_chunk = Z_mask_party.shape[0] // n_chunks  
+
+    masked_X_result = None
+
+    futures = []
+    with ThreadPoolExecutor() as executor:
+        for i in range(n_chunks):
+            start_idx = i * rows_per_chunk
+            end_idx = (i + 1) * rows_per_chunk if i != n_chunks - 1 else Z_mask_party.shape[0]
+
+            Z_mask_chunk = Z_mask_party[start_idx:end_idx]
+            X_chunk = X_temp  
+
+            futures.append(executor.submit(compute_chunk, i, X_chunk, del_T, Z_mask_chunk))
+
+        for future in futures:
+            i, masked_X_chunk = future.result()
+
+    return masked_X_result
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -166,6 +201,7 @@ def main():
     total_comm_size += GWAS_lib.get_size_in_gb(aggregated_y)
     reduction_count += time.time() - red_time
     y_mean = (aggregated_y - sum_6) / N
+    # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
     std_y = (np.sum(np.square(y - y_mean)) / (N - 1))
     std_y = std_y + v_7
     red_time = time.time()
@@ -180,11 +216,9 @@ def main():
     agg_std_y = np.sqrt(agg_std_y - sum_7)
     S_y = 1 / agg_std_y
     GWAS_lib.generate_Z_mask(M, B, p, P, N, C)
-
     start_index = (p - 1) * int(N / P)
     end_index = start_index + int(N / P)
     end_index = start_index + (N // P if p < P  else N - (N // P) * (P - 1))
-
     tt = time.time()
     Z = np.load(
         '/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Party_{}/Z.npy'.format(N, M, C, P, B, p))
@@ -252,6 +286,7 @@ def main():
 
     gamma2 = gamma[:, start_index:end_index]
     k_1 = GWAS_lib.generate_a_number(1)
+    # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
 
     indices = np.arange(Y_tilde.shape[0])
     np.random.seed(int(time.time()))
@@ -264,6 +299,8 @@ def main():
         Y_tilde_copy = Y_tilde.copy()
 
         Y_tilde_copy[chunks[k], :] = 0
+        gamma2 = gamma2.astype(np.float64)
+        Y_tilde_copy = Y_tilde_copy.astype(np.float64)
         masked_y_tilde = dot_product_mkl(gamma2, Y_tilde_copy)
         masked_y_tilde *= k_1  
         red_time = time.time()
@@ -276,8 +313,10 @@ def main():
         mask = np.ones(Y_tilde.shape[0], bool)
         mask[chunks[k]] = 0
         Y_tilde_copy[mask, :] = 0
+        gamma2 = gamma2.astype(np.float64)
+        Y_tilde_copy = Y_tilde_copy.astype(np.float64)
         masked_y_tilde = dot_product_mkl(gamma2, Y_tilde_copy)
-        masked_y_tilde *= k_1  
+        masked_y_tilde *= k_1 
         red_time = time.time()
         total_comm_size += GWAS_lib.get_size_in_gb(masked_y_tilde)
         reduction_count += time.time() - red_time
@@ -290,6 +329,10 @@ def main():
     num_loops = len(B_blocked)
     initial_block_size = int(M / B)
     for n in range(num_loops):
+        if n>0:
+            while not os.path.exists(f'/home/swaminathan/ppREGENIE/Data/server_ready_loop_{n}.txt'):
+                time.sleep(0.1)
+            print('server ready loop file exists')
         tt = time.time()
         X_list = [None] * len(B_blocked[n])
         with ThreadPoolExecutor(max_workers=16) as executor:
@@ -308,6 +351,7 @@ def main():
             twos = np.array(
                 (X == 2).sum(axis=0)).ravel() 
             sums = np.array(X.sum(axis=0)).ravel() 
+
             ones_list.append(ones)
             twos_list.append(twos)
             sums_list.append(sums)
@@ -459,13 +503,16 @@ def main():
         right = [[] for _ in range(current_count)]
         masked_X = [[] for _ in range(current_count)]
         for i, X in enumerate(X_list):
+            X = X.astype(np.float64)
+            delta[i] = delta[i].astype(np.float64)
             right[i] = dot_product_mkl(X, delta[i].T)
             masked_X[i] = dot_product_mkl(Z_mask_party, right[i])
         for _ in range(current_count):
             red_time = time.time()
             total_comm_size += GWAS_lib.get_size_in_gb(masked_X[_])
             reduction_count += time.time() - red_time
-            GWAS_lib.send_data_to_server(client_socket, masked_X[_], p)
+            GWAS_lib.send_data_to_server(client_socket, masked_X[_], p, 1)
+            a=GWAS_lib.receive_data_from_server(client_socket)
         del masked_X
         X_tilde = [[] for _ in range(current_count)]
         for _ in range(current_count):
@@ -473,7 +520,10 @@ def main():
             red_time = time.time()
             total_comm_size += GWAS_lib.get_size_in_gb(X)
             reduction_count += time.time() - red_time
+            S[_] = S[_].astype(np.float64)
             right = dot_product_mkl(delta[_], S[_])
+            X = X.astype(np.float64)
+            right = right.astype(np.float64)
             intermediate = dot_product_mkl(X, right)
             del right
             X_tilde[_] = dot_product_mkl(Z_mask.T, intermediate)[start_index:end_index, :]
@@ -536,6 +586,7 @@ def main():
             diagonal_entries = diagonal_entries.astype(np.float32)
             D = diags(diagonal_entries).tocsr()
             intermediate = dot_product_mkl(gamma2, X_tilde[_])
+            D = D.astype(np.float64)
             result_matrix= dot_product_mkl(intermediate,D)
             red_time = time.time()
             total_comm_size += GWAS_lib.get_size_in_gb(result_matrix)
@@ -548,7 +599,18 @@ def main():
     print(f'SIZE OF DATA IN TOTAL FOR {B} blocks is {total_comm_size}')
 
 
+
+
+
+
+
+
+
+
+
+
+
     client_socket.close()
 
 if __name__ == "__main__":
-    cProfile.run('main()', '/home/swaminathan/ppREGENIE/Data/client.pstats')
+    main()
