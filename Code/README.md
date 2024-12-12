@@ -1,23 +1,82 @@
+# PP-GWAS
+# UNDER CONSTRUCTION
+
 ## Files and Structure
 
-- **`gwas_lib.py`**  
-  Contains all essential functions.
-  
-- **`client.py`**  
-  This file represents the client-side code and is run multiple times to simulate a multi-client environment. Each client instance performs computations independently, interacting with the server. The script is executed multiple times with multiple calls of `run_client.sh`.
+### Python Scripts:
 
-- **`server.py`**  
-  This file handles the server-side logic, receiving and aggregating information from each client. It manages secure data processing and combines the results from all clients. The server is activated using `run_server.sh`.
+### Bash Scripts: 
+---
 
-## Bash Scripts
+## Requirements
 
-- **`run_client.sh`**  
-  A script to initialize each instance of `client.py`, simulating different client environments. Each client is treated as an independent site in the multi-site GWAS study.
+### Dependencies
+Ensure the following Python libraries are installed:
+- `numpy`
+- `scipy`
+- `mkl`
+- `psutil`
 
-- **`run_server.sh`**  
-  A script that starts the `server.py`.
 
-- **`server_client.sh`**  
-  This overarching bash file is used to initiate both `run_server.sh` and multiple instances of `run_client.sh`.
+### Conda Environment
+The SLURM script requires a Conda environment. Replace `"INSERT_CONDA_ENVIRONMENT_HERE"` in the script with the path to your Conda environment.
 
 ---
+
+## Usage
+
+#### Command-Line Arguments
+The Python script requires the following arguments:
+- `--number_of_samples` (int): Number of samples (N).
+- `--number_of_snps` (int): Number of SNPs (M).
+- `--number_of_covariates` (int): Number of covariates (C).
+- `--number_of_parties` (int): Number of data-generating parties (P).
+- `--number_of_blocks` (int): Number of SNP blocks (B).
+
+#### Example Command
+```bash
+python data_generation_pysnptools.py --number_of_samples 100000 --number_of_snps 10000 --number_of_covariates 5 --number_of_parties 3 --number_of_blocks 2
+```
+
+The SLURM script accepts the same arguments as the Python script. Example:
+```bash
+sbatch data_generation_pysnptools_slurm.sh 100000 10000 5 3 2
+```
+
+---
+
+## Output Structure
+The generated data will be saved in the following directory structure:
+```
+../Code/Data/N{N}_M{M}_C{C}_P{P}_B{B}/
+    ├── Party_1/
+    │   ├── X_block_1.npz
+    │   ├── ...
+    │   ├── X_block_B.npz
+    │   ├── y.npy
+    │   └── Z.npy
+    ├── Party_2/
+    │   ├── X_block_1.npz
+    │   ├── ...
+    │   ├── X_block_B.npz
+    │   ├── y.npy
+    │   └── Z.npy
+    ├── ...
+    └── Party_P/
+        ├── X_block_B.npz
+        └── y.npy
+```
+### Files Generated:
+- **`X_block_{j}.npz`**: Genomic data each block
+- **`Z.npy`**: Covariate data.
+- **`y.npy`**: Phenotype data.
+
+---
+
+## Notes
+- Ensure sufficient memory and disk space to handle large datasets.
+- The SLURM script assumes a cluster environment with Conda installed.
+- Modify paths in both scripts as per your directory structure.
+
+---
+
