@@ -46,11 +46,11 @@ def main():
         server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         hostname = socket.gethostbyname(socket.gethostname())
         if _==0:
-            with open('/home/swaminathan/ppREGENIE/Data/ip_address_file.txt', 'w') as file:
+            with open('../test_site/Data/ip_address_file.txt', 'w') as file:
                 file.write(hostname)
         server.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
         server.bind((hostname, args.base_port + _ + 1))
-        with open(f'/home/swaminathan/ppREGENIE/Data/server_ready_{_+1}.txt', 'w') as f:
+        with open(f'../test_site/Data/server_ready_{_+1}.txt', 'w') as f:
             f.write('Server is ready')
         server.listen(1)
         print(f"Server is listening on port {args.base_port + _ + 1}")
@@ -61,11 +61,11 @@ def main():
     print(f'SERVER: time taken to establish connections is {time.time() - server_starting}')
     utilities.print_memory_usage()
 
-    directory = '/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B)
+    directory = '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B)
     if os.path.exists(directory):
         shutil.rmtree(directory)
     os.makedirs(directory, exist_ok=True)
-    directory = '/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Server'.format(N, M, C, P, B)
+    directory = '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Server'.format(N, M, C, P, B)
     if os.path.exists(directory):
         shutil.rmtree(directory)
     os.makedirs(directory, exist_ok=True)
@@ -131,7 +131,7 @@ def main():
     pre_gwas_time+=(time.time()-server_starting)
     for n in range(num_loops):
         if n>0:
-            with open(f'/home/swaminathan/ppREGENIE/Data/server_ready_loop_{n}.txt', 'w') as f:
+            with open(f'../test_site/Data/server_ready_loop_{n}.txt', 'w') as f:
                 f.write('Server is ready')
         timing = time.time()
             
@@ -275,7 +275,7 @@ def main():
     p_values = 1 - chi2.cdf(t, df)
     positions = np.arange(len(t))
     neg_log_p = -np.log10(p_values)
-    np.save('/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/neg_log_transfer.npy'.format(N, M, C, P, B),neg_log_p)
+    np.save('../test_site/Data/N{}_M{}_C{}_P{}_B{}/neg_log_transfer.npy'.format(N, M, C, P, B),neg_log_p)
     level_1_time=time.time()-level1
     print(f'TIME RESULTS')
     print(f'Time taken for pre_gwas_communication and computations - {pre_gwas_time}')
@@ -283,7 +283,7 @@ def main():
     print(f'Time taken for level 1 - {level_1_time}')
     print(f'TOTAL TIME FOR PROGRAM is {pre_gwas_time+level_0_time+level_1_time}')
     print(f'Formatted - {utilities.convert_seconds_to_dhms(pre_gwas_time+level_0_time+level_1_time)}')
-    directory = '/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B)
+    directory = '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B)
     if os.path.exists(directory):
         shutil.rmtree(directory)
     os.makedirs(directory, exist_ok=True)
