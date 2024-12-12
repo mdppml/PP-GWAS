@@ -29,10 +29,10 @@ def main():
     B, K, N, M, P, p, C = args.number_of_blocks, args.number_of_folds, args.number_of_samples, args.number_of_snps, args.number_of_clients, args.party_id, args.number_of_covariates
     bulk=args.number_of_blocks_per_run
     loader_times = 0
-    while not os.path.exists(f'/home/swaminathan/ppREGENIE/Data/server_ready_{p}.txt'):
+    while not os.path.exists(f'../test_site/Data/server_ready_{p}.txt'):
         time.sleep(0.1)
     print('SERVER IS READY')
-    with open('/home/swaminathan/ppREGENIE/Data/ip_address_file.txt', 'r') as file:
+    with open('../test_site/Data/ip_address_file.txt', 'r') as file:
         server_hostname = file.read().strip()
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client_socket.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
@@ -44,7 +44,7 @@ def main():
     np.random.seed(0)
     tt = time.time()
     y = np.load(
-        '/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Party_{}/y.npy'.format(N, M, C, P, B, p))
+        '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Party_{}/y.npy'.format(N, M, C, P, B, p))
     loader_times += (time.time() - tt)
     v_6, sum_6 = GWAS_lib.standardization_normalizers(1, P, p, 6)
     v_7, sum_7 = GWAS_lib.standardization_normalizers(1, P, p, 7)
@@ -77,7 +77,7 @@ def main():
     end_index = start_index + (N // P if p < P  else N - (N // P) * (P - 1))
     tt = time.time()
     Z = np.load(
-        '/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Party_{}/Z.npy'.format(N, M, C, P, B, p))
+        '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Party_{}/Z.npy'.format(N, M, C, P, B, p))
     loader_times += (time.time() - tt)
     Z = np.hstack((np.ones((Z.shape[0], 1)), Z))
     file_loaded = False
@@ -87,7 +87,7 @@ def main():
     Z_mask = None
     while not file_loaded and attempts < max_attempts:
         try:
-            Z_mask = load_npz('/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Masks/Z_mask.npz'.format(N, M, C, P,B))
+            Z_mask = load_npz('../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks/Z_mask.npz'.format(N, M, C, P,B))
             file_loaded = True
         except Exception as e:
             attempts += 1
@@ -128,7 +128,7 @@ def main():
     while not file_loaded and attempts < max_attempts:
         try:
             O = load_npz(
-                '/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Masks/O.npz'.format(N, M, C, P,B))
+                '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks/O.npz'.format(N, M, C, P,B))
             file_loaded = True
         except Exception as e:
             attempts += 1
@@ -188,7 +188,7 @@ def main():
         #####################################################################################################
             
         if n>0:
-            while not os.path.exists(f'/home/swaminathan/ppREGENIE/Data/server_ready_loop_{n}.txt'):
+            while not os.path.exists(f'../test_site/Data/server_ready_loop_{n}.txt'):
                 time.sleep(0.1)
         tt = time.time()
         X_list = [None] * len(B_blocked[n])
@@ -347,7 +347,7 @@ def main():
             delay = 0.025
             while not file_loaded and attempts < max_attempts:
                 try:
-                    O_X[_] = load_npz('/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Masks/O_X_block_{}.npz'.format(N, M, C, P, B, (_ + (n * bulk)) + 1))
+                    O_X[_] = load_npz('../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks/O_X_block_{}.npz'.format(N, M, C, P, B, (_ + (n * bulk)) + 1))
                     file_loaded = True
                 except Exception as e:
                     attempts += 1
@@ -409,7 +409,7 @@ def main():
             delay = 0.025
             while not file_loaded and attempts < max_attempts:
                 try:
-                    O_b[_] = load_npz('/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Masks/O_b_block_{}.npz'.format(N, M, C, P, B, (_ + (n * bulk)) + 1))
+                    O_b[_] = load_npz('../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks/O_b_block_{}.npz'.format(N, M, C, P, B, (_ + (n * bulk)) + 1))
                     file_loaded = True
                 except Exception as e:
                     attempts += 1
