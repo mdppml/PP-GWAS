@@ -83,7 +83,7 @@ def worker_block(args):
         if isinstance(party_block, np.ndarray):
             party_block = csr_matrix(party_block)
 
-        save_npz(f'../Code/Data/N{N}_M{M}_C{C}_P{P}_B{B}/Party_{i + 1}/X_block_{j + 1}.npz', party_block)
+        save_npz(f'../test_site/Data/N{N}_M{M}_C{C}_P{P}_B{B}/Party_{i + 1}/X_block_{j + 1}.npz', party_block)
         print(f'Data generated for Party {i + 1} for block {j + 1}')
 
     del block
@@ -160,13 +160,13 @@ def main():
     tt=time.time()
     directory = {}
     for p in range(P):
-        directory[p] = "/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Party_{}".format(N, M, C,
+        directory[p] = "../test_site/Data/N{}_M{}_C{}_P{}_B{}/Party_{}".format(N, M, C,
                                                                                                           P,
                                                                                                           B, p + 1)
         if not os.path.exists(directory[p]):
             os.makedirs(directory[p])
-    generate_Z(N, C, P, '../Code/Data/N{}_M{}_C{}_P{}_B{}'.format(N, M, C, P, B))
-    generate_y(N, P, '../Code/Data/N{}_M{}_C{}_P{}_B{}'.format(N, M, C, P, B))
+    generate_Z(N, C, P, '../test_site/Data/N{}_M{}_C{}_P{}_B{}'.format(N, M, C, P, B))
+    generate_y(N, P, '../test_site/Data/N{}_M{}_C{}_P{}_B{}'.format(N, M, C, P, B))
     generate_G(N, M, C, P, B)
     print(f'time taken to run the program = {time.time() - tt}')
 
