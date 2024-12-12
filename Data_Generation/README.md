@@ -28,6 +28,8 @@ The SLURM script requires a Conda environment. Replace `'enter_conda_directory_h
 
 ## Usage
 
+Please install the above dependencies into a conda environment and add it to the bash script if you proceed with slurm. 
+
 #### Command-Line Arguments
 The Python script requires the following arguments:
 - `--number_of_samples` (int): Number of samples (N).
