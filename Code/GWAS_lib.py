@@ -15,7 +15,7 @@ def get_O_X(C, seed):
 
 def load_X(N, M, C, P, B, p, b, idx, X_list):
     try:
-        loaded_data = load_npz('/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Party_{}/X_block_{}.npz'.format(N, M, C, P, B, p, b))
+        loaded_data = load_npz('../test_site/Data/N{}_M{}_C{}_P{}_B{}/Party_{}/X_block_{}.npz'.format(N, M, C, P, B, p, b))
         if loaded_data is not None and loaded_data.size > 0:
             X_list[idx] = loaded_data
         else:
@@ -130,19 +130,19 @@ def standardization_normalizers(M, P, p, seed):
     return matrix[p - 1, :], column_sum_vector
 
 def generate_O_b(M, B, p, P, N, C, block_size,b):
-    if not os.path.exists('/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B)):os.makedirs('/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B),exist_ok=True)
+    if not os.path.exists('../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B)):os.makedirs('../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B),exist_ok=True)
     O = get_O(block_size, 0, b)
-    filename = os.path.join('/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B),"O_b_block_{}.npz".format(b + 1))
+    filename = os.path.join('../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B),"O_b_block_{}.npz".format(b + 1))
     save_npz(filename, O)
     del O
     gc.collect()
 
 def save_matrices(X,b,N,M,C,P,B):
-    if not os.path.exists('/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Server'.format(N, M, C, P, B)): os.makedirs('/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Server'.format(N, M, C, P, B), exist_ok=True)
-    np.save('/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Server/X_block_{}.npy'.format(N, M, C, P, B,b+1),X)
+    if not os.path.exists('../test_site/Data/N{}_M{}_C{}_P{}_B{}/Server'.format(N, M, C, P, B)): os.makedirs('../test_site/Data/N{}_M{}_C{}_P{}_B{}/Server'.format(N, M, C, P, B), exist_ok=True)
+    np.save('../test_site/Data/N{}_M{}_C{}_P{}_B{}/Server/X_block_{}.npy'.format(N, M, C, P, B,b+1),X)
 
 def generate_O_X(M, B, p, P, N, C, block_size, additional_cols,b):
-    directory = '/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B)
+    directory = '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B)
     if not os.path.exists(directory):
         os.makedirs(directory, exist_ok=True)
     if additional_cols<0:
@@ -155,13 +155,13 @@ def generate_O_X(M, B, p, P, N, C, block_size, additional_cols,b):
     gc.collect()
 
 def generate_Z_mask(M, B, p, P, N, C):
-    directory = '/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B)
+    directory = '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B)
     if not os.path.exists(directory):
         os.makedirs(directory, exist_ok=True)
     if p == 1:
         O = get_O(N, 1, 0)
         save_npz(
-            '/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Masks/Z_mask.npz'.format(N, M, C, P, B),O)
+            '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks/Z_mask.npz'.format(N, M, C, P, B),O)
         del O
         gc.collect()
 
@@ -169,7 +169,7 @@ def generate_O(M, B, K, p, P, N, C):
     if p == 1:
         O = get_O(N, 1, 1)
         save_npz(
-            '/home/swaminathan/ppREGENIE/Data/N{}_M{}_C{}_P{}_B{}/Masks/O.npz'.format(N, M, C, P, B),O)
+            '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks/O.npz'.format(N, M, C, P, B),O)
         del O
         gc.collect()
 
