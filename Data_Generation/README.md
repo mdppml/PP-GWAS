@@ -28,15 +28,13 @@ The SLURM script requires a Conda environment. Replace `'enter_conda_directory_h
 
 ## Usage
 
-Please install the above dependencies into a conda environment and add it to the bash script if you proceed with slurm. 
-
 #### Command-Line Arguments
 The Python script requires the following arguments:
 - `--number_of_samples` (int): Number of samples (N).
 - `--number_of_snps` (int): Number of SNPs (M).
 - `--number_of_covariates` (int): Number of covariates (C).
-- `--number_of_parties` (int): Number of data-generating parties (P).
-- `--number_of_blocks` (int): Number of SNP blocks (B).
+- `--number_of_parties` (int): Number of computational nodes (P).
+- `--number_of_blocks` (int): Number of blocks to split the data into (B).
 
 #### Example Command
 ```bash
