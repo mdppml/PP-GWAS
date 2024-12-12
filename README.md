@@ -9,3 +9,4 @@ This repository is associated with the paper titled **"PP-GWAS: Privacy Preservi
   - **Data_Generation**: This folder includes the code used for generating synthetic data using the pysnptools library. 
   - **REGENIE**: Contains details on one can restructure synthetic data to fit the formats supported by REGENIE. It also includes instructions on how to run REGENIE on the synthetic datasets.
   - **Results**: This folder holds all output .txt files generated from the experiments reported in the paper. 
+  - **test_site**: A testing site to run the code for data generation and PP-GWAS.
