@@ -51,7 +51,7 @@ sbatch ppgwas.sh 8110 1000 10000 5 2 5 3 2
 sbatch ppgwas.sh base_port number_of_samples number_of_snps number_of_covariates number_of_blocks number_of_folds number_of_parties number_of_blocks_per_run 
 ```
 
-If you're not working with slurm, you must activate multiple instances of `run_client.sh` depending on the number of computational nodes apart from the server. 
+If you're not working with slurm, you must activate multiple instances of `run_client.sh` depending on the number of computational nodes apart from the server. Modify 'p' accordingly with each run. 
 
 ```bash
 python run_server.sh 8110 1000 10000 5 2 5 3 2
@@ -61,49 +61,11 @@ python run_server.sh base_port number_of_samples number_of_snps number_of_covari
 ```
 
 ```bash
-python run_client.sh 8110 1000 10000 5 2 5 3 p 2
+python run_client.sh 8110 1000 10000 5 2 5 3 p 2 "../test_site/"
 ```
 ```bash
-python run_client.sh base_port number_of_samples number_of_snps number_of_covariaets number_of_blocks number_of_folds number_of_parties number_of_blocks_per_run party_id 
+python run_client.sh base_port number_of_samples number_of_snps number_of_covariaets number_of_blocks number_of_folds number_of_parties number_of_blocks_per_run party_id folder_where_results_are_stored
 ```
 
 
-
-
----
-
-## Output Structure
-The generated data will be saved in the following directory structure:
-```
-../Code/Data/N{N}_M{M}_C{C}_P{P}_B{B}/
-    ├── Party_1/
-    │   ├── X_block_1.npz
-    │   ├── ...
-    │   ├── X_block_B.npz
-    │   ├── y.npy
-    │   └── Z.npy
-    ├── Party_2/
-    │   ├── X_block_1.npz
-    │   ├── ...
-    │   ├── X_block_B.npz
-    │   ├── y.npy
-    │   └── Z.npy
-    ├── ...
-    └── Party_P/
-        ├── X_block_B.npz
-        └── y.npy
-```
-### Files Generated:
-- **`X_block_{j}.npz`**: Genomic data each block
-- **`Z.npy`**: Covariate data.
-- **`y.npy`**: Phenotype data.
-
----
-
-## Notes
-- Ensure sufficient memory and disk space to handle large datasets.
-- The SLURM script assumes a cluster environment with Conda installed.
-- Modify paths in both scripts as per your directory structure.
-
----
 
