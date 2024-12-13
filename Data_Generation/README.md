@@ -2,16 +2,16 @@
 
 ## Files and Structure
 
-### Python Script: `data_generation_pysnptools.py`
+#### Python Script: `data_generation_pysnptools.py`
 This Python script generates synthetic genomic data using the `pysnptools` library. The script supports parallel processing and allows for flexible configurations such as the number of samples, SNPs, covariates, computational nodes, and data blocks.
 
-### Bash Script: `data_generation_pysnptools_slurm.sh`
+#### Bash Script: `data_generation_pysnptools_slurm.sh`
 A SLURM batch script to automate the execution of `data_generation_pysnptools.py` in a high-performance computing environment. The script specifies resource requirements, activates a Conda environment, and runs the Python script with user-defined arguments.
 
-### Conda Environments File: `data_generation_environment.yml`
+#### Conda Environments File: `data_generation_environment.yml`
 This file specifies the Conda environment required for running the Python script.
 
-### Pip Requirements File: `data_generation_environment_pip.txt`
+#### Pip Requirements File: `data_generation_environment_pip.txt`
 This file lists additional Python packages that should be installed using pip within the Conda environment. 
 
 ---
