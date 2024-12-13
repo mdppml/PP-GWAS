@@ -26,7 +26,7 @@ This script provides functions for serializing, deserializing, sending, and rece
 #### Python Script: `utilities.py`
 This script provides utility functions for system monitoring and data management.
 
-### Conda Environments File: `ppgwas.yml`
+### Conda Environments File: `ppgwas_environment.yml`
 This file specifies the Conda environment required for running the Python script. It includes dependencies optimized for systems with Intel chips, particularly leveraging MKL (Math Kernel Library) for efficient sparse matrix computations. It should be used to create a Conda environment for running the scripts.
 
 ### Pip Requirements File: `ppgwas_pip.txt`
