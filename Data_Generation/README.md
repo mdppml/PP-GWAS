@@ -17,7 +17,6 @@ Ensure the following Python libraries are installed:
 - `numpy`
 - `scipy`
 - `pysnptools`
-- `multiprocessing`
 - `psutil`
 - `argparse`
 
