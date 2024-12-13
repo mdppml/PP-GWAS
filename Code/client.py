@@ -16,7 +16,7 @@ os.environ["MKL_DYNAMIC"] = "TRUE"
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--number_of_clients", type=int, required=True)
+    parser.add_argument("--number_of_party", type=int, required=True)
     parser.add_argument("--party_id", type=int, required=True)
     parser.add_argument("--base_port", type=int, required=True)
     parser.add_argument("--number_of_samples", type=int, required=True)
@@ -26,7 +26,7 @@ def main():
     parser.add_argument("--number_of_folds", type=int, required=True)
     parser.add_argument("--number_of_blocks_per_run", type=int, required=True)
     args = parser.parse_args()
-    B, K, N, M, P, p, C = args.number_of_blocks, args.number_of_folds, args.number_of_samples, args.number_of_snps, args.number_of_clients, args.party_id, args.number_of_covariates
+    B, K, N, M, P, p, C = args.number_of_blocks, args.number_of_folds, args.number_of_samples, args.number_of_snps, args.number_of_parties, args.party_id, args.number_of_covariates
     bulk=args.number_of_blocks_per_run
     loader_times = 0
     while not os.path.exists(f'../test_site/Data/server_ready_{p}.txt'):
@@ -34,11 +34,11 @@ def main():
     print('SERVER IS READY')
     with open('../test_site/Data/ip_address_file.txt', 'r') as file:
         server_hostname = file.read().strip()
-    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    client_socket.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
-    print(f'CLient {p} connecting via {args.base_port + p}')
-    client_socket.connect((server_hostname, args.base_port + p))
-    client_start_time = time.time()
+    party_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    party_socket.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
+    print(f'party {p} connecting via {args.base_port + p}')
+    party_socket.connect((server_hostname, args.base_port + p))
+    party_start_time = time.time()
     reduction_count=0
     total_comm_size=0
     np.random.seed(0)
@@ -52,8 +52,8 @@ def main():
     red_time=time.time()
     total_comm_size+=utilities.get_size_in_gb(masked_y_sum)
     reduction_count+=time.time()-red_time
-    communication.send_data_to_server(client_socket, masked_y_sum, p)
-    aggregated_y = communication.receive_data_from_server(client_socket)
+    communication.send_data_to_server(party_socket, masked_y_sum, p)
+    aggregated_y = communication.receive_data_from_server(party_socket)
     red_time = time.time()
     total_comm_size += utilities.get_size_in_gb(aggregated_y)
     reduction_count += time.time() - red_time
@@ -63,8 +63,8 @@ def main():
     red_time = time.time()
     total_comm_size += utilities.get_size_in_gb(std_y)
     reduction_count += time.time() - red_time
-    communication.send_data_to_server(client_socket, std_y, p)
-    agg_std_y = communication.receive_data_from_server(client_socket)
+    communication.send_data_to_server(party_socket, std_y, p)
+    agg_std_y = communication.receive_data_from_server(party_socket)
     red_time = time.time()
     total_comm_size += utilities.get_size_in_gb(agg_std_y)
     reduction_count += time.time() - red_time
@@ -101,7 +101,7 @@ def main():
     red_time = time.time()
     total_comm_size += utilities.get_size_in_gb(Z_masked)
     reduction_count += time.time() - red_time
-    communication.send_data_to_server(client_socket, Z_masked, p)
+    communication.send_data_to_server(party_socket, Z_masked, p)
 
     k_y = GWAS_lib.generate_a_number(0)
     masked_y = Z_mask_party @ y
@@ -109,8 +109,8 @@ def main():
     red_time = time.time()
     total_comm_size += utilities.get_size_in_gb(masked_y)
     reduction_count += time.time() - red_time
-    communication.send_data_to_server(client_socket, masked_y, p)
-    Y_tilde = communication.receive_data_from_server(client_socket)
+    communication.send_data_to_server(party_socket, masked_y, p)
+    Y_tilde = communication.receive_data_from_server(party_socket)
     red_time = time.time()
     total_comm_size += utilities.get_size_in_gb(Y_tilde)
     reduction_count += time.time() - red_time
@@ -159,7 +159,7 @@ def main():
         red_time = time.time()
         total_comm_size += utilities.get_size_in_gb(masked_y_tilde)
         reduction_count += time.time() - red_time
-        communication.send_data_to_server(client_socket, masked_y_tilde, p)
+        communication.send_data_to_server(party_socket, masked_y_tilde, p)
 
         Y_tilde_copy = Y_tilde.copy()
 
@@ -173,7 +173,7 @@ def main():
         red_time = time.time()
         total_comm_size += utilities.get_size_in_gb(masked_y_tilde)
         reduction_count += time.time() - red_time
-        communication.send_data_to_server(client_socket, masked_y_tilde, p)
+        communication.send_data_to_server(party_socket, masked_y_tilde, p)
 
     del Y_tilde, Y_tilde_copy, masked_y_tilde
     extra_elements = [np.random.randint(1, 100) for _ in range(B)]
@@ -239,9 +239,9 @@ def main():
         red_time = time.time()
         total_comm_size += utilities.get_size_in_gb(ones)
         reduction_count += time.time() - red_time
-        communication.send_data_to_server(client_socket, ones, p)
+        communication.send_data_to_server(party_socket, ones, p)
         del ones, v_2, v_3, v_4
-        aggregated_vector = communication.receive_data_from_server(client_socket)
+        aggregated_vector = communication.receive_data_from_server(party_socket)
         red_time = time.time()
         total_comm_size += utilities.get_size_in_gb(aggregated_vector)
         reduction_count += time.time() - red_time
@@ -249,9 +249,9 @@ def main():
         red_time = time.time()
         total_comm_size += utilities.get_size_in_gb(twos)
         reduction_count += time.time() - red_time
-        communication.send_data_to_server(client_socket, twos, p)
+        communication.send_data_to_server(party_socket, twos, p)
         del twos
-        aggregated_vector = communication.receive_data_from_server(client_socket)
+        aggregated_vector = communication.receive_data_from_server(party_socket)
         red_time = time.time()
         total_comm_size += utilities.get_size_in_gb(aggregated_vector)
         reduction_count += time.time() - red_time
@@ -259,9 +259,9 @@ def main():
         red_time = time.time()
         total_comm_size += utilities.get_size_in_gb(sums)
         reduction_count += time.time() - red_time
-        communication.send_data_to_server(client_socket, sums, p)
+        communication.send_data_to_server(party_socket, sums, p)
         del sums
-        aggregated_vector = communication.receive_data_from_server(client_socket)
+        aggregated_vector = communication.receive_data_from_server(party_socket)
         red_time = time.time()
         total_comm_size += utilities.get_size_in_gb(aggregated_vector)
         reduction_count += time.time() - red_time
@@ -290,9 +290,9 @@ def main():
         red_time = time.time()
         total_comm_size += utilities.get_size_in_gb(stds)
         reduction_count += time.time() - red_time
-        communication.send_data_to_server(client_socket, stds, p)
+        communication.send_data_to_server(party_socket, stds, p)
         del stds
-        aggregated_vector = communication.receive_data_from_server(client_socket)
+        aggregated_vector = communication.receive_data_from_server(party_socket)
         red_time = time.time()
         total_comm_size += utilities.get_size_in_gb(aggregated_vector)
         reduction_count += time.time() - red_time
@@ -370,12 +370,12 @@ def main():
             red_time = time.time()
             total_comm_size += utilities.get_size_in_gb(masked_X[_])
             reduction_count += time.time() - red_time
-            communication.send_data_to_server(client_socket, masked_X[_], p)
-            a=communication.receive_data_from_server(client_socket)
+            communication.send_data_to_server(party_socket, masked_X[_], p)
+            a=communication.receive_data_from_server(party_socket)
         del masked_X
         X_tilde = [[] for _ in range(current_count)]
         for _ in range(current_count):
-            X = communication.receive_data_from_server(client_socket)
+            X = communication.receive_data_from_server(party_socket)
             red_time = time.time()
             total_comm_size += utilities.get_size_in_gb(X)
             reduction_count += time.time() - red_time
@@ -423,7 +423,7 @@ def main():
             red_time = time.time()
             total_comm_size += utilities.get_size_in_gb(sending[_])
             reduction_count += time.time() - red_time
-            communication.send_data_to_server(client_socket, sending[_], p)
+            communication.send_data_to_server(party_socket, sending[_], p)
 
         #####################################################################################################
         #--------------------------------------LEVEL 2 RIDGE REGRESSION-------------------------------------#
@@ -441,7 +441,7 @@ def main():
                 red_time = time.time()
                 total_comm_size += utilities.get_size_in_gb(X_tilde_k)
                 reduction_count += time.time() - red_time
-                communication.send_data_to_server(client_socket, X_tilde_k, p)
+                communication.send_data_to_server(party_socket, X_tilde_k, p)
                 del X_tilde_k, intermediate
         D=[[] for _ in range(current_count)]
         result_matrix=[[] for _ in range(current_count)]
@@ -463,13 +463,13 @@ def main():
             red_time = time.time()
             total_comm_size += utilities.get_size_in_gb(result_matrix)
             reduction_count += time.time() - red_time
-            communication.send_data_to_server(client_socket, result_matrix, p)
+            communication.send_data_to_server(party_socket, result_matrix, p)
         del result_matrix
 
-    print(f'TIME TAKEN FOR {B} blocks is {time.time()-client_start_time-reduction_count}')
+    print(f'TIME TAKEN FOR {B} blocks is {time.time()-party_start_time-reduction_count}')
     #print(f'reduce from server {reduction_count}')
     print(f'SIZE OF DATA IN TOTAL FOR {B} blocks is {total_comm_size}')
-    client_socket.close()
+    party_socket.close()
 
 if __name__ == "__main__":
     main()
