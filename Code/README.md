@@ -36,14 +36,6 @@ This file lists additional Python packages that should be installed using pip wi
 
 ## Requirements
 
-### Dependencies
-Ensure the following Python libraries are installed:
-- `numpy`
-- `scipy`
-- `mkl`
-- `psutil`
-
-
 ### Conda Environment
 The SLURM script requires a Conda environment. Replace `"INSERT_CONDA_ENVIRONMENT_HERE"` in the scripts `ppgwas.sh`, `run_server.sh`, and `run_client.sh` with the path to your Conda environment.
 
