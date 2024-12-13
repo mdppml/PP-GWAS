@@ -9,10 +9,10 @@ This Python script generates synthetic genomic data using the `pysnptools` libra
 A SLURM batch script to automate the execution of `data_generation_pysnptools.py` in a high-performance computing environment. The script specifies resource requirements, activates a Conda environment, and runs the Python script with user-defined arguments.
 
 ### Conda Environments File: `data_generation_environment.yml`
-This file specifies the Conda environment required for running the Python script. It includes dependencies optimized for systems with Intel chips, particularly leveraging MKL (Math Kernel Library) for efficient sparse matrix computations. It should be used to create a Conda environment for running the scripts.
+This file specifies the Conda environment required for running the Python script.
 
 ### Pip Requirements File: `data_generation_environment_pip.txt`
-This file lists additional Python packages that should be installed using pip within the Conda environment. These packages extend functionality for genomic data processing.
+This file lists additional Python packages that should be installed using pip within the Conda environment. 
 
 ---
 
