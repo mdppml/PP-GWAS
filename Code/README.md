@@ -3,7 +3,29 @@
 
 ## Files and Structure
 
-### Python Scripts:
+#### SLURM Script: `ppgwas.sh`
+This SLURM batch script orchestrates the execution of a distributed privacy-preserving GWAS workflow by allocating resources from the cluster, starting the server, and launching client processes on separate nodes while managing the necessary environment and logging. It launches both `run_server.sh` and `run_client.sh`. 
+
+#### Bash Script: `run_server.sh`
+This script sets up the server environment, activates the appropriate Conda environment, and executes the server.py script with the necessary command-line arguments for the workflow.
+
+#### Python Script: `server.py`
+This Python file implements the server-side logic for the PP-GWAS framework. It establishes socket-based connections with multiple clients, coordinates data exchange, and executes the distributed Alternating Direction Method of Multipliers (ADMM) and distributed Conjugate Gradient Descent (CGD) algorithms. It then performs SNP association testing and outputs the negative logarithm of p-values for each SNP to the file `../test/Data/N{N}_M{M}_C{C}_P{P}_B{B}/neg_log_transfer.npy`.
+
+#### Bash Script: `run_client.sh`
+This script sets up the client environments, activates the appropriate Conda environment, and executes multiple instances of client.py script with the necessary command-line arguments for the workflow.
+
+#### Python Script: `client.py`
+This Python script implements the client-side logic of PP-GWAS. Each client connects to the server, processes local genomic data, and coordinates performing the distributed computations. 
+
+#### Python Script: `GWAS_lib.py`
+This script contains essential functions for genomic data preprocessing and manipulation, including generating and loading randomized encodings, handling sparse matrices, performing standardizations, and calculating metrics such as sparsity and Hardy-Weinberg equilibrium chi-square values. It also includes utility functions for splitting data into blocks and randomizing matrices.
+
+#### Python Script: `communication.py`
+This script provides functions for serializing, deserializing, sending, and receiving data between the server and clients. It supports various data types, handles multi-threaded data transfer, and ensures efficient communication using optimizations like chunking and parallel processing.
+
+#### Python Script: `utilities.py`
+This script provides utility functions for system monitoring and data management.
 
 ### Bash Scripts: 
 ---
@@ -33,7 +55,7 @@ Ensure the `run_server.sh` and `run_client.sh` scripts are executable:
 
 #### Command-Line Arguments
 The slurm script requires the following arguments:
-- - `--base-port` (int): Base port for communication..
+- `--base-port` (int): Base port for communication..
 - `--number_of_samples` (int): Number of samples (N).
 - `--number_of_snps` (int): Number of SNPs (M).
 - `--number_of_covariates` (int): Number of covariates (C).
