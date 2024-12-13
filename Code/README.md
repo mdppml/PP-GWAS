@@ -78,24 +78,24 @@ sbatch ppgwas.sh base_port number_of_samples number_of_snps number_of_covariates
 ### Running without SLURM
 If you're not using SLURM, you need to manually start the server and client scripts. First, run the server:
 ```bash
-python run_server.sh 8110 1000 10000 5 2 5 3 2
+bash run_server.sh 8110 1000 10000 5 2 5 3 2
 ```
 ### Server Argument Template
 The format for starting the server manually is:
 ```bash
-python run_server.sh base_port number_of_samples number_of_snps number_of_covariates number_of_blocks number_of_folds number_of_parties number_of_blocks_per_run
+bash run_server.sh base_port number_of_samples number_of_snps number_of_covariates number_of_blocks number_of_folds number_of_parties number_of_blocks_per_run
 ```
 Next, activate the computational nodes by calling `run_client.sh`. For each computational node (party), start a separate instance of `run_client.sh`:
 ```bash
-python run_client.sh 8110 1000 10000 5 2 5 3 2 1 "../test_site/"
-python run_client.sh 8110 1000 10000 5 2 5 3 2 2 "../test_site/"
-python run_client.sh 8110 1000 10000 5 2 5 3 2 3 "../test_site/"
+bash run_client.sh 8110 1000 10000 5 2 5 3 2 1 "../test_site/"
+bash run_client.sh 8110 1000 10000 5 2 5 3 2 2 "../test_site/"
+bash run_client.sh 8110 1000 10000 5 2 5 3 2 3 "../test_site/"
 
 ```
 ### Client Argument Template
 The format for starting each client manually is:
 ```bash
-python run_client.sh base_port number_of_samples number_of_snps number_of_covariates number_of_blocks number_of_folds number_of_blocks_per_run number_of_parties party_id folder_where_results_are_to_be_stored
+bash run_client.sh base_port number_of_samples number_of_snps number_of_covariates number_of_blocks number_of_folds number_of_blocks_per_run number_of_parties party_id output_folder
 ```
 
 
