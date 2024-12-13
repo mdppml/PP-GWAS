@@ -1,5 +1,4 @@
 # PP-GWAS
-# UNDER CONSTRUCTION
 
 ## Files and Structure
 
