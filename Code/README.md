@@ -9,7 +9,7 @@ This SLURM batch script orchestrates the execution of a distributed privacy-pres
 This script sets up the server environment, activates the appropriate Conda environment, and executes the server.py script with the necessary command-line arguments for the workflow.
 
 #### Python Script: `server.py`
-This Python file implements the server-side logic for the PP-GWAS framework. It establishes socket-based connections with multiple clients, coordinates data exchange, and executes the distributed Alternating Direction Method of Multipliers (ADMM) and distributed Conjugate Gradient Descent (CGD) algorithms. It then performs SNP association testing and outputs the negative logarithm of p-values for each SNP to the file `../test/Data/N{N}_M{M}_C{C}_P{P}_B{B}/neg_log_transfer.npy`.
+This Python file implements the server-side logic for the PP-GWAS framework. It establishes socket-based connections with multiple clients, coordinates data exchange, and executes the distributed Alternating Direction Method of Multipliers (ADMM) and distributed Conjugate Gradient Descent (CGD) algorithms. It then performs SNP association testing and outputs the negative logarithm of p-values for each SNP to the file `../test_site/Data/N{N}_M{M}_C{C}_P{P}_B{B}/neg_log_transfer.npy`.
 
 #### Bash Script: `run_client.sh`
 This script sets up the client environments, activates the appropriate Conda environment, and executes multiple instances of client.py script with the necessary command-line arguments for the workflow.
