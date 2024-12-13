@@ -47,6 +47,7 @@ The slurm script requires the following arguments:
 ```bash
 sbatch ppgwas.sh 8110 1000 10000 5 2 5 3 2 
 ```
+which follows the template below -
 ```bash
 sbatch ppgwas.sh base_port number_of_samples number_of_snps number_of_covariates number_of_blocks number_of_folds number_of_parties number_of_blocks_per_run 
 ```
@@ -56,15 +57,20 @@ If you're not working with slurm, you must activate multiple instances of `run_c
 ```bash
 python run_server.sh 8110 1000 10000 5 2 5 3 2
 ```
+which follows the template below -
 ```bash
 python run_server.sh base_port number_of_samples number_of_snps number_of_covariaets number_of_blocks number_of_folds number_of_parties number_of_blocks_per_run
 ```
 
 ```bash
-python run_client.sh 8110 1000 10000 5 2 5 3 p 2 "../test_site/"
+python run_client.sh 8110 1000 10000 5 2 5 3 2 1 "../test_site/"
+python run_client.sh 8110 1000 10000 5 2 5 3 2 2 "../test_site/"
+python run_client.sh 8110 1000 10000 5 2 5 3 2 3 "../test_site/"
+
 ```
+which follows the template below -
 ```bash
-python run_client.sh base_port number_of_samples number_of_snps number_of_covariaets number_of_blocks number_of_folds number_of_parties number_of_blocks_per_run party_id folder_where_results_are_stored
+python run_client.sh base_port number_of_samples number_of_snps number_of_covariaets number_of_blocks number_of_folds number_of_blocks_per_run number_of_parties party_id folder_where_results_are_stored
 ```
 
 
