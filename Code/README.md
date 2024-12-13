@@ -64,7 +64,7 @@ The format for starting the server manually is:
 ```bash
 python run_server.sh base_port number_of_samples number_of_snps number_of_covariates number_of_blocks number_of_folds number_of_parties number_of_blocks_per_run
 ```
-Next, activate the clients. For each computational node (party), start a separate instance of run_client.sh:
+Next, activate the computational nodes by calling `run_client.sh`. For each computational node (party), start a separate instance of `run_client.sh`:
 ```bash
 python run_client.sh 8110 1000 10000 5 2 5 3 2 1 "../test_site/"
 python run_client.sh 8110 1000 10000 5 2 5 3 2 2 "../test_site/"
