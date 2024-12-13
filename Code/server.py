@@ -21,7 +21,7 @@ with warnings.catch_warnings():
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--number_of_clients", type=int, required=True)
+    parser.add_argument("--number_of_parties", type=int, required=True)
     parser.add_argument("--base_port", type=int, required=True)
     parser.add_argument("--number_of_samples", type=int, required=True)
     parser.add_argument("--number_of_snps", type=int, required=True)
@@ -30,7 +30,7 @@ def main():
     parser.add_argument("--number_of_folds", type=int, required=True)
     parser.add_argument("--number_of_blocks_per_run", type=int, required=True)
     args = parser.parse_args()
-    B, K, N, M, P, C, R = args.number_of_blocks, args.number_of_folds, args.number_of_samples, args.number_of_snps, args.number_of_clients, args.number_of_covariates, 5
+    B, K, N, M, P, C, R = args.number_of_blocks, args.number_of_folds, args.number_of_samples, args.number_of_snps, args.number_of_parties, args.number_of_covariates, 5
     bulk=args.number_of_blocks_per_run
 
     server_starting = time.time()
@@ -38,7 +38,7 @@ def main():
     level_0_time=0
     level_1_time=0
     server_sockets = []
-    client_sockets = []
+    party_sockets = []
     total_save=0
     total_removed=0
     for _ in range(P):
@@ -54,9 +54,9 @@ def main():
             f.write('Server is ready')
         server.listen(1)
         print(f"Server is listening on port {args.base_port + _ + 1}")
-        client_socket, addr = server.accept()
+        party_socket, addr = server.accept()
         print(f"Accepted connection from {addr}")
-        client_sockets.append(client_socket)
+        party_sockets.append(party_socket)
         server_sockets.append(server)
     print(f'SERVER: time taken to establish connections is {time.time() - server_starting}')
     utilities.print_memory_usage()
@@ -72,19 +72,19 @@ def main():
     
     collection_time = time.time()
     first_two = time.time()
-    aggregated_vector = communication.receive_and_sum(client_sockets)
-    for client_socket in client_sockets:
-        communication.send_data_to_client(client_socket, aggregated_vector)
-    aggregated_vector = communication.receive_and_sum(client_sockets)
-    for client_socket in client_sockets:
-        communication.send_data_to_client(client_socket, aggregated_vector)
+    aggregated_vector = communication.receive_and_sum(party_sockets)
+    for party_socket in party_sockets:
+        communication.send_data_to_party(party_socket, aggregated_vector)
+    aggregated_vector = communication.receive_and_sum(party_sockets)
+    for party_socket in party_sockets:
+        communication.send_data_to_party(party_socket, aggregated_vector)
 
     #####################################################################################################
     #-----------------------DISTRIBUTED PROJECTION OF COVARIATES AND STANDARDIZING----------------------#
     #####################################################################################################
 
     z_receive_time = time.time()
-    total_Z_matrix, masked_Z = communication.receive_sum_and_append(client_sockets)
+    total_Z_matrix, masked_Z = communication.receive_sum_and_append(party_sockets)
     ready_Z = []
     z_cal_time = time.time()
     for p in range(P):
@@ -95,23 +95,23 @@ def main():
     gc.collect()
 
     y_receive_time = time.time()
-    total_Y_matrix, masked_Y = communication.receive_sum_and_append(client_sockets)
+    total_Y_matrix, masked_Y = communication.receive_sum_and_append(party_sockets)
     Y_tilde = []
     y_cal_time = time.time()
     for p in range(P):
         Y_tilde.append(masked_Y[p] - ready_Z[p] @ total_Y_matrix)
     del masked_Y, total_Y_matrix
     y_send_time = time.time()
-    communication.send_data_to_clients(client_sockets, Y_tilde)
+    communication.send_data_to_parties(party_sockets, Y_tilde)
     del Y_tilde
 
     gamma_Y_tilde = []
     gamma_Y_tilde2 = np.zeros((N + 1, 1))
     k_fold_time = time.time()
     for k in range(K):
-        Y_tilde_masked = communication.receive_and_sum(client_sockets)
+        Y_tilde_masked = communication.receive_and_sum(party_sockets)
         gamma_Y_tilde.append(Y_tilde_masked)
-        Y_tilde_masked = communication.receive_and_sum(client_sockets)
+        Y_tilde_masked = communication.receive_and_sum(party_sockets)
         gamma_Y_tilde2 += Y_tilde_masked
     saving=0
 
@@ -139,18 +139,18 @@ def main():
         #------------------------------------------QUALITY CONTROL------------------------------------------#
         #####################################################################################################
 
-        aggregated_vector = communication.receive_and_sum(client_sockets)
-        for client_socket in client_sockets:
-            communication.send_data_to_client(client_socket, aggregated_vector)
-        aggregated_vector = communication.receive_and_sum(client_sockets)
-        for client_socket in client_sockets:
-            communication.send_data_to_client(client_socket, aggregated_vector)
-        aggregated_vector = communication.receive_and_sum(client_sockets)
-        for client_socket in client_sockets:
-            communication.send_data_to_client(client_socket, aggregated_vector)
-        aggregated_vector = communication.receive_and_sum(client_sockets)
-        for client_socket in client_sockets:
-            communication.send_data_to_client(client_socket, aggregated_vector)
+        aggregated_vector = communication.receive_and_sum(party_sockets)
+        for party_socket in party_sockets:
+            communication.send_data_to_party(party_socket, aggregated_vector)
+        aggregated_vector = communication.receive_and_sum(party_sockets)
+        for party_socket in party_sockets:
+            communication.send_data_to_party(party_socket, aggregated_vector)
+        aggregated_vector = communication.receive_and_sum(party_sockets)
+        for party_socket in party_sockets:
+            communication.send_data_to_party(party_socket, aggregated_vector)
+        aggregated_vector = communication.receive_and_sum(party_sockets)
+        for party_socket in party_sockets:
+            communication.send_data_to_party(party_socket, aggregated_vector)
 
         #####################################################################################################
         #-----------------------DISTRIBUTED PROJECTION OF COVARIATES AND STANDARDIZING----------------------#
@@ -161,8 +161,8 @@ def main():
         total_X_matrix=[[] for _ in range(current_count)]
         masked_X=[[] for _ in range(current_count)]
         for _ in range(current_count):
-            total_X_matrix[_], masked_X[_]=communication.receive_sum_and_append(client_sockets)
-            communication.send_data_to_clients(client_sockets,aggregated_vector)
+            total_X_matrix[_], masked_X[_]=communication.receive_sum_and_append(party_sockets)
+            communication.send_data_to_parties(party_sockets,aggregated_vector)
         for _ in range(current_count):
             utilities.print_sys_info()
             X_tilde = []
@@ -171,7 +171,7 @@ def main():
                 result = masked_X[_][idx] - (ready_Z[idx] @ total_X_matrix[_])
                 X_tilde.append(result)
 
-            communication.send_data_to_clients(client_sockets, X_tilde)
+            communication.send_data_to_parties(party_sockets, X_tilde)
         del total_X_matrix, masked_X
 
         #####################################################################################################
@@ -183,17 +183,17 @@ def main():
 
         total = [[] for _ in range(current_count)]
         for _ in  range(current_count):
-            total[_]=communication.receive_and_sum(client_sockets)
+            total[_]=communication.receive_and_sum(party_sockets)
         X_tilde_masked_k=[[] for _ in range(current_count)]
         for _ in range(current_count):
             for k in range(K):
-                X_tilde_masked_k[_] = communication.receive_and_sum(client_sockets)
+                X_tilde_masked_k[_] = communication.receive_and_sum(party_sockets)
                 gamma_X_beta[_].append(X_tilde_masked_k[_])
                 gamma_X_beta2[_].append(total[_] - X_tilde_masked_k[_])
         del total
 
         for _ in range(current_count):
-            gamma=communication.receive_and_sum(client_sockets)
+            gamma=communication.receive_and_sum(party_sockets)
             X_cal.append(gamma)
         del gamma
 
