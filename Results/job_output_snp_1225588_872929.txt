@@ -1,0 +1,60 @@
+Starting job script for server
+Activating conda environment for server
+Starting job script for client 1
+Starting job script for client 2
+Activating conda environment for client 1
+Activating conda environment for client 2
+Server is listening on port 9181
+server ready file exists
+CLient 1 connecting via 9181
+Accepted connection from ('10.158.1.13', 43914)
+Server is listening on port 9182
+server ready file exists
+CLient 2 connecting via 9182
+Accepted connection from ('10.158.1.15', 51986)
+SERVER: time taken to establish connections is 2.1307687759399414
+RAM usage: 111.92 MB
+RAM usage: 3723.41 MB
+RAM usage: 3801.24 MB
+printing delta for p = 1 with parameters (1225588, 150, 1, 2, 9178, 2, 8170, 72, 24)
+RAM usage: 80032.00 MB
+DONE! Took for all 25 blocks, 738.0071918964386
+RAM usage: 18977.40 MB
+RAM usage: 19038.78 MB
+printing delta for p = 1 with parameters (1225588, 150, 1, 2, 9178, 2, 8170, 60, 49)
+RAM usage: 87476.71 MB
+DONE! Took for all 25 blocks, 713.80677485466
+RAM usage: 19060.75 MB
+RAM usage: 19005.25 MB
+printing delta for p = 1 with parameters (1225588, 150, 1, 2, 9178, 2, 8170, 8, 74)
+RAM usage: 94625.19 MB
+DONE! Took for all 25 blocks, 730.049060344696
+RAM usage: 19000.66 MB
+RAM usage: 19083.07 MB
+printing delta for p = 1 with parameters (1225588, 150, 1, 2, 9178, 2, 8170, 97, 99)
+RAM usage: 101784.26 MB
+DONE! Took for all 25 blocks, 727.9339439868927
+RAM usage: 19012.30 MB
+RAM usage: 19084.13 MB
+printing delta for p = 1 with parameters (1225588, 150, 1, 2, 9178, 2, 8170, 90, 124)
+RAM usage: 108935.56 MB
+DONE! Took for all 25 blocks, 728.2878913879395
+RAM usage: 19003.61 MB
+RAM usage: 19068.87 MB
+printing delta for p = 1 with parameters (1225588, 150, 1, 2, 9178, 2, 8258, 41, 149)
+TIME TAKEN FOR 150 blocks is 6834.970524787903
+reduce from server 0.031740427017211914
+TIME TAKEN FOR 150 blocks is 6835.03569817543
+reduce from server 0.03410911560058594
+SIZE OF DATA IN TOTAL FOR 150 blocks is 377.74097026512027
+SIZE OF DATA IN TOTAL FOR 150 blocks is 377.74097026512027
+RAM usage: 116066.99 MB
+DONE! Took for all 25 blocks, 738.3495330810547
+RAM usage: 116074.25 MB
+TIME RESULTS
+Time taken for pre_gwas_communication and computations - 4380.847248077393
+Time taken for level 0 - 2960.770891427994
+Time taken for level 1 - 131.23047757148743
+TOTAL TIME FOR PROGRAM is 7472.848617076874
+Formatted - 0.0d 2.0h 4.0m 32.84861707687378s
+Job script finished

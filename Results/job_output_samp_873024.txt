@@ -1,0 +1,101 @@
+Starting job script for server
+Activating conda environment for server
+Starting job script for client 1
+Starting job script for client 2
+Activating conda environment for client 1
+Activating conda environment for client 2
+Server is listening on port 8101
+server ready file exists
+CLient 1 connecting via 8101
+Accepted connection from ('10.158.1.18', 33900)
+Server is listening on port 8102
+server ready file exists
+CLient 2 connecting via 8102
+Accepted connection from ('10.158.1.19', 53722)
+SERVER: time taken to establish connections is 2.030674457550049
+RAM usage: 111.88 MB
+RAM usage: 4045.21 MB
+RAM usage: 3984.64 MB
+printing delta for p = 1 with parameters (612794, 150, 1, 2, 36712, 2, 4085, 75, 12)
+RAM usage: 93387.98 MB
+DONE! Took for all 13 blocks, 889.0316240787506
+RAM usage: 20100.92 MB
+RAM usage: 20111.32 MB
+printing delta for p = 1 with parameters (612794, 150, 1, 2, 36712, 2, 4085, 57, 25)
+RAM usage: 100921.33 MB
+DONE! Took for all 13 blocks, 856.8853929042816
+RAM usage: 20117.05 MB
+RAM usage: 20129.82 MB
+printing delta for p = 1 with parameters (612794, 150, 1, 2, 36712, 2, 4085, 21, 38)
+RAM usage: 108348.56 MB
+DONE! Took for all 13 blocks, 840.1572532653809
+RAM usage: 20146.69 MB
+RAM usage: 20125.58 MB
+printing delta for p = 1 with parameters (612794, 150, 1, 2, 36712, 2, 4085, 4, 51)
+RAM usage: 113827.99 MB
+DONE! Took for all 13 blocks, 847.4913787841797
+RAM usage: 20071.70 MB
+RAM usage: 20111.61 MB
+printing delta for p = 1 with parameters (612794, 150, 1, 2, 36712, 2, 4085, 11, 64)
+RAM usage: 113841.81 MB
+DONE! Took for all 13 blocks, 850.9848475456238
+RAM usage: 20148.45 MB
+RAM usage: 20114.24 MB
+printing delta for p = 1 with parameters (612794, 150, 1, 2, 36712, 2, 4085, 16, 77)
+RAM usage: 114474.30 MB
+DONE! Took for all 13 blocks, 838.1155667304993
+RAM usage: 20133.45 MB
+RAM usage: 20161.13 MB
+printing delta for p = 1 with parameters (612794, 150, 1, 2, 36712, 2, 4085, 66, 90)
+RAM usage: 113841.40 MB
+DONE! Took for all 13 blocks, 851.7822768688202
+RAM usage: 20194.38 MB
+RAM usage: 20159.64 MB
+printing delta for p = 1 with parameters (612794, 150, 1, 2, 36712, 2, 4085, 52, 103)
+run_server.sh: line 9: 1390529 Killed                  python -u server.py --number_of_clients $7 --base_port $1 --number_of_samples $2 --number_of_snps $3 --number_of_covariates $4 --number_of_blocks $5 --number_of_folds $6 --number_of_blocks_per_run $8
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=873024.0 cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
+srun: error: tcml-node17: task 0: Out Of Memory
+Traceback (most recent call last):
+  File "/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py", line 630, in <module>
+    cProfile.run('main()', '/home/swaminathan/ppREGENIE/Data/client.pstats')
+  File "/home/swaminathan/miniconda3/envs/ppregenie_env/lib/python3.11/cProfile.py", line 17, in run
+    return _pyprofile._Utils(Profile).run(statement, filename, sort)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/swaminathan/miniconda3/envs/ppregenie_env/lib/python3.11/profile.py", line 54, in run
+    prof.run(statement)
+  File "/home/swaminathan/miniconda3/envs/ppregenie_env/lib/python3.11/cProfile.py", line 96, in run
+    return self.runctx(cmd, dict, dict)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/swaminathan/miniconda3/envs/ppregenie_env/lib/python3.11/cProfile.py", line 101, in runctx
+    exec(cmd, globals, locals)
+  File "<string>", line 1, in <module>
+  File "/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py", line 537, in main
+    X = GWAS_lib.receive_data_from_server(client_socket)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/GWAS_lib.py", line 244, in receive_data_from_server
+    data_size_bytes = server_socket.recv(8)  # Since the data size is packed using '!Q' which is 8 bytes
+                      ^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 104] Connection reset by peer
+Traceback (most recent call last):
+  File "/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py", line 630, in <module>
+    cProfile.run('main()', '/home/swaminathan/ppREGENIE/Data/client.pstats')
+  File "/home/swaminathan/miniconda3/envs/ppregenie_env/lib/python3.11/cProfile.py", line 17, in run
+    return _pyprofile._Utils(Profile).run(statement, filename, sort)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/swaminathan/miniconda3/envs/ppregenie_env/lib/python3.11/profile.py", line 54, in run
+    prof.run(statement)
+  File "/home/swaminathan/miniconda3/envs/ppregenie_env/lib/python3.11/cProfile.py", line 96, in run
+    return self.runctx(cmd, dict, dict)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/swaminathan/miniconda3/envs/ppregenie_env/lib/python3.11/cProfile.py", line 101, in runctx
+    exec(cmd, globals, locals)
+  File "<string>", line 1, in <module>
+  File "/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/client.py", line 533, in main
+    GWAS_lib.send_data_to_server(client_socket, masked_X[_], p)
+  File "/mnt/beegfs/home/swaminathan/ppREGENIE/ppREGENIE/cluster_blocked/GWAS_lib.py", line 75, in send_data_to_server
+    client_socket.sendall(data_size)
+ConnectionResetError: [Errno 104] Connection reset by peer
+srun: error: tcml-node18: task 0: Exited with exit code 1
+srun: error: tcml-node19: task 0: Exited with exit code 1
+Job script finished
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=873024.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.

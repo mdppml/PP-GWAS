@@ -1,0 +1,50 @@
+Starting job script for server
+Activating conda environment for server
+Starting job script for client 2
+Starting job script for client 1
+Activating conda environment for client 2
+Activating conda environment for client 1
+Server is listening on port 9261
+server ready file exists
+CLient 1 connecting via 9261
+Accepted connection from ('10.158.1.4', 47996)
+Server is listening on port 9262
+server ready file exists
+CLient 2 connecting via 9262
+Accepted connection from ('10.158.1.5', 37198)
+SERVER: time taken to establish connections is 1.9191014766693115
+RAM usage: 111.80 MB
+RAM usage: 4803.42 MB
+RAM usage: 4882.80 MB
+printing delta for p = 1 with parameters (566620, 70, 1, 2, 13060, 2, 8094, 3, 22)
+RAM usage: 104278.41 MB
+DONE! Took for all 23 blocks, 990.7848494052887
+RAM usage: 24519.15 MB
+RAM usage: 24558.59 MB
+printing delta for p = 1 with parameters (566620, 70, 1, 2, 13060, 2, 8094, 67, 45)
+RAM usage: 113844.71 MB
+DONE! Took for all 23 blocks, 943.6583745479584
+RAM usage: 24557.00 MB
+RAM usage: 24603.33 MB
+printing delta for p = 1 with parameters (566620, 70, 1, 2, 13060, 2, 8094, 90, 68)
+RAM usage: 20108.68 MB
+RAM usage: 20137.96 MB
+RAM usage: 113752.14 MB
+DONE! Took for all 23 blocks, 959.3293738365173
+printing delta for p = 1 with parameters (566620, 70, 1, 2, 13060, 2, 8134, 63, 69)
+TIME TAKEN FOR 70 blocks is 4610.798301458359
+reduce from server 0.014386892318725586
+SIZE OF DATA IN TOTAL FOR 70 blocks is 248.5305447243154
+TIME TAKEN FOR 70 blocks is 4610.736285686493
+reduce from server 0.015589237213134766
+SIZE OF DATA IN TOTAL FOR 70 blocks is 248.5305447243154
+RAM usage: 25459.22 MB
+DONE! Took for all 23 blocks, 50.08179020881653
+RAM usage: 25461.91 MB
+TIME RESULTS
+Time taken for pre_gwas_communication and computations - 2949.2457909584045
+Time taken for level 0 - 1690.7883830070496
+Time taken for level 1 - 332.32712745666504
+TOTAL TIME FOR PROGRAM is 4972.361301422119
+Formatted - 0.0d 1.0h 22.0m 52.36130142211914s
+Job script finished

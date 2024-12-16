@@ -1,0 +1,85 @@
+Starting job script for server
+Activating conda environment for server
+Starting job script for client 1
+Starting job script for client 2
+Activating conda environment for client 1
+Activating conda environment for client 2
+Server is listening on port 8051
+server ready file exists
+CLient 1 connecting via 8051
+Accepted connection from ('10.158.1.13', 44654)
+Server is listening on port 8052
+server ready file exists
+CLient 2 connecting via 8052
+Accepted connection from ('10.158.1.14', 41638)
+SERVER: time taken to establish connections is 2.3974757194519043
+RAM usage: 111.88 MB
+RAM usage: 3221.31 MB
+RAM usage: 3297.06 MB
+printing delta for p = 1 with parameters (612794, 75, 1, 2, 27534, 2, 8170, 62, 6)
+RAM usage: 17096.81 MB
+RAM usage: 73729.80 MB
+DONE! Took for all 7 blocks, 643.0304563045502
+RAM usage: 17069.09 MB
+printing delta for p = 1 with parameters (612794, 75, 1, 2, 27534, 2, 8170, 62, 13)
+RAM usage: 17087.28 MB
+RAM usage: 80038.59 MB
+DONE! Took for all 7 blocks, 627.0742211341858
+RAM usage: 17085.71 MB
+printing delta for p = 1 with parameters (612794, 75, 1, 2, 27534, 2, 8170, 32, 20)
+RAM usage: 17154.90 MB
+RAM usage: 86040.42 MB
+DONE! Took for all 7 blocks, 627.9288651943207
+RAM usage: 17119.66 MB
+printing delta for p = 1 with parameters (612794, 75, 1, 2, 27534, 2, 8170, 18, 27)
+RAM usage: 17140.61 MB
+RAM usage: 17116.50 MB
+RAM usage: 92044.87 MB
+DONE! Took for all 7 blocks, 631.5607490539551
+printing delta for p = 1 with parameters (612794, 75, 1, 2, 27534, 2, 8170, 9, 34)
+RAM usage: 98049.82 MB
+DONE! Took for all 7 blocks, 628.1488649845123
+RAM usage: 17130.47 MB
+RAM usage: 17164.21 MB
+printing delta for p = 1 with parameters (612794, 75, 1, 2, 27534, 2, 8170, 17, 41)
+RAM usage: 104059.55 MB
+DONE! Took for all 7 blocks, 625.8843102455139
+RAM usage: 17172.32 MB
+RAM usage: 17122.62 MB
+printing delta for p = 1 with parameters (612794, 75, 1, 2, 27534, 2, 8170, 5, 48)
+RAM usage: 110064.14 MB
+DONE! Took for all 7 blocks, 622.8637228012085
+RAM usage: 17093.95 MB
+RAM usage: 17143.65 MB
+printing delta for p = 1 with parameters (612794, 75, 1, 2, 27534, 2, 8170, 69, 55)
+RAM usage: 17150.55 MB
+RAM usage: 17123.12 MB
+RAM usage: 115999.06 MB
+DONE! Took for all 7 blocks, 631.1439504623413
+printing delta for p = 1 with parameters (612794, 75, 1, 2, 27534, 2, 8170, 8, 62)
+RAM usage: 116016.04 MB
+DONE! Took for all 7 blocks, 626.4355833530426
+RAM usage: 17129.65 MB
+RAM usage: 17154.55 MB
+printing delta for p = 1 with parameters (612794, 75, 1, 2, 27534, 2, 8170, 49, 69)
+RAM usage: 16296.36 MB
+RAM usage: 16269.98 MB
+RAM usage: 117567.25 MB
+DONE! Took for all 7 blocks, 638.7679018974304
+printing delta for p = 1 with parameters (612794, 75, 1, 2, 27534, 2, 8214, 37, 74)
+TIME TAKEN FOR 75 blocks is 9531.209521055222
+reduce from server 0.02640223503112793
+SIZE OF DATA IN TOTAL FOR 75 blocks is 566.5015231408179
+TIME TAKEN FOR 75 blocks is 9531.581984519958
+reduce from server 0.022751808166503906
+SIZE OF DATA IN TOTAL FOR 75 blocks is 566.5015231408179
+RAM usage: 102490.67 MB
+DONE! Took for all 7 blocks, 457.4247543811798
+RAM usage: 102494.84 MB
+TIME RESULTS
+Time taken for pre_gwas_communication and computations - 6772.860115289688
+Time taken for level 0 - 2956.4778962135315
+Time taken for level 1 - 503.5373504161835
+TOTAL TIME FOR PROGRAM is 10232.875361919403
+Formatted - 0.0d 2.0h 50.0m 32.875361919403076s
+Job script finished

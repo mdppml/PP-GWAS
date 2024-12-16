@@ -1,0 +1,73 @@
+Starting job script for server
+Activating conda environment for server
+Starting job script for client 1
+Starting job script for client 2
+Starting job script for client 3
+Starting job script for client 4
+Activating conda environment for client 1
+Activating conda environment for client 2
+Activating conda environment for client 3
+Activating conda environment for client 4
+Server is listening on port 8141
+server ready file exists
+CLient 1 connecting via 8141
+Accepted connection from ('10.158.1.18', 36436)
+Server is listening on port 8142
+server ready file exists
+CLient 2 connecting via 8142
+Accepted connection from ('10.158.1.19', 60474)
+Server is listening on port 8143
+server ready file exists
+CLient 3 connecting via 8143
+Accepted connection from ('10.158.1.20', 43006)
+Server is listening on port 8144
+server ready file exists
+CLient 4 connecting via 8144
+Accepted connection from ('10.158.1.21', 38332)
+SERVER: time taken to establish connections is 3.0220134258270264
+RAM usage: 111.90 MB
+RAM usage: 2125.06 MB
+RAM usage: 2089.50 MB
+RAM usage: 2104.16 MB
+RAM usage: 2053.44 MB
+printing delta for p = 1 with parameters (612794, 75, 1, 4, 9178, 2, 8170, 64, 26)
+printing delta for p = 2 with parameters (612794, 75, 2, 4, 9178, 2, 8170, 16, 25)
+printing delta for p = 3 with parameters (612794, 75, 3, 4, 9178, 2, 8170, 96, 24)
+RAM usage: 87548.55 MB
+DONE! Took for all 27 blocks, 1279.2934153079987
+RAM usage: 18543.12 MB
+RAM usage: 18529.90 MB
+RAM usage: 18510.93 MB
+RAM usage: 18478.53 MB
+printing delta for p = 2 with parameters (612794, 75, 2, 4, 9178, 2, 8170, 36, 52)
+printing delta for p = 1 with parameters (612794, 75, 1, 4, 9178, 2, 8170, 46, 53)
+printing delta for p = 3 with parameters (612794, 75, 3, 4, 9178, 2, 8170, 45, 51)
+RAM usage: 18126.12 MB
+RAM usage: 18115.25 MB
+RAM usage: 18145.12 MB
+RAM usage: 95569.21 MB
+DONE! Took for all 27 blocks, 1301.2819905281067
+RAM usage: 18091.05 MB
+printing delta for p = 1 with parameters (612794, 75, 1, 4, 9178, 2, 8214, 79, 74)
+TIME TAKEN FOR 75 blocks is 4801.055055141449
+reduce from server 0.013744115829467773
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.87443721666932
+TIME TAKEN FOR 75 blocks is 4801.110428094864
+reduce from server 0.012610197067260742
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.87443721666932
+TIME TAKEN FOR 75 blocks is 4799.976739168167
+reduce from server 0.017087459564208984
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.87443721666932
+TIME TAKEN FOR 75 blocks is 4801.353269100189
+reduce from server 0.012102127075195312
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.87443721666932
+RAM usage: 84440.14 MB
+DONE! Took for all 27 blocks, 1138.0399627685547
+RAM usage: 84443.52 MB
+TIME RESULTS
+Time taken for pre_gwas_communication and computations - 3724.2333512306213
+Time taken for level 0 - 1513.6878345012665
+Time taken for level 1 - 64.66952133178711
+TOTAL TIME FOR PROGRAM is 5302.590707063675
+Formatted - 0.0d 1.0h 28.0m 22.590707063674927s
+Job script finished

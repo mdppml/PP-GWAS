@@ -1,0 +1,107 @@
+Starting job script for server
+Activating conda environment for server
+Starting job script for client 1
+Starting job script for client 2
+Starting job script for client 3
+Starting job script for client 4
+Starting job script for client 5
+Starting job script for client 6
+Activating conda environment for client 1
+Activating conda environment for client 2
+Activating conda environment for client 3
+Activating conda environment for client 4
+Activating conda environment for client 6
+Activating conda environment for client 5
+loop number 0
+Server is listening on port 8201
+server ready file exists
+CLient 1 connecting via 8201
+Accepted connection from ('10.158.1.6', 51924)
+loop number 1
+Server is listening on port 8202
+server ready file exists
+CLient 2 connecting via 8202
+Accepted connection from ('10.158.1.7', 55154)
+loop number 2
+Server is listening on port 8203
+server ready file exists
+CLient 3 connecting via 8203
+Accepted connection from ('10.158.1.8', 38922)
+loop number 3
+Server is listening on port 8204
+server ready file exists
+CLient 4 connecting via 8204
+Accepted connection from ('10.158.1.9', 53022)
+loop number 4
+Server is listening on port 8205
+server ready file exists
+CLient 5 connecting via 8205
+Accepted connection from ('10.158.1.25', 51626)
+loop number 5
+Server is listening on port 8206
+server ready file exists
+CLient 6 connecting via 8206
+Accepted connection from ('10.158.1.26', 39714)
+SERVER: time taken to establish connections is 1.817805528640747
+RAM usage: 111.94 MB
+RAM usage: 1751.65 MB
+RAM usage: 1748.45 MB
+RAM usage: 1780.51 MB
+RAM usage: 1780.68 MB
+RAM usage: 1774.27 MB
+RAM usage: 1807.07 MB
+printing delta for p = 1 with parameters (581927, 71, 1, 6, 11500, 2, 8196, 72, 26)
+printing delta for p = 2 with parameters (581927, 71, 2, 6, 11500, 2, 8196, 13, 25)
+printing delta for p = 3 with parameters (581927, 71, 3, 6, 11500, 2, 8196, 40, 24)
+RAM usage: 112145.70 MB
+DONE! Took for all 27 blocks, 2449.809949159622
+RAM usage: 22309.94 MB
+RAM usage: 22301.56 MB
+RAM usage: 22862.43 MB
+RAM usage: 22875.72 MB
+RAM usage: 22873.37 MB
+RAM usage: 22868.90 MB
+printing delta for p = 1 with parameters (581927, 71, 1, 6, 11500, 2, 8196, 49, 53)
+printing delta for p = 3 with parameters (581927, 71, 3, 6, 11500, 2, 8196, 51, 51)
+printing delta for p = 2 with parameters (581927, 71, 2, 6, 11500, 2, 8196, 49, 52)
+RAM usage: 121856.33 MB
+DONE! Took for all 27 blocks, 2460.467954158783
+RAM usage: 22723.11 MB
+RAM usage: 22717.67 MB
+RAM usage: 22496.01 MB
+RAM usage: 22323.21 MB
+RAM usage: 22584.22 MB
+RAM usage: 22739.68 MB
+printing delta for p = 4 with parameters (581927, 71, 4, 6, 11500, 2, 8196, 89, 67)
+printing delta for p = 2 with parameters (581927, 71, 2, 6, 11500, 2, 8196, 73, 69)
+printing delta for p = 1 with parameters (581927, 71, 1, 6, 11500, 2, 8207, 12, 70)
+printing delta for p = 5 with parameters (581927, 71, 5, 6, 11500, 2, 8196, 59, 66)
+printing delta for p = 3 with parameters (581927, 71, 3, 6, 11500, 2, 8196, 3, 68)
+TIME TAKEN FOR 71 blocks is 7839.754184246063
+reduce from server 0.017203092575073242
+SIZE OF DATA IN TOTAL FOR 71 blocks is 224.6868930310011
+TIME TAKEN FOR 71 blocks is 7839.366360902786
+reduce from server 0.017749786376953125
+SIZE OF DATA IN TOTAL FOR 71 blocks is 224.6868930310011
+TIME TAKEN FOR 71 blocks is 7839.601841926575
+reduce from server 0.015296459197998047
+SIZE OF DATA IN TOTAL FOR 71 blocks is 224.6868930310011
+TIME TAKEN FOR 71 blocks is 7839.96389913559
+reduce from server 0.015213966369628906
+SIZE OF DATA IN TOTAL FOR 71 blocks is 224.6868930310011
+TIME TAKEN FOR 71 blocks is 7839.531165599823
+reduce from server 0.015703439712524414
+SIZE OF DATA IN TOTAL FOR 71 blocks is 224.6868930310011
+TIME TAKEN FOR 71 blocks is 7839.957236528397
+reduce from server 0.015872478485107422
+SIZE OF DATA IN TOTAL FOR 71 blocks is 224.6868930310011
+RAM usage: 89623.14 MB
+DONE! Took for all 27 blocks, 1773.7413454055786
+RAM usage: 89623.86 MB
+TIME RESULTS
+Time taken for pre_gwas_communication and computations - 6689.653094530106
+Time taken for level 0 - 1555.1811118125916
+Time taken for level 1 - 145.93379402160645
+TOTAL TIME FOR PROGRAM is 8390.768000364304
+Formatted - 0.0d 2.0h 19.0m 50.76800036430359s
+Job script finished

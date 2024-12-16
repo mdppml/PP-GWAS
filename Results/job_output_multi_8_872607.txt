@@ -1,0 +1,151 @@
+Starting job script for server
+Activating conda environment for server
+Starting job script for client 1
+Starting job script for client 2
+Starting job script for client 3
+Starting job script for client 4
+Starting job script for client 5
+Starting job script for client 6
+Starting job script for client 7
+Starting job script for client 8
+Activating conda environment for client 1
+Activating conda environment for client 2
+Activating conda environment for client 4
+Activating conda environment for client 3
+Activating conda environment for client 5
+Activating conda environment for client 6
+Activating conda environment for client 7
+Activating conda environment for client 8
+Server is listening on port 8561
+server ready file exists
+CLient 1 connecting via 8561
+Accepted connection from ('10.158.1.13', 46594)
+Server is listening on port 8562
+server ready file exists
+CLient 2 connecting via 8562
+Accepted connection from ('10.158.1.14', 42916)
+Server is listening on port 8563
+server ready file exists
+CLient 3 connecting via 8563
+Accepted connection from ('10.158.1.15', 44692)
+Server is listening on port 8564
+server ready file exists
+CLient 4 connecting via 8564
+Accepted connection from ('10.158.1.16', 33598)
+Server is listening on port 8565
+server ready file exists
+CLient 5 connecting via 8565
+Accepted connection from ('10.158.1.17', 52126)
+Server is listening on port 8566
+server ready file exists
+CLient 6 connecting via 8566
+Accepted connection from ('10.158.1.18', 45106)
+Server is listening on port 8567
+server ready file exists
+CLient 7 connecting via 8567
+Accepted connection from ('10.158.1.19', 48154)
+Server is listening on port 8568
+server ready file exists
+CLient 8 connecting via 8568
+Accepted connection from ('10.158.1.20', 56140)
+SERVER: time taken to establish connections is 2.331482172012329
+RAM usage: 111.90 MB
+RAM usage: 971.75 MB
+RAM usage: 949.48 MB
+RAM usage: 959.06 MB
+RAM usage: 993.85 MB
+RAM usage: 972.06 MB
+RAM usage: 971.61 MB
+RAM usage: 971.55 MB
+RAM usage: 951.15 MB
+printing delta for p = 7 with parameters (612794, 75, 7, 8, 9178, 2, 8170, 92, 16)
+printing delta for p = 2 with parameters (612794, 75, 2, 8, 9178, 2, 8170, 28, 21)
+printing delta for p = 3 with parameters (612794, 75, 3, 8, 9178, 2, 8170, 71, 20)
+printing delta for p = 6 with parameters (612794, 75, 6, 8, 9178, 2, 8170, 76, 17)
+printing delta for p = 1 with parameters (612794, 75, 1, 8, 9178, 2, 8170, 50, 22)
+printing delta for p = 5 with parameters (612794, 75, 5, 8, 9178, 2, 8170, 31, 18)
+printing delta for p = 4 with parameters (612794, 75, 4, 8, 9178, 2, 8170, 49, 19)
+RAM usage: 15745.01 MB
+RAM usage: 15754.48 MB
+RAM usage: 15752.31 MB
+RAM usage: 15027.42 MB
+RAM usage: 15756.82 MB
+RAM usage: 15519.12 MB
+RAM usage: 15039.14 MB
+RAM usage: 15743.53 MB
+RAM usage: 77400.67 MB
+DONE! Took for all 23 blocks, 2692.8344259262085
+printing delta for p = 4 with parameters (612794, 75, 4, 8, 9178, 2, 8170, 6, 42)
+printing delta for p = 3 with parameters (612794, 75, 3, 8, 9178, 2, 8170, 35, 43)
+printing delta for p = 5 with parameters (612794, 75, 5, 8, 9178, 2, 8170, 84, 41)
+printing delta for p = 1 with parameters (612794, 75, 1, 8, 9178, 2, 8170, 72, 45)
+printing delta for p = 6 with parameters (612794, 75, 6, 8, 9178, 2, 8170, 76, 40)
+printing delta for p = 7 with parameters (612794, 75, 7, 8, 9178, 2, 8170, 6, 39)
+printing delta for p = 2 with parameters (612794, 75, 2, 8, 9178, 2, 8170, 46, 44)
+RAM usage: 15542.00 MB
+RAM usage: 15648.99 MB
+RAM usage: 15049.57 MB
+RAM usage: 15641.93 MB
+RAM usage: 15615.85 MB
+RAM usage: 15129.20 MB
+RAM usage: 15694.77 MB
+RAM usage: 15642.80 MB
+RAM usage: 84262.07 MB
+DONE! Took for all 23 blocks, 2626.632119655609
+printing delta for p = 2 with parameters (612794, 75, 2, 8, 9178, 2, 8170, 37, 67)
+printing delta for p = 3 with parameters (612794, 75, 3, 8, 9178, 2, 8170, 57, 66)
+printing delta for p = 7 with parameters (612794, 75, 7, 8, 9178, 2, 8170, 39, 62)
+printing delta for p = 1 with parameters (612794, 75, 1, 8, 9178, 2, 8170, 52, 68)
+printing delta for p = 5 with parameters (612794, 75, 5, 8, 9178, 2, 8170, 91, 64)
+printing delta for p = 4 with parameters (612794, 75, 4, 8, 9178, 2, 8170, 35, 65)
+printing delta for p = 6 with parameters (612794, 75, 6, 8, 9178, 2, 8170, 12, 63)
+RAM usage: 15486.09 MB
+RAM usage: 15434.58 MB
+RAM usage: 15586.55 MB
+RAM usage: 14917.31 MB
+RAM usage: 15455.91 MB
+RAM usage: 15626.67 MB
+RAM usage: 14883.27 MB
+RAM usage: 15436.98 MB
+RAM usage: 84182.23 MB
+DONE! Took for all 23 blocks, 2283.3327317237854
+printing delta for p = 1 with parameters (612794, 75, 1, 8, 9178, 2, 8214, 24, 74)
+printing delta for p = 6 with parameters (612794, 75, 6, 8, 9178, 2, 8170, 28, 69)
+printing delta for p = 2 with parameters (612794, 75, 2, 8, 9178, 2, 8170, 47, 73)
+printing delta for p = 5 with parameters (612794, 75, 5, 8, 9178, 2, 8170, 42, 70)
+printing delta for p = 3 with parameters (612794, 75, 3, 8, 9178, 2, 8170, 21, 72)
+printing delta for p = 4 with parameters (612794, 75, 4, 8, 9178, 2, 8170, 94, 71)
+TIME TAKEN FOR 75 blocks is 9569.113208770752
+TIME TAKEN FOR 75 blocks is 9569.205175876617
+reduce from server 0.015567302703857422
+TIME TAKEN FOR 75 blocks is 9568.977319717407
+reduce from server 0.016065120697021484
+reduce from server 0.01679706573486328
+TIME TAKEN FOR 75 blocks is 9568.952884435654
+reduce from server 0.01848912239074707
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.84612162783742
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.84612162783742
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.84612162783742
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.84612162783742
+TIME TAKEN FOR 75 blocks is 9568.521005630493
+reduce from server 0.017810821533203125
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.84612162783742
+TIME TAKEN FOR 75 blocks is 9568.785187005997
+reduce from server 0.0174100399017334
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.84612162783742
+TIME TAKEN FOR 75 blocks is 9568.753427743912
+reduce from server 0.017206430435180664
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.84612162783742
+TIME TAKEN FOR 75 blocks is 9569.127022266388
+reduce from server 0.01651906967163086
+SIZE OF DATA IN TOTAL FOR 75 blocks is 188.84612162783742
+RAM usage: 37288.65 MB
+DONE! Took for all 23 blocks, 592.5268368721008
+RAM usage: 37291.99 MB
+TIME RESULTS
+Time taken for pre_gwas_communication and computations - 8200.364111661911
+Time taken for level 0 - 1491.3821785449982
+Time taken for level 1 - 249.17658281326294
+TOTAL TIME FOR PROGRAM is 9940.922873020172
+Formatted - 0.0d 2.0h 45.0m 40.92287302017212s
+Job script finished

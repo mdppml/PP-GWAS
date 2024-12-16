@@ -1,0 +1,86 @@
+Starting job script for server
+Activating conda environment for server
+Starting job script for client 1
+Starting job script for client 2
+Activating conda environment for client 1
+Activating conda environment for client 2
+Server is listening on port 9301
+server ready file exists
+CLient 1 connecting via 9301
+Accepted connection from ('10.158.1.17', 57930)
+Server is listening on port 9302
+server ready file exists
+CLient 2 connecting via 9302
+Accepted connection from ('10.158.1.19', 35922)
+SERVER: time taken to establish connections is 2.3270013332366943
+RAM usage: 111.89 MB
+RAM usage: 3292.28 MB
+RAM usage: 3365.01 MB
+RAM usage: 70592.46 MB
+DONE! Took for all 22 blocks, 665.8770678043365
+RAM usage: 16794.80 MB
+RAM usage: 16843.19 MB
+RAM usage: 77177.35 MB
+DONE! Took for all 22 blocks, 646.9455497264862
+RAM usage: 16829.30 MB
+RAM usage: 16875.53 MB
+RAM usage: 83470.53 MB
+DONE! Took for all 22 blocks, 641.7555718421936
+RAM usage: 16837.04 MB
+RAM usage: 16880.45 MB
+RAM usage: 89767.65 MB
+DONE! Took for all 22 blocks, 646.2801828384399
+RAM usage: 16832.91 MB
+RAM usage: 16881.55 MB
+RAM usage: 96124.82 MB
+DONE! Took for all 22 blocks, 670.4656498432159
+RAM usage: 16825.93 MB
+RAM usage: 16874.59 MB
+RAM usage: 102351.15 MB
+DONE! Took for all 22 blocks, 641.1393115520477
+RAM usage: 16835.90 MB
+RAM usage: 16875.05 MB
+RAM usage: 108648.74 MB
+DONE! Took for all 22 blocks, 652.5100767612457
+RAM usage: 16839.45 MB
+RAM usage: 16882.32 MB
+RAM usage: 114940.45 MB
+DONE! Took for all 22 blocks, 665.6234202384949
+RAM usage: 16830.16 MB
+RAM usage: 16875.70 MB
+RAM usage: 116437.15 MB
+DONE! Took for all 22 blocks, 654.5375740528107
+RAM usage: 16843.34 MB
+RAM usage: 16879.45 MB
+RAM usage: 117167.57 MB
+DONE! Took for all 22 blocks, 655.1446118354797
+RAM usage: 16839.73 MB
+RAM usage: 16879.38 MB
+RAM usage: 117193.52 MB
+DONE! Took for all 22 blocks, 648.0489151477814
+RAM usage: 16843.67 MB
+RAM usage: 16885.70 MB
+RAM usage: 117076.59 MB
+DONE! Took for all 22 blocks, 681.6824297904968
+RAM usage: 16833.88 MB
+RAM usage: 16875.73 MB
+RAM usage: 117089.36 MB
+DONE! Took for all 22 blocks, 668.8910913467407
+RAM usage: 15721.62 MB
+RAM usage: 15703.73 MB
+TIME TAKEN FOR 300 blocks is 14489.548573732376
+reduce from server 0.06879210472106934
+SIZE OF DATA IN TOTAL FOR 300 blocks is 755.5153476707637
+TIME TAKEN FOR 300 blocks is 14489.187617301941
+reduce from server 0.05365872383117676
+SIZE OF DATA IN TOTAL FOR 300 blocks is 755.5153476707637
+RAM usage: 98289.29 MB
+DONE! Took for all 22 blocks, 431.13723397254944
+RAM usage: 98301.47 MB
+TIME RESULTS
+Time taken for pre_gwas_communication and computations - 8974.990371227264
+Time taken for level 0 - 5791.724027872086
+Time taken for level 1 - 1089.1699621677399
+TOTAL TIME FOR PROGRAM is 15855.88436126709
+Formatted - 0.0d 4.0h 24.0m 15.884361267089844s
+Job script finished
