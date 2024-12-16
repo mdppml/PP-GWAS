@@ -14,7 +14,7 @@ locket==1.0.0
 more-itertools==10.1.0
 pandas==2.0.3
 partd==1.4.0
-pluggy==1.2.0
+pluggy==1.0.0
 pysnptools==0.5.10
 pytest==7.4.0
 pytz==2023.3
