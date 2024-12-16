@@ -42,7 +42,8 @@ dependencies:
   - libxml2=2.10.3
   - lz4-c=1.9.4
   - ncurses=6.4
-  - numpy=1.23
+  - numpy=1.25.0
+  - numpy-base=1.25.0
   - openssl=3.0.9
   - packaging=23.0
   - pcre2=10.37
@@ -59,7 +60,7 @@ dependencies:
   - reproc-cpp=14.2.4
   - requests=2.29.0
   - ruamel.yaml=0.17.21
-  - scipy=1.9
+  - scipy=1.10.1
   - setuptools=67.8.0
   - six=1.16.0
   - sqlite=3.41.2
