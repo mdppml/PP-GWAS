@@ -1,3 +1,4 @@
+mkl
 bed-reader==0.2.36
 bgen-reader==4.0.8
 cachetools==5.3.1
