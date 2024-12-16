@@ -40,7 +40,7 @@ python data_generation_pysnptools.py --number_of_samples 100000 --number_of_snps
 
 The SLURM script accepts the same arguments as the Python script. Example:
 ```bash
-sbatch data_generation_pysnptools_slurm.sh 100000 10000 5 3 2
+sbatch data_generation_pysnptools_slurm.sh 1000 10000 5 3 2
 ```
 
 ---
