@@ -11,7 +11,7 @@ for j in range(B):
     matrices=[]
     for p in range(P):
         X_temp = load_npz(
-            '/Users/arjhunswaminathan/Documents/N{}_M{}_C{}_P{}_B{}/Party_{}/X_block_{}.npz'.format(N, M, C,
+            '../test_site/N{}_M{}_C{}_P{}_B{}/Party_{}/X_block_{}.npz'.format(N, M, C,
                                                                                                               P, B,
                                                                                                               p+1,
                                                                                                               j +1))
@@ -24,7 +24,7 @@ X=np.hstack(X_temp2)
 
 matrices=[]
 for j in range(P):
-    y_t=np.load('/Users/arjhunswaminathan/Documents/N{}_M{}_C{}_P{}_B{}/Party_{}/y.npy'.format(N, M, C, P, B,j+1))
+    y_t=np.load('../test_site/N{}_M{}_C{}_P{}_B{}/Party_{}/y.npy'.format(N, M, C, P, B,j+1))
     print(y_t.shape)
     matrices.append(y_t)
 y=np.vstack(matrices)
@@ -32,14 +32,14 @@ print(y.shape)
 
 matrices=[]
 for j in range(P):
-    Z_t=np.load('/Users/arjhunswaminathan/Documents/N{}_M{}_C{}_P{}_B{}/Party_{}/Z.npy'.format(N, M, C, P, B, j+1))
+    Z_t=np.load('../test_site/N{}_M{}_C{}_P{}_B{}/Party_{}/Z.npy'.format(N, M, C, P, B, j+1))
     matrices.append(Z_t)
 Z=np.vstack(matrices)
 
 import os
 individuals_per_family = N // 6
 
-directory_path = '/Users/arjhunswaminathan/Documents/N{}_M{}_C{}_P{}_B{}/REGENIE/'.format(N, M, C, P, B)
+directory_path = '../test_site/N{}_M{}_C{}_P{}_B{}/REGENIE/'.format(N, M, C, P, B)
 if not os.path.exists(directory_path):
     os.makedirs(directory_path, exist_ok=True)
 
@@ -65,7 +65,7 @@ with open(file_path, "w") as f:
 
 print(f"Output file written to {file_path}")
 
-with open('/Users/arjhunswaminathan/Documents/N{}_M{}_C{}_P{}_B{}/REGENIE/covariates.txt'.format(N, M, C, P, B), "w") as f:
+with open('../test_site/N{}_M{}_C{}_P{}_B{}/REGENIE/covariates.txt'.format(N, M, C, P, B), "w") as f:
     f.write("FID IID V1 V2\n")
     y_index=0
     for family in range(1, 7):
@@ -88,15 +88,15 @@ import gc
 def convert_to_genotype(snp):
     return 'A A' if snp == 0 else 'A C' if snp == 1 else 'C C'
 
-with open(f'/Users/arjhunswaminathan/Documents/N{N}_M{M}_C{C}_P{P}_B{B}/REGENIE/output.map', 'w') as f_map:
+with open(f'../test_site/N{N}_M{M}_C{C}_P{P}_B{B}/REGENIE/output.map', 'w') as f_map:
     for i in range(M):
         f_map.write(f'1 snp{i} 0 {i * 100}\n')
 
-with open(f'/Users/arjhunswaminathan/Documents/N{N}_M{M}_C{C}_P{P}_B{B}/REGENIE/output.ped', 'w') as f_ped:
+with open(f'../test_site/N{N}_M{M}_C{C}_P{P}_B{B}/REGENIE/output.ped', 'w') as f_ped:
     for p in range(P):
         X_party = []
         for j in range(B):
-            path = f'/Users/arjhunswaminathan/Documents/N{N}_M{M}_C{C}_P{P}_B{B}/Party_{p + 1}/X_block_{j + 1}.npz'
+            path = f'../test_site/N{N}_M{M}_C{C}_P{P}_B{B}/Party_{p + 1}/X_block_{j + 1}.npz'
             X_block = load_npz(path).toarray()
             X_party.append(X_block)
 
