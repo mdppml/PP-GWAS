@@ -16,7 +16,7 @@ os.environ["MKL_DYNAMIC"] = "TRUE"
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--number_of_party", type=int, required=True)
+    parser.add_argument("--number_of_parties", type=int, required=True)
     parser.add_argument("--party_id", type=int, required=True)
     parser.add_argument("--base_port", type=int, required=True)
     parser.add_argument("--number_of_samples", type=int, required=True)
