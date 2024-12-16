@@ -39,6 +39,9 @@ This file lists additional Python packages that should be installed using pip wi
 ### Conda Environment
 The SLURM script requires a Conda environment. Replace `"INSERT_CONDA_ENVIRONMENT_HERE"` in the scripts `ppgwas.sh`, `run_server.sh`, and `run_client.sh` with the path to your Conda environment.
 
+Intel MKL Requirement:
+This code requires Intel MKL (Math Kernel Library) for sparse matrix computations, which is typically pre-installed on Linux-based clusters with Intel processors. If your system uses AMD chips or does not have MKL, consider modifying dependencies to use OpenBLAS as an alternative.
+
 Ensure the `run_server.sh` and `run_client.sh` scripts are executable:
    ```bash
    chmod +x run_server.sh
