@@ -5,7 +5,7 @@
 #### Python Script: `data_generation_pysnptools.py`
 This Python script generates synthetic genomic data using the `pysnptools` library. The script supports parallel processing and allows for flexible configurations such as the number of samples, SNPs, covariates, computational nodes, and data blocks.
 
-#### Bash Script: `data_generation_pysnptools_slurm.sh`
+#### SLURM Script: `data_generation_pysnptools_slurm.sh`
 A SLURM batch script to automate the execution of `data_generation_pysnptools.py` in a high-performance computing environment. The script specifies resource requirements, activates a Conda environment, and runs the Python script with user-defined arguments.
 
 #### Conda Environments File: `data_generation_environment.yml`
