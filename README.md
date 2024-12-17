@@ -11,3 +11,6 @@ This repository is associated with the paper titled **"PP-GWAS: Privacy Preservi
   - **Results**: This folder holds all output .txt files generated from the experiments reported in the paper.
     
   - **test_site**: A testing site to run the code for data generation and PP-GWAS.
+
+## Contact for Questions
+`arjhun.swaminathan@uni-tuebingen.de`, `mete.akguen@uni-tuebingen.de`
