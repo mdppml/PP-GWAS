@@ -1,6 +1,6 @@
 # PP-GWAS: Privacy Preserving Multi-Site Genome-wide Association Studies
 
-This repository is associated with the paper titled **"PP-GWAS: Privacy Preserving Multi-Site Genome-wide Association Studies"**. It provides all the necessary code to reproduce the experiments described in the paper, including synthetic dataset generation, dataset loading, distributed computations, and experiment results.
+This repository is associated with the paper titled **["PP-GWAS: Privacy Preserving Multi-Site Genome-wide Association Studies"](https://arxiv.org/abs/2410.08122)**. It provides all the necessary code to reproduce the experiments described in the paper, including synthetic dataset generation, dataset loading, distributed computations, and experiment results.
 
 ## Repository Structure
 
