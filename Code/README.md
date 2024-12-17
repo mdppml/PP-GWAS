@@ -65,7 +65,7 @@ The slurm script requires the following arguments:
 
 
 #### Example Command
-### Using SLURM
+## Using SLURM
 ```bash
 sbatch ppgwas.sh 8110 1000 10000 5 2 5 3 2 
 ```
@@ -75,7 +75,7 @@ The format for SLURM submission is as follows:
 sbatch ppgwas.sh base_port number_of_samples number_of_snps number_of_covariates number_of_blocks number_of_folds number_of_parties number_of_blocks_per_run 
 ```
 
-### Running without SLURM
+## Running without SLURM
 If you're not using SLURM, you need to manually start the server and client scripts. First, run the server:
 ```bash
 bash run_server.sh 8110 1000 10000 5 2 5 3 2
