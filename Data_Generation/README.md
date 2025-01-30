@@ -48,7 +48,7 @@ sbatch data_generation_pysnptools_slurm.sh 1000 10000 5 3 2
 ## Output Structure
 The generated data will be saved in the following directory structure:
 ```
-../Code/Data/N{N}_M{M}_C{C}_P{P}_B{B}/
+../test_site/Data/N{N}_M{M}_C{C}_P{P}_B{B}/
     ├── Party_1/
     │   ├── X_block_1.npz
     │   ├── ...
