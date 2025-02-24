@@ -154,7 +154,7 @@ def generate_O_X(M, B, p, P, N, C, block_size, additional_cols,b):
     del O
     gc.collect()
 
-def generate_Z_masks(M, B, p, P, N, C):
+def generate_Z_masks(M, B, p, P, N, C, K):
     directory = '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B)
     if not os.path.exists(directory):
         os.makedirs(directory, exist_ok=True)
@@ -166,6 +166,10 @@ def generate_Z_masks(M, B, p, P, N, C):
         O = get_O(C, 1, 0)
         save_npz(
             '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks/Z_mask_2.npz'.format(N, M, C, P, B),O)
+        del O
+        O = get_O(K, 1, 0)
+        save_npz(
+            '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks/Z_mask_y.npz'.format(N, M, C, P, B),O)
         del O
         gc.collect()
 
