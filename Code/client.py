@@ -85,6 +85,7 @@ def main():
     attempts = 0
     delay = 0.025
     Z_mask = None
+    Z_mask_2 = None
     while not file_loaded and attempts < max_attempts:
         try:
             Z_mask = load_npz('../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks/Z_mask.npz'.format(N, M, C, P,B))
@@ -95,9 +96,22 @@ def main():
 
     if not file_loaded:
         print("Failed to load the file after multiple attempts. Increase time for Z_mask.")
+    file_loaded= False
+    attempts = 0
+    while not file_loaded and attempts < max_attempts:
+        try:
+            Z_mask_two = load_npz('../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks/Z_mask_2.npz'.format(N, M, C, P,B))
+            file_loaded = True
+        except Exception as e:
+            attempts += 1
+            time.sleep(delay)
+
+    if not file_loaded:
+        print("Failed to load the file after multiple attempts. Increase time for Z_mask_two.")
+    
 
     Z_mask_party = Z_mask[:, start_index:end_index]
-    Z_masked = Z_mask_party @ Z
+    Z_masked = Z_mask_party @ Z @ Z_mask_two
     red_time = time.time()
     total_comm_size += utilities.get_size_in_gb(Z_masked)
     reduction_count += time.time() - red_time
