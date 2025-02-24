@@ -71,7 +71,9 @@ def main():
     agg_std_y = agg_std_y.reshape(1, -1)
     agg_std_y = np.sqrt(agg_std_y - sum_7)
     S_y = 1 / agg_std_y
-    GWAS_lib.generate_Z_mask(M, B, p, P, N, C)
+    random_K = random.randint(1, 10)
+
+    GWAS_lib.generate_Z_mask(M, B, p, P, N, C,random_K)
     start_index = (p - 1) * int(N / P)
     end_index = start_index + int(N / P)
     end_index = start_index + (N // P if p < P  else N - (N // P) * (P - 1))
@@ -109,6 +111,22 @@ def main():
     if not file_loaded:
         print("Failed to load the file after multiple attempts. Increase time for Z_mask_two.")
     
+    
+    file_loaded= False
+    attempts = 0
+
+    while not file_loaded and attempts < max_attempts:
+        try:
+            Z_mask_y = load_npz('../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks/Z_mask_y.npz'.format(N, M, C, P,B))
+            file_loaded = True
+        except Exception as e:
+            attempts += 1
+            time.sleep(delay)
+
+    if not file_loaded:
+        print("Failed to load the file after multiple attempts. Increase time for Z_mask_two.")
+    
+
 
     Z_mask_party = Z_mask[:, start_index:end_index]
     Z_masked = Z_mask_party @ Z @ Z_mask_two
@@ -118,8 +136,15 @@ def main():
     communication.send_data_to_server(party_socket, Z_masked, p)
 
     k_y = GWAS_lib.generate_a_number(0)
-    masked_y = Z_mask_party @ y
-    masked_y = k_y * masked_y
+    M = np.copy(y)[:, :random_K-1]  
+    y_appended = np.hstack((y, M))
+
+    rho = np.eye(random_K) 
+    np.random.shuffle(rho)  
+
+    y_permuted = np.dot(y_appended, rho)
+    
+    masked_y = Z_mask_party @ y_permuted @ Z_mask_y
     red_time = time.time()
     total_comm_size += utilities.get_size_in_gb(masked_y)
     reduction_count += time.time() - red_time
@@ -128,8 +153,9 @@ def main():
     red_time = time.time()
     total_comm_size += utilities.get_size_in_gb(Y_tilde)
     reduction_count += time.time() - red_time
-    Y_tilde = (Z_mask.transpose() @ Y_tilde @ S_y)[start_index:end_index]
-    Y_tilde = ((1 / k_y) * Y_tilde).astype(np.float32)
+    Y_tilde = (Z_mask.transpose() @ Y_tilde @ S_y)[start_index:end_index,:]
+    Y_tilde = Y_tilde @ rho.T
+    Y_tilde = (Y_tilde[:,0]).astype(np.float32)
     del Z_masked, masked_y, S_y, y
 
     GWAS_lib.generate_O(M, B, K, p, P, N, C)
