@@ -73,7 +73,7 @@ def main():
     S_y = 1 / agg_std_y
     random_K = random.randint(1, 10)
 
-    GWAS_lib.generate_Z_mask(M, B, p, P, N, C,random_K)
+    GWAS_lib.generate_Z_masks(M, B, p, P, N, C,random_K)
     start_index = (p - 1) * int(N / P)
     end_index = start_index + int(N / P)
     end_index = start_index + (N // P if p < P  else N - (N // P) * (P - 1))
