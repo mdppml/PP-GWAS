@@ -136,9 +136,14 @@ def main():
     communication.send_data_to_server(party_socket, Z_masked, p)
 
     k_y = GWAS_lib.generate_a_number(0)
-    M = np.copy(y)[:, :random_K-1]  
+    if y.ndim == 1:
+        y = y[:, np.newaxis]
+    
+    M = np.random.randn(n, random_K-1)
+    
     y_appended = np.hstack((y, M))
-
+    rho = np.eye(random_K)
+    
     rho = np.eye(random_K) 
     np.random.shuffle(rho)  
 
