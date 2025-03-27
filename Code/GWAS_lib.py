@@ -37,6 +37,8 @@ def get_O(N, K, seed):
                 dot_product = abs(np.dot(A[i, :], A[j, :]))
                 assert dot_product < 1, f"Dot product between row {i} and row {j} is {dot_product}, not less than 1"
         return A
+    if N < 100:
+        return csr_matrix(generate_semi_orthogonal_matrix(N+1, N))
     np.random.seed(seed)
     min_block_size = 95
     max_block_size = 100
