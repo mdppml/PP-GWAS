@@ -83,7 +83,7 @@ def main():
     loader_times += (time.time() - tt)
     Z = np.hstack((np.ones((Z.shape[0], 1)), Z))
     file_loaded = False
-    max_attempts = 1000
+    max_attempts = 1000000
     attempts = 0
     delay = 0.025
     Z_mask = None
@@ -161,7 +161,7 @@ def main():
     GWAS_lib.generate_O(M, B, K, p, P, N, C)
 
     file_loaded = False
-    max_attempts = 1000
+    max_attempts = 1000000
     attempts = 0
     delay = 0.025
     O = 0
