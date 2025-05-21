@@ -12,5 +12,22 @@ This repository is associated with the paper titled **["PP-GWAS: Privacy Preserv
     
   - **test_site**: A testing site to run the code for data generation and PP-GWAS.
 
+## Citation
+
+Please consider citing our work if it is beneficial to your research. 
+
+```bibtex
+@article{swaminathan2024pp,
+  title={PP-GWAS: Privacy Preserving Multi-Site Genome-wide Association Studies},
+  author={Swaminathan, Arjhun and Hannemann, Anika and {\"U}nal, Ali Burak and Pfeifer, Nico and Akg{\"u}n, Mete},
+  journal={arXiv preprint arXiv:2410.08122},
+  year={2024}
+}
+```
+
+## License
+
+This project is released under the MIT License. See [LICENSE](LICENSE) for details.
+
 ## Contact for Questions
 `arjhun.swaminathan@uni-tuebingen.de`, `mete.akguen@uni-tuebingen.de`
