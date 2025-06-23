@@ -24,7 +24,7 @@ def load_X(N, M, C, P, B, p, b, idx, X_list):
     except Exception as e:
         print(f"Error loading data for block {idx}: {e}")
         X_list[idx] = None
-        
+
 def get_O(N, K, seed):
     def generate_semi_orthogonal_matrix(rows, cols):
         A = np.random.randn(rows, cols)
@@ -37,8 +37,6 @@ def get_O(N, K, seed):
                 dot_product = abs(np.dot(A[i, :], A[j, :]))
                 assert dot_product < 1, f"Dot product between row {i} and row {j} is {dot_product}, not less than 1"
         return A
-    if N < 100:
-        return csr_matrix(generate_semi_orthogonal_matrix(N+1, N))
     np.random.seed(seed)
     min_block_size = 95
     max_block_size = 100
@@ -156,7 +154,7 @@ def generate_O_X(M, B, p, P, N, C, block_size, additional_cols,b):
     del O
     gc.collect()
 
-def generate_Z_masks(M, B, p, P, N, C, K):
+def generate_Z_mask(M, B, p, P, N, C):
     directory = '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks'.format(N, M, C, P, B)
     if not os.path.exists(directory):
         os.makedirs(directory, exist_ok=True)
@@ -164,14 +162,6 @@ def generate_Z_masks(M, B, p, P, N, C, K):
         O = get_O(N, 1, 0)
         save_npz(
             '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks/Z_mask.npz'.format(N, M, C, P, B),O)
-        del O
-        O = get_O(C, 1, 0)
-        save_npz(
-            '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks/Z_mask_2.npz'.format(N, M, C, P, B),O)
-        del O
-        O = get_O(K, 1, 0)
-        save_npz(
-            '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks/Z_mask_y.npz'.format(N, M, C, P, B),O)
         del O
         gc.collect()
 
@@ -221,4 +211,3 @@ def compute_sparsity(matrix):
         raise ValueError("Unknown matrix type. Expected numpy ndarray or scipy sparse matrix.")
     sparsity = zero_elements / total_elements
     return sparsity
-
