@@ -1,4 +1,4 @@
-import argparse
+import argparseMore actions
 import socket
 import numpy as np
 import os
@@ -71,9 +71,7 @@ def main():
     agg_std_y = agg_std_y.reshape(1, -1)
     agg_std_y = np.sqrt(agg_std_y - sum_7)
     S_y = 1 / agg_std_y
-    random_K = random.randint(1, 10)
-
-    GWAS_lib.generate_Z_masks(M, B, p, P, N, C,random_K)
+    GWAS_lib.generate_Z_mask(M, B, p, P, N, C)
     start_index = (p - 1) * int(N / P)
     end_index = start_index + int(N / P)
     end_index = start_index + (N // P if p < P  else N - (N // P) * (P - 1))
@@ -83,11 +81,10 @@ def main():
     loader_times += (time.time() - tt)
     Z = np.hstack((np.ones((Z.shape[0], 1)), Z))
     file_loaded = False
-    max_attempts = 1000000
+    max_attempts = 1000
     attempts = 0
     delay = 0.025
     Z_mask = None
-    Z_mask_2 = None
     while not file_loaded and attempts < max_attempts:
         try:
             Z_mask = load_npz('../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks/Z_mask.npz'.format(N, M, C, P,B))
@@ -98,58 +95,17 @@ def main():
 
     if not file_loaded:
         print("Failed to load the file after multiple attempts. Increase time for Z_mask.")
-    file_loaded= False
-    attempts = 0
-    while not file_loaded and attempts < max_attempts:
-        try:
-            Z_mask_two = load_npz('../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks/Z_mask_2.npz'.format(N, M, C, P,B))
-            file_loaded = True
-        except Exception as e:
-            attempts += 1
-            time.sleep(delay)
-
-    if not file_loaded:
-        print("Failed to load the file after multiple attempts. Increase time for Z_mask_two.")
-    
-    
-    file_loaded= False
-    attempts = 0
-
-    while not file_loaded and attempts < max_attempts:
-        try:
-            Z_mask_y = load_npz('../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks/Z_mask_y.npz'.format(N, M, C, P,B))
-            file_loaded = True
-        except Exception as e:
-            attempts += 1
-            time.sleep(delay)
-
-    if not file_loaded:
-        print("Failed to load the file after multiple attempts. Increase time for Z_mask_two.")
-    
-
 
     Z_mask_party = Z_mask[:, start_index:end_index]
-    Z_masked = Z_mask_party @ Z @ Z_mask_two
+    Z_masked = Z_mask_party @ Z
     red_time = time.time()
     total_comm_size += utilities.get_size_in_gb(Z_masked)
     reduction_count += time.time() - red_time
     communication.send_data_to_server(party_socket, Z_masked, p)
 
     k_y = GWAS_lib.generate_a_number(0)
-    if y.ndim == 1:
-        y = y[:, np.newaxis]
-    
-    M = np.random.randn(n, random_K-1)
-    
-    y_appended = np.hstack((y, M))
-    rho = np.eye(random_K)
-    
-    rho = np.eye(random_K) 
-    np.random.shuffle(rho)  
-
-    y_permuted = np.dot(y_appended, rho)
-    
-    masked_y = Z_mask_party @ y_permuted @ Z_mask_y
+    masked_y = Z_mask_party @ y
+    masked_y = k_y * masked_y
     red_time = time.time()
     total_comm_size += utilities.get_size_in_gb(masked_y)
     reduction_count += time.time() - red_time
@@ -158,15 +114,14 @@ def main():
     red_time = time.time()
     total_comm_size += utilities.get_size_in_gb(Y_tilde)
     reduction_count += time.time() - red_time
-    Y_tilde = (Z_mask.transpose() @ Y_tilde @ S_y)[start_index:end_index,:]
-    Y_tilde = Y_tilde @ rho.T
-    Y_tilde = (Y_tilde[:,0]).astype(np.float32)
+    Y_tilde = (Z_mask.transpose() @ Y_tilde @ S_y)[start_index:end_index]
+    Y_tilde = ((1 / k_y) * Y_tilde).astype(np.float32)
     del Z_masked, masked_y, S_y, y
 
     GWAS_lib.generate_O(M, B, K, p, P, N, C)
 
     file_loaded = False
-    max_attempts = 1000000
+    max_attempts = 1000
     attempts = 0
     delay = 0.025
     O = 0
@@ -227,11 +182,11 @@ def main():
     num_loops = len(B_blocked)
     initial_block_size = int(M / B)
     for n in range(num_loops):
-    
+
         #####################################################################################################
         #------------------------------------------QUALITY CONTROL------------------------------------------#
         #####################################################################################################
-            
+
         if n>0:
             while not os.path.exists(f'../test_site/Data/server_ready_loop_{n}.txt'):
                 time.sleep(0.1)
@@ -341,7 +296,7 @@ def main():
         red_time = time.time()
         total_comm_size += utilities.get_size_in_gb(aggregated_vector)
         reduction_count += time.time() - red_time
-        
+
         stds = np.sqrt(np.maximum(aggregated_vector - sum_5, 0))[:-num_new_elements]
 
         del aggregated_vector
@@ -351,11 +306,11 @@ def main():
 
         new_stds = []
         kept_indices = [j for j in range(len(stds)) if j not in removable_column_indices]
-            
+
         #####################################################################################################
         #-----------------------DISTRIBUTED PROJECTION OF COVARIATES AND STANDARDIZING----------------------#
         #####################################################################################################
-        
+
         stds = stds[kept_indices].astype(np.float32)
 
         del kept_indices
@@ -409,7 +364,7 @@ def main():
 
             right[i] = dot_product_mkl(X, O_X[i].T)
             Z_mask_party=Z_mask_party.astype(np.float32)
-            
+
             masked_X[i] = dot_product_mkl(Z_mask_party, right[i])
         for _ in range(current_count):
             red_time = time.time()
@@ -437,7 +392,7 @@ def main():
             #####################################################################################################
             #--------------------------------------LEVEL 1 RIDGE REGRESSION-------------------------------------#
             #####################################################################################################
-            
+
             if (_ +1) % P == 0:
                 GWAS_lib.generate_O_b(M, B, p, P, N, C, X_tilde[_-p+1].shape[1], int((_-p+1) + (n * bulk)))
             if _==current_count-1:
@@ -490,12 +445,12 @@ def main():
                 del X_tilde_k, intermediate
         D=[[] for _ in range(current_count)]
         result_matrix=[[] for _ in range(current_count)]
-        
+
         #####################################################################################################
         #-----------------------------DISTRIBUTED SINGLE SNP ASSOCIATION TESTING----------------------------#
         #####################################################################################################
 
-        
+
         for _ in range(current_count):
             shape1 = X_tilde[_].shape[1]
             diagonal_entries = [GWAS_lib.generate_a_number(i + int(shape1 * ((n*bulk)+_))) for i in range(shape1)]
