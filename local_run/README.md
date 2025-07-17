@@ -12,5 +12,5 @@ Ensure the `ppgwas.sh` script is executable:
 
 ---
 
-
+When generating data, use reasonable sizes. We recommend generating a dataset consisting a minimum of **1000** samples and **10000** SNPs.
 
