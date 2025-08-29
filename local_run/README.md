@@ -21,7 +21,7 @@ This repository provides a self-contained, small-scale example of running PP-GWA
 2. **Activate the environment**
 
    ```bash
-   conda activate ppgwas-env
+   conda activate ppgwas_test
    ```
 
 3. **Make the script executable**
