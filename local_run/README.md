@@ -30,7 +30,7 @@ This repository provides a self-contained, small-scale example of running PP-GWA
    chmod +x ppgwas.sh
    ```
 
-After activation, select ppgwas_test as the Jupyter kernel `(Kernel → Change Kernel → ppgwas_test)` or set it as your IDE interpreter before running `sample_notebook.ipynb`. 
+After creating the environment, select ppgwas_test as the Jupyter kernel `(Kernel → Change Kernel → ppgwas_test)` or set it as your IDE interpreter before running `sample_notebook.ipynb`. 
 
 ---
 
