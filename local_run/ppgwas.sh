@@ -22,7 +22,7 @@ mkdir -p "${CLIENTS_LOG}"
 rm -f Data/server_ready_*.txt Data/ip_address_file.txt
 
 eval "$(conda shell.bash hook)"
-conda activate ppREGENIE
+conda activate ppgwas_test
 
 echo "Launching server on port ${BASE_PORT} (logs → ${SERVER_LOG})"
 python -u server.py \
