@@ -67,11 +67,11 @@ Recommended minimum for reproducibility:
 Notebook defaults:
 
 ```python
-N = 10000
-B = 15000
-Blocks = 2
-C = 10
-P = 4
+N (Number of Samples) = 10000
+M (Number of SNPs) = 15000
+B (Number of Blocks) = 2
+C (Number of Covariates) = 10
+P (Number of Computational Nodes) = 4
 ```
 
 You can scale these up for larger experiments depending on available compute. If you encounter memory issues, reduce batch or block sizes (for example, lower any BPR-like batching parameter in your setup).
