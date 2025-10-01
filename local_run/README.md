@@ -2,11 +2,10 @@
 
 A self-contained, small-scale example of running PP-GWAS (Privacy-Preserving Genome-Wide Association Studies) locally without MKL. You can either use a Jupyter notebook or a one-click GUI script.
 
-## ✨ What’s inside
+## What’s inside
 
 - `sample_notebook.ipynb` for end-to-end experimentation
 - `ppgwas_oneclick.py` for a GUI “one-click” run that displays results
-- Reproducible synthetic-data generation and visualization (including a Manhattan plot)
 
 ## ⚙️ Requirements
 
@@ -80,4 +79,4 @@ You can scale these up for larger experiments depending on available compute. If
 
 - Ensure the `ppgwas_test` Conda environment is activated before running either the notebook or the one-click app.
 - If `python3` isn’t found, try `python`.
-- If Jupyter doesn’t show the `ppgwas_test` kernel, run `python -m ipykernel install --user --name ppgwas_test` inside the environment, then restart Jupyter.
+- `Windows` users: please install Ubuntu on WSL to run `ppgwas.sh`.
