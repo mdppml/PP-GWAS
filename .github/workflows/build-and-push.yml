@@ -26,7 +26,7 @@ jobs:
           context: .
           file: Dockerfile.pip
           push: true
-          tags: tags: ghcr.io/Arjhun-alt/pp-gwas-local:latest
+          tags: ghcr.io/Arjhun-alt/pp-gwas-local:latest
           platforms: linux/amd64
           cache-from: type=gha
           cache-to: type=gha,mode=max
