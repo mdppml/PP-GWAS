@@ -1,58 +1,33 @@
-## PP-GWAS Local Toy Example
+# PP-GWAS: Privacy Preserving Multi-Site Genome-wide Association Studies
 
-This repository provides a self-contained, small-scale example of running PP-GWAS (Privacy-Preserving Genome-Wide Association Studies) locally without MKL dependencies. The included `sample_notebook.ipynb` demonstrates how to generate synthetic data, execute the analysis, and visualize the results.
+This repository is associated with the paper titled **["PP-GWAS: Privacy Preserving Multi-Site Genome-wide Association Studies"](https://arxiv.org/abs/2410.08122)**. It provides all the necessary code to reproduce the experiments described in the paper, including synthetic dataset generation, dataset loading, distributed computations, and experiment results.
 
+## Repository Structure
 
-### ⚙️ Requirements
+- **Datasets Folders**: 
+  - **Code**: Contains all relevant code to implementing PP-GWAS. 
+  - **Data_Generation**: This folder includes the code used for generating synthetic data using the pysnptools library. 
+  - **REGENIE**: Contains details on how one can restructure synthetic data to fit the formats supported by REGENIE. It also includes instructions on how to run REGENIE on the data.
+  - **Results**: This folder holds all output .txt files generated from the experiments reported in the paper.
+    
+  - **test_site**: A testing site to run the code for data generation and PP-GWAS.
 
-1. **Conda** 
-2. **bash** 
+## Citation
 
----
+Please consider citing our work if it is beneficial to your research. 
 
-### 🛠 Installation
-
-1. **Create the Conda environment**
-
-   ```bash
-   conda env create -f environment.yml
-   ```
-
-2. **Activate the environment**
-
-   ```bash
-   conda activate ppgwas_test
-   ```
-
-3. **Make the script executable**
-
-   ```bash
-   chmod +x ppgwas.sh
-   ```
-
-After creating the environment, select ppgwas_test as the Jupyter kernel `(Kernel → Change Kernel → ppgwas_test)` or set it as your IDE interpreter before running `sample_notebook.ipynb`. 
-
----
-
-
-### 🔧 Synthetic Data Generation
-
-For reproducibility, we recommend generating a dataset with at least:
-
-* **Samples (N):** 1,000
-* **Total SNPs (B):** 10,000
-* **SNPs per blocks:** 5,000
-
-In the notebook, the values are set as follows:
-
-```python
-N = 10000      
-B = 15000     
-Blocks = 2    
-C = 10        
-P = 4         
+```bibtex
+@article{swaminathan2024pp,
+  title={PP-GWAS: Privacy Preserving Multi-Site Genome-wide Association Studies},
+  author={Swaminathan, Arjhun and Hannemann, Anika and {\"U}nal, Ali Burak and Pfeifer, Nico and Akg{\"u}n, Mete},
+  journal={arXiv preprint arXiv:2410.08122},
+  year={2024}
+}
 ```
 
-Feel free to scale these parameters up for larger experiments, keeping in mind available compute resources. Set BPR to something smaller if you run into memory issues.
+## License
 
----
+This project is released under the MIT License. See [LICENSE](LICENSE) for details.
+
+## Contact for Questions
+`arjhun.swaminathan@uni-tuebingen.de`, `mete.akguen@uni-tuebingen.de`
