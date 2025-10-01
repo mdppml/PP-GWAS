@@ -2,8 +2,6 @@ name: ppgwas_test
 channels:
   - conda-forge
   - defaults
-  - https://repo.anaconda.com/pkgs/main
-  - https://repo.anaconda.com/pkgs/r
 dependencies:
   - bzip2=1.0.8=h99b78c6_7
   - ca-certificates=2024.8.30=hf0a4a13_0
