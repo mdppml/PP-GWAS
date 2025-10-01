@@ -15,11 +15,21 @@ A self-contained, small-scale example of running PP-GWAS (Privacy-Preserving Gen
 
 ## 🛠 Installation
 
-Create and activate the environment, then make the helper script executable:
+### 1) Get the code
 
+```bash
+git clone git@github.com:arjhun-alt/PP-GWAS.git
+cd PP-GWAS/local_run
+```
+
+### 2) Create and activate the Conda environment
 ```bash
 conda env create -f environment.yml
 conda activate ppgwas_test
+```
+
+### 3) Make the helper script executable
+```bash
 chmod +x ppgwas.sh
 ```
 
@@ -65,11 +75,6 @@ P = 4
 ```
 
 You can scale these up for larger experiments depending on available compute. If you encounter memory issues, reduce batch or block sizes (for example, lower any BPR-like batching parameter in your setup).
-
-## ✅ Outputs
-
-- Notebook: cells will generate figures and outputs inline.
-- One-Click App: the Manhattan plot is rendered in the application window after the run completes.
 
 ## ❓ Troubleshooting
 
