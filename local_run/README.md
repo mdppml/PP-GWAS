@@ -54,7 +54,7 @@ After activating the environment, run:
 python3 ppgwas_oneclick.py
 ```
 
-A window will open. Enter the parameters in the input boxes and press Run. The same window will display the Manhattan plot when the computation finishes.
+A window will open. Enter the parameters in the input boxes and press Run (you may leave BPR empty and it should always be less than or equal to B). The same window will display the Manhattan plot when the computation finishes.
 
 ## 🔧 Synthetic Data (defaults used in the notebook)
 
