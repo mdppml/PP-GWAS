@@ -78,7 +78,6 @@ def worker_block(args):
         save_npz(f'Data/N{N}_M{M}_C{C}_P{P}_B{B}/Party_{i + 1}/X_block_{j + 1}.npz', party_block)
     del block
 
-
 def generate_G(N, M, C, P, B):
     vertical_split_size = N // P
     horizontal_split_size = M // B
@@ -87,11 +86,12 @@ def generate_G(N, M, C, P, B):
     for j in range(B):
         seed = base_seed + j
         args_list.append((j, N, M, C, P, B, vertical_split_size, horizontal_split_size, seed))
-    with mp.Pool(processes=min(mp.cpu_count(), len(args_list))) as pool:
+    ctx = mp.get_context("spawn")
+    nproc = max(1, min(mp.cpu_count() or 1, len(args_list)))
+    with ctx.Pool(processes=nproc) as pool:
         pool.map(worker_block, args_list)
     print('Generated X')
     print('Done')
-
 
 def print_memory_usage():
     process = psutil.Process(os.getpid())
