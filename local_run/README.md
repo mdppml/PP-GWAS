@@ -18,7 +18,7 @@ A self-contained, small-scale example of running PP-GWAS (Privacy-Preserving Gen
 ### 1) Get the code
 
 ```bash
-git clone git@github.com:arjhun-alt/PP-GWAS.git
+git clone https://github.com/mdppml/PP-GWAS.git
 cd PP-GWAS/local_run
 ```
 
