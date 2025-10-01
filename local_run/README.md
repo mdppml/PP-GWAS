@@ -1,6 +1,6 @@
 # PP-GWAS Local Toy Example
 
-A self-contained, small-scale example of running PP-GWAS (Privacy-Preserving Genome-Wide Association Studies) locally without MKL. You can either use a Jupyter notebook or a one-click GUI script.
+A self-contained, small-scale example of running PP-GWAS (Privacy Preserving Multi-Site Genome-wide Association Studies) locally without MKL. You can either use a Jupyter notebook or a one-click GUI script.
 
 ## What’s inside
 
