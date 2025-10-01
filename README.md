@@ -12,6 +12,8 @@ This repository is associated with the paper titled **["PP-GWAS: Privacy Preserv
     
   - **test_site**: A testing site to run the code for data generation and PP-GWAS.
 
+  - **local_run**: A fully self-contained folder with a jupyter notebook suitable for local testing of PP-GWAS. 
+
 ## Citation
 
 Please consider citing our work if it is beneficial to your research. 
