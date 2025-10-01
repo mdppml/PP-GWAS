@@ -9,3 +9,4 @@ COPY local_run /app/local_run
 RUN chmod +x ppgwas.sh
 EXPOSE 8888
 CMD jupyter lab --ip=0.0.0.0 --no-browser --NotebookApp.token='' --NotebookApp.password=''
+
