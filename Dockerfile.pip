@@ -1,0 +1,10 @@
+FROM condaforge/miniforge3
+SHELL ["/bin/bash","-lc"]
+WORKDIR /app/local_run
+RUN conda create -n ppgwas_test -y python=3.11 && conda clean -afy
+ENV PATH=/opt/conda/envs/ppgwas_test/bin:/opt/conda/bin:$PATH
+RUN python -m pip install --no-cache-dir numpy scipy pandas scikit-learn matplotlib tqdm joblib pyarrow pyyaml pysnptools jupyterlab ipykernel pyzmq statsmodels
+COPY local_run /app/local_run
+RUN chmod +x ppgwas.sh
+EXPOSE 8888
+CMD jupyter lab --ip=0.0.0.0 --no-browser --NotebookApp.token='' --NotebookApp.password=''
