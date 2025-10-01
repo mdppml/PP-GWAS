@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 set -euo pipefail
 
 BASE_PORT=$1
@@ -16,13 +15,16 @@ LOG_ROOT="logs/ppgwas_${TIMESTAMP}"
 SERVER_LOG="${LOG_ROOT}/server"
 CLIENTS_LOG="${LOG_ROOT}/clients"
 
-mkdir -p "${SERVER_LOG}"
-mkdir -p "${CLIENTS_LOG}"
-
+mkdir -p "${SERVER_LOG}" "${CLIENTS_LOG}"
 rm -f Data/server_ready_*.txt Data/ip_address_file.txt
 
+set +u
 eval "$(conda shell.bash hook)"
 conda activate ppgwas_test
+set -u
+
+: "${QT_XCB_GL:=}"
+: "${QT_QPA_PLATFORM:=}"
 
 echo "Launching server on port ${BASE_PORT} (logs → ${SERVER_LOG})"
 python -u server.py \
@@ -42,7 +44,6 @@ echo "Spawning ${P} clients (logs → ${CLIENTS_LOG})"
 for (( i=1; i<=P; i++ )); do
   THIS_LOG="${CLIENTS_LOG}/party${i}"
   mkdir -p "${THIS_LOG}"
-
   python -u client.py \
     --number_of_parties "${P}" \
     --party_id           "${i}" \
@@ -54,10 +55,8 @@ for (( i=1; i<=P; i++ )); do
     --number_of_folds     "${FOLDS}" \
     --number_of_blocks_per_run "${BPR}" \
     > "${THIS_LOG}/output.txt" 2> "${THIS_LOG}/error.txt" &
-
   sleep 0.1
 done
 
 wait
-
 echo "All processes finished. Logs in ${LOG_ROOT}"
