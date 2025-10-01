@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main", "ci-docker" ]
     paths:
-      - "Dockerfile"
+      - "Dockerfile.pip"
       - "local_run/**"
       - ".github/workflows/build-and-push.yml"
 jobs:
@@ -24,6 +24,7 @@ jobs:
       - uses: docker/build-push-action@v6
         with:
           context: .
+          file: Dockerfile.pip
           push: true
           tags: ghcr.io/mdppml/pp-gwas-local:latest
           platforms: linux/amd64
