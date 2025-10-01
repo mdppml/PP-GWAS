@@ -60,9 +60,10 @@ A window will open. Enter the parameters in the input boxes and press Run. The s
 
 Recommended minimum for reproducibility:
 - Samples `N`: 1,000
-- Total SNPs `B`: 10,000
-- SNPs per block: 5,000
-
+- Total SNPs `M`: 10,000
+- Blocks `B`: 2
+- Number of Nodes `P`: 2-6
+  
 Notebook defaults:
 
 ```python
