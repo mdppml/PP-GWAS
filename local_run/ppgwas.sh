@@ -24,12 +24,18 @@ rm -f Data/server_ready_*.txt Data/ip_address_file.txt
 
 exec > >(tee -a "${RUN_LOG}") 2> >(tee -a "${RUN_ERR}" >&2)
 
-trap 'code=$?; echo "Run finished with exit code ${code}" | tee -a "${RUN_LOG}"; exit ${code}' EXIT
-
 if command -v conda >/dev/null 2>&1; then
   eval "$(conda shell.bash hook)"
   conda activate ppgwas_test
 fi
+
+echo "Please refer to the following folders to read outputs and errors from both the server and the clients."
+echo "Server output: ${SERVER_LOG}/output.txt"
+echo "Server error: ${SERVER_LOG}/error.txt"
+echo "Clients output: ${CLIENTS_LOG}/party*/output.txt"
+echo "Clients error: ${CLIENTS_LOG}/party*/error.txt"
+echo "Run output: ${RUN_LOG}"
+echo "Run error: ${RUN_ERR}"
 
 echo "Launching server on port ${BASE_PORT} (logs → ${SERVER_LOG})"
 python -u server.py \
@@ -85,7 +91,9 @@ done
 
 if [[ $FAIL -ne 0 ]]; then
   echo "At least one process failed."
+  echo "Refer to ${SERVER_LOG}/error.txt and ${CLIENTS_LOG}/party*/error.txt for errors."
   exit 1
 fi
 
 echo "All processes finished. Logs in ${LOG_ROOT}"
+echo "Refer to output.txt files for outputs and error.txt files for errors."
