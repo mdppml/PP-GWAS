@@ -76,7 +76,7 @@ C (Number of Covariates) = 10
 P (Number of Computational Nodes) = 4
 ```
 
-You can scale these up for larger experiments depending on available compute. If you encounter memory issues, reduce reduce BPR.
+You can scale these up for larger experiments depending on available compute. If you encounter memory issues, reduce BPR (this determines how many blocks are processed at a time).
 
 ## ❓ Troubleshooting
 
