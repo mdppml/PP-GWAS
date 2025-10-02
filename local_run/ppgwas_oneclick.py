@@ -95,7 +95,7 @@ class App(tk.Tk):
         ax.set_ylim(bottom=0)
         ax.set_xlabel("SNP Index")
         ax.set_ylabel("-log10(p-value)")
-        ax.set_title("Manhattan Plot (Black & White)")
+        ax.set_title("Manhattan Plot")
         if self.canvas:
             self.canvas.get_tk_widget().destroy()
         self.canvas = FigureCanvasTkAgg(fig, master=self.plot_frame)
