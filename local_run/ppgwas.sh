@@ -37,7 +37,7 @@ echo "Clients error: ${CLIENTS_LOG}/party*/error.txt"
 echo "Run output: ${RUN_LOG}"
 echo "Run error: ${RUN_ERR}"
 
-echo "Launching server on port ${BASE_PORT}"
+echo "Launching Server on port ${BASE_PORT}"
 python -u server.py \
   --number_of_parties "${P}" \
   --base_port "${BASE_PORT}" \
@@ -53,7 +53,7 @@ SERVER_PID=$!
 
 sleep 4
 
-echo "Spawning ${P} clients"
+echo "Spawning ${P} Clients"
 PIDS=("${SERVER_PID}")
 NAMES=("Server")
 for (( i=1; i<=P; i++ )); do
