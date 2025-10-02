@@ -58,11 +58,13 @@ A window will open. Enter the parameters in the input boxes and press Run (you m
 
 ## 🔧 Synthetic Data (defaults used in the notebook)
 
-Recommended minimum for reproducibility:
-- Samples `N`: 1,000
-- Total SNPs `M`: 10,000
-- Blocks `B`: 2
-- Number of Nodes `P`: 2-6
+Recommended minimum/maximum for reproducibility:
+- Samples `N`: 1,000/5,000
+- Total SNPs `M`: 5,000/20,000
+- Blocks `B`: 2/4
+- Number of Nodes `P`: 2/6
+- Covariates `C`: 2/10
+- BPR `Blocks per Run`: <=B (Based on memory availability. Set to B by default.)
   
 Notebook defaults:
 
