@@ -1,6 +1,6 @@
-# PP-GWAS
+# 🧬🔒 PP-GWAS 
 
-## Files and Structure
+## 📂 Files and Structure
 
 #### SLURM Script: `ppgwas.sh`
 This SLURM batch script orchestrates the execution of a distributed privacy-preserving GWAS workflow by allocating resources from the cluster, starting the server, and launching client processes on separate nodes while managing the necessary environment and logging. It launches both `run_server.sh` and `run_client.sh`. 
@@ -26,17 +26,17 @@ This script provides functions for serializing, deserializing, sending, and rece
 #### Python Script: `utilities.py`
 This script provides utility functions for system monitoring and data management.
 
-### Conda Environments File: `ppgwas_environment.yml`
+#### Conda Environments File: `ppgwas_environment.yml`
 This file specifies the Conda environment required for running the Python script. It includes dependencies optimized for systems with Intel chips, particularly leveraging MKL (Math Kernel Library) for efficient sparse matrix computations. It should be used to create a Conda environment for running the scripts.
 
-### Pip Requirements File: `ppgwas_pip.txt`
+#### Pip Requirements File: `ppgwas_pip.txt`
 This file lists additional Python packages that should be installed using pip within the Conda environment.
 
 ---
 
-## Requirements
+## ⚙️ Requirements
 
-### Conda Environment
+### 📦 Conda Environment
 The SLURM script requires a Conda environment. Replace `"INSERT_CONDA_ENVIRONMENT_HERE"` in the scripts `ppgwas.sh`, `run_server.sh`, and `run_client.sh` with the path to your Conda environment.
 
 Intel MKL Requirement:
@@ -50,7 +50,7 @@ Ensure the `run_server.sh` and `run_client.sh` scripts are executable:
 
 ---
 
-## Usage
+## ▶️ Usage
 
 #### Command-Line Arguments
 The slurm script requires the following arguments:
@@ -65,7 +65,7 @@ The slurm script requires the following arguments:
 
 
 #### Example Command
-## Using SLURM
+## 🖥️ Using SLURM
 ```bash
 sbatch ppgwas.sh 8110 1000 10000 5 2 5 3 2 
 ```
@@ -75,7 +75,7 @@ The format for SLURM submission is as follows:
 sbatch ppgwas.sh base_port number_of_samples number_of_snps number_of_covariates number_of_blocks number_of_folds number_of_parties number_of_blocks_per_run 
 ```
 
-## Running without SLURM
+## 🛠️ Running without SLURM
 If you're not using SLURM, you need to manually start the server and client scripts. First, run the server:
 ```bash
 bash run_server.sh 8110 1000 10000 5 2 5 3 2
