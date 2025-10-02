@@ -1,3 +1,0 @@
-([('PPGWAS-OneClick',
-   '/Users/arjhunswaminathan/Documents/testpp/PP-GWAS/local_run/dist/PPGWAS-OneClick',
-   'EXECUTABLE')],)
