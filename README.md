@@ -1,10 +1,10 @@
-# PP-GWAS: Privacy Preserving Multi-Site Genome-wide Association Studies
+# 🧬🔒 PP-GWAS: Privacy Preserving Multi-Site Genome-wide Association Studies
 
 This repository is associated with the paper titled **["PP-GWAS: Privacy Preserving Multi-Site Genome-wide Association Studies"](https://arxiv.org/abs/2410.08122)**. It provides all the necessary code to reproduce the experiments described in the paper, including synthetic dataset generation, dataset loading, distributed computations, and experiment results.
 
 ---
 
-## Repository Structure
+## 📂 Repository Structure
 
 - [**Code/**](Code/)  
   PP-GWAS implementation for HPC clusters (SLURM-ready).  
@@ -25,7 +25,7 @@ This repository is associated with the paper titled **["PP-GWAS: Privacy Preserv
 
 ---
 
-## Pick a Workflow
+## 🧭 Pick a Workflow
 
 - **Run REGENIE:** go to [**REGENIE/**](REGENIE/) and follow the steps there.  
 - **Prepare data:** use [**Data_Generation/**](Data_Generation/); outputs appear in [**test_site/**](test_site/).
@@ -34,7 +34,7 @@ This repository is associated with the paper titled **["PP-GWAS: Privacy Preserv
 
 ---
 
-## Citation
+## 📝 Citation
 
 Please consider citing our work if it is beneficial to your research. 
 
@@ -49,9 +49,9 @@ Please consider citing our work if it is beneficial to your research.
 
 ---
 
-## License
+## 📜 License
 
 This project is released under the MIT License. See [LICENSE](LICENSE) for details.
 
-## Contact for Questions
+## 📧 Contact for Questions
 `arjhun.swaminathan@uni-tuebingen.de`, `mete.akguen@uni-tuebingen.de`
