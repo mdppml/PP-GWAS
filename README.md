@@ -5,12 +5,12 @@ This repository is associated with the paper titled **["PP-GWAS: Privacy Preserv
 ## Repository Structure
 
 - **Datasets Folders**: 
-  - **Code**: Contains all relevant code to implementing PP-GWAS. 
+  - **Code**: Contains all relevant code to implementing PP-GWAS on the cluster using SLURM. 
   - **Data_Generation**: This folder includes the code used for generating synthetic data using the pysnptools library. The generated data is stored in **test_site**.
   - **REGENIE**: Contains details on how one can restructure synthetic data to fit the formats supported by REGENIE. It also includes instructions on how to run REGENIE on the data.
   - **Results**: This folder holds all output .txt files generated from the experiments reported in the paper.
 
-  - **local_run**: A fully self-contained folder with a jupyter notebook suitable for local testing of PP-GWAS. 
+  - **local_run**: A fully self-contained folder with a jupyter notebook and GUI suitable for local testing of PP-GWAS. 
 
 ## Citation
 
