@@ -17,7 +17,7 @@ def resource_path(p):
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("PP-GWAS")
+        self.title("PP-GWAS One-Click")
         self.geometry("900x600")
         self.n_var = tk.StringVar(value="10000")
         self.m_var = tk.StringVar(value="15000")
@@ -39,6 +39,7 @@ class App(tk.Tk):
         ttk.Entry(frm, textvariable=self.bpr_var, width=10).grid(row=1, column=1, padx=(0,12), pady=(8,0))
         ttk.Button(frm, text="Run", command=self.run_pipeline).grid(row=1, column=2, pady=(8,0))
         ttk.Label(frm, textvariable=self.status_var).grid(row=1, column=3, columnspan=6, sticky="w", pady=(8,0))
+        ttk.Label(frm, text="BPR = blocks per run; defaults to B if left empty. Lower it if you hit memory limits (min 1).", foreground="gray").grid(row=2, column=0, columnspan=9, sticky="w", pady=(4,0))
         self.plot_frame = ttk.Frame(self, padding=12)
         self.plot_frame.pack(fill="both", expand=True)
 
@@ -94,7 +95,7 @@ class App(tk.Tk):
         ax.set_ylim(bottom=0)
         ax.set_xlabel("SNP Index")
         ax.set_ylabel("-log10(p-value)")
-        ax.set_title("Manhattan Plot")
+        ax.set_title("Manhattan Plot (Black & White)")
         if self.canvas:
             self.canvas.get_tk_widget().destroy()
         self.canvas = FigureCanvasTkAgg(fig, master=self.plot_frame)
