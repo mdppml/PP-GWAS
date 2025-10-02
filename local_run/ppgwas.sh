@@ -37,7 +37,7 @@ echo "Clients error: ${CLIENTS_LOG}/party*/error.txt"
 echo "Run output: ${RUN_LOG}"
 echo "Run error: ${RUN_ERR}"
 
-echo "Launching server on port ${BASE_PORT} (logs → ${SERVER_LOG})"
+echo "Launching server on port ${BASE_PORT}"
 python -u server.py \
   --number_of_parties "${P}" \
   --base_port "${BASE_PORT}" \
@@ -53,9 +53,9 @@ SERVER_PID=$!
 
 sleep 4
 
-echo "Spawning ${P} clients (logs → ${CLIENTS_LOG})"
+echo "Spawning ${P} clients"
 PIDS=("${SERVER_PID}")
-NAMES=("server")
+NAMES=("Server")
 for (( i=1; i<=P; i++ )); do
   THIS_LOG="${CLIENTS_LOG}/party${i}"
   mkdir -p "${THIS_LOG}"
@@ -71,7 +71,7 @@ for (( i=1; i<=P; i++ )); do
     --number_of_blocks_per_run "${BPR}" \
     > "${THIS_LOG}/output.txt" 2> "${THIS_LOG}/error.txt" &
   PIDS+=("$!")
-  NAMES+=("client_${i}")
+  NAMES+=("Client_${i}")
   sleep 0.1
 done
 
@@ -95,5 +95,4 @@ if [[ $FAIL -ne 0 ]]; then
   exit 1
 fi
 
-echo "All processes finished. Logs in ${LOG_ROOT}"
-echo "Refer to output.txt files for outputs and error.txt files for errors."
+echo "All processes finished. Logs in ${LOG_ROOT}."
