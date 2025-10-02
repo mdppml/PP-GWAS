@@ -53,17 +53,21 @@ After activating the environment, run:
 ```bash
 python3 ppgwas_oneclick.py
 ```
+If `python3` isn't found, please try
+```bash
+python ppgwas_oneclick.py
+```
 
 A window will open. Enter the parameters in the input boxes and press Run (you may leave BPR empty and it should always be less than or equal to B). The same window will display the Manhattan plot when the computation finishes.
 
 ## 🔧 Synthetic Data (defaults used in the notebook)
 
 Recommended minimum/maximum for reproducibility:
-- Samples `N`: 1,000/5,000
+- Samples `N`: 1,000/10,000
 - Total SNPs `M`: 5,000/20,000
-- Blocks `B`: 2/4
-- Number of Nodes `P`: 2/6
 - Covariates `C`: 2/10
+- Number of Nodes `P`: 2/6
+- Blocks `B`: 2/4
 - BPR `Blocks per Run`: <=B (Based on memory availability. Set to B by default.)
   
 Notebook defaults:
@@ -71,9 +75,9 @@ Notebook defaults:
 ```python
 N (Number of Samples) = 10000
 M (Number of SNPs) = 15000
-B (Number of Blocks) = 2
 C (Number of Covariates) = 10
 P (Number of Computational Nodes) = 4
+B (Number of Blocks) = 2
 ```
 
 You can scale these up for larger experiments depending on available compute. If you encounter memory issues, reduce BPR (this determines how many blocks are processed at a time).
