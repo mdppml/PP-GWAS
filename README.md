@@ -27,10 +27,11 @@ This repository is associated with the paper titled **["PP-GWAS: Privacy Preserv
 
 ## 🧭 Pick a Workflow
 
+- **Prepare data and run PP-GWAS locally (small data):** use [**local_run/**](local_run/).  
+- **Prepare data and run PP-GWAS on a cluster:** use [**Code/**](Code/). Outputs go to [**test_site/**](test_site/).
+
 - **Run REGENIE:** go to [**REGENIE/**](REGENIE/) and follow the steps there.  
 - **Prepare data:** use [**Data_Generation/**](Data_Generation/); outputs appear in [**test_site/**](test_site/).
-- **Prepare data and run PP-GWAS locally (small data):** use [**local_run/**](local_run/).  
-- **Prepare data and run PP-GWAS on a cluster:** use [**Code/**](Code/) (SLURM). Outputs go to [**test_site/**](test_site/).
 
 ---
 
@@ -52,6 +53,8 @@ Please consider citing our work if it is beneficial to your research.
 ## 📜 License
 
 This project is released under the MIT License. See [LICENSE](LICENSE) for details.
+
+---
 
 ## 📧 Contact for Questions
 `arjhun.swaminathan@uni-tuebingen.de`, `mete.akguen@uni-tuebingen.de`
