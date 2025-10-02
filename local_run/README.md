@@ -6,6 +6,9 @@ A self-contained, small-scale example of running PP-GWAS (Privacy Preserving Mul
 
 - `sample_notebook.ipynb` for end-to-end experimentation
 - `ppgwas_oneclick.py` for a GUI “one-click” run that displays results
+ 
+- [**logs/**](logs/)  
+  A folder with all errors and outputs will be generated after executing PP-GWAS. Please refer to this in case there are any errors. 
 
 ## ⚙️ Requirements
 
