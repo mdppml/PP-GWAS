@@ -85,5 +85,4 @@ You can scale these up for larger experiments depending on available compute. If
 ## ❓ Troubleshooting
 
 - Ensure the `ppgwas_test` Conda environment is activated before running either the notebook or the one-click app.
-- If `python3` isn’t found, try `python`.
 - `Windows` users: please install Ubuntu on WSL to run `ppgwas.sh`.
