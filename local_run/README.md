@@ -29,6 +29,7 @@ cd PP-GWAS/local_run
 conda env create -f environment.yml
 conda activate ppgwas_test
 ```
+Windows Users: use ```conda env create -f environment_windows.yml```
 
 ### 3) Make the helper script executable
 ```bash
@@ -56,7 +57,7 @@ After activating the environment, run:
 ```bash
 python3 ppgwas_oneclick.py
 ```
-If `python3` isn't found, please try
+If `python3` doesn't work, please try
 ```bash
 python ppgwas_oneclick.py
 ```
