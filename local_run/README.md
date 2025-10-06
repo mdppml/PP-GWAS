@@ -91,3 +91,4 @@ You can scale these up for larger experiments depending on available compute. If
 ## ❓ Troubleshooting
 
 - Ensure the `ppgwas_test` Conda environment is activated before running either the notebook or the one-click app.
+- Contact the authors listed on the repository for any questions.
