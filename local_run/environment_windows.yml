@@ -152,4 +152,3 @@ dependencies:
       - websocket-client==1.8.0
       - widgetsnbextension==4.0.13
       - zipp==3.20.2
-prefix: C:\Users\hannemann\Anaconda3\envs\ppgwas_test
