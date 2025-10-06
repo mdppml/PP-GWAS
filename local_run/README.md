@@ -64,6 +64,8 @@ python ppgwas_oneclick.py
 
 A window will open. Enter the parameters in the input boxes and press Run (you may leave BPR empty and it should always be less than or equal to B). The same window will display the Manhattan plot when the computation finishes.
 
+Windows Users: use ```Git Bash``` to run the bash command.
+ 
 ## 🔧 Synthetic Data (defaults used in the notebook)
 
 Recommended minimum/maximum for reproducibility:
@@ -89,4 +91,3 @@ You can scale these up for larger experiments depending on available compute. If
 ## ❓ Troubleshooting
 
 - Ensure the `ppgwas_test` Conda environment is activated before running either the notebook or the one-click app.
-- `Windows` users: please install Ubuntu on WSL to run `ppgwas.sh`.
