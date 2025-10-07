@@ -74,7 +74,7 @@ class App(tk.Tk):
         try:
             subprocess.run(cmd, check=True, cwd=resource_path("."))
         except Exception as e:
-            messagebox.showerror("Error", f"ppgwas.sh failed:\n{e}")
+            messagebox.showerror("Error", f"ppgwas.sh failed:\n{e}. Please refer to the logs for more information.")
             return
         self.status_var.set("Loading results...")
         self.update_idletasks()
