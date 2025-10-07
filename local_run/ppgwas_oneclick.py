@@ -17,7 +17,7 @@ def resource_path(p):
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("PP-GWAS One-Click")
+        self.title("PP-GWAS")
         self.geometry("900x600")
         self.n_var = tk.StringVar(value="10000")
         self.m_var = tk.StringVar(value="15000")
