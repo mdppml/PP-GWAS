@@ -86,7 +86,7 @@ P (Number of Computational Nodes) = 4
 B (Number of Blocks) = 2
 ```
 
-You can scale these up for larger experiments depending on available compute. If you encounter memory issues, reduce BPR (this determines how many blocks are processed at a time).
+You can scale these up for larger experiments depending on available compute. If you encounter memory issues, reduce BPR (this determines how many blocks are processed at a time) or increase the number of blocks.
 
 ## ❓ Troubleshooting
 
