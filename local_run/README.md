@@ -86,7 +86,7 @@ P (Number of Computational Nodes) = 4
 B (Number of Blocks) = 2
 ```
 
-You can scale these up for larger experiments depending on available compute. If you encounter memory issues, reduce BPR (this determines how many blocks are processed at a time) or increase the number of blocks.
+To scale up for larger experiments depending on available compute locally, increase N/M. If your RAM is limited, increase the number of blocks, and/or reduce BPR (which determines how many blocks are processed at a time). Errors caused by limited memory can be seen when server prints that the memory usage is above 50% of available memory - the server typically crashes then when performing a computation and the clients indicate a BrokenPipe error. On the cluster, slurm automatically indicates that a task failed due to limited memory.
 
 ## ❓ Troubleshooting
 
