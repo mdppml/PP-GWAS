@@ -1,10 +1,9 @@
 #!/bin/bash
-#SBATCH --job-name=ppREGENIE
+#SBATCH --job-name=PP-GWAS
 #SBATCH --nodes=4  
 #SBATCH --ntasks=4
 #SBATCH --cpus-per-task=24
 #SBATCH --time=03:59:00
-#SBATCH --partition=day
 #SBATCH --mem=240000
 #SBATCH --output=test_%j.txt
 # Define the log folder with the job ID
