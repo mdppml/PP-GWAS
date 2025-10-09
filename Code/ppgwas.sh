@@ -1,12 +1,11 @@
 #!/bin/bash
 #SBATCH --job-name=ppREGENIE
-#SBATCH --nodes=4  # One for the server and one for each client
+#SBATCH --nodes=4  
 #SBATCH --ntasks=4
 #SBATCH --cpus-per-task=24
 #SBATCH --time=03:59:00
 #SBATCH --partition=day
 #SBATCH --mem=240000
-#SBATCH --exclude=tcml-node33
 #SBATCH --output=test_%j.txt
 # Define the log folder with the job ID
 client_DIR="logs/job_$SLURM_JOB_ID/"
