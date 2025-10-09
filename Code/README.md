@@ -66,6 +66,9 @@ The slurm script requires the following arguments:
 
 #### Example Command
 ## 🖥️ Using SLURM
+
+Please edit the `ppgwas.sh` file with appropriate SLURM parameters based on your HPC configuration. 
+
 ```bash
 sbatch ppgwas.sh 8110 1000 10000 5 2 5 3 2 
 ```
