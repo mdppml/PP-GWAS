@@ -88,6 +88,17 @@ B (Number of Blocks) = 2
 
 To scale up for larger experiments depending on available compute locally, increase N/M. If your RAM is limited, increase the number of blocks, and/or reduce BPR (which determines how many blocks are processed at a time). Errors caused by limited memory can be seen when server prints that the memory usage is above 50% of available memory - the server typically crashes then when performing a computation and the clients indicate a BrokenPipe error. On the cluster, slurm automatically indicates that a task failed due to limited memory.
 
+## 🎥 Video Tutorial (8:42)
+
+> If you only want the GUI: watch **00:00–02:25** (setup) and then jump to **07:01**.
+
+[![Watch the video](https://img.youtube.com/vi/bI8tRwi1fJE/hqdefault.jpg)](https://youtu.be/bI8tRwi1fJE)
+
+**Parts**
+- **00:00 – 02:25** • Setup for both Notebook & GUI  
+- **02:26 – 07:00** • Notebook walkthrough (Data Generation → Run PP-GWAS → Manhattan plot)  
+- **07:01 – 08:42** • One-click GUI run (Parameters → Run → Manhattan plot)
+
 ## ❓ Troubleshooting
 
 - Ensure the `ppgwas_test` Conda environment is activated before running either the notebook or the one-click app.
