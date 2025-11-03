@@ -104,3 +104,4 @@ To scale up for larger experiments depending on available compute locally, incre
 - Ensure the `ppgwas_test` Conda environment is activated before running either the notebook or the one-click app.
 - Contact the authors listed on the repository if you run into any issues.
 - `Windows` users: please install Ubuntu on WSL to run `ppgwas.sh`.
+- If your local DNS cannot resolve your machine hostname, in `server.py`, replace `hostname = socket.gethostbyname(socket.gethostname())` with `hostname = socket.gethostbyname("localhost")`. 
