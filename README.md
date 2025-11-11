@@ -39,12 +39,25 @@ This repository is associated with the paper titled **["PP-GWAS: Privacy Preserv
 
 Please consider citing our work if it is beneficial to your research. 
 
+- **Paper**
 ```bibtex
 @article{swaminathan2024pp,
   title={PP-GWAS: Privacy Preserving Multi-Site Genome-wide Association Studies},
   author={Swaminathan, Arjhun and Hannemann, Anika and {\"U}nal, Ali Burak and Pfeifer, Nico and Akg{\"u}n, Mete},
   journal={arXiv preprint arXiv:2410.08122},
   year={2024}
+}
+```
+- **Code**
+```bibtex
+@software{swaminathan2025code,
+  author   = {Swaminathan, Arjhun and Hannemann, Anika and {\"U}nal, Ali Burak and Pfeifer, Nico and Akg{\"u}n, Mete},
+  title    = {PP-GWAS: Privacy Preserving Multi-Site Genome-wide Association Studies — code},
+  version  = {v1.0},
+  publisher= {Zenodo},
+  year     = {2025},
+  doi      = {10.5281/zenodo.17580283},
+  url      = {https://doi.org/10.5281/zenodo.17580283}
 }
 ```
 
