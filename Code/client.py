@@ -1,3 +1,4 @@
+import shutil
 import argparse
 import socket
 import numpy as np
@@ -46,9 +47,9 @@ def main():
     y = np.load(
         '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Party_{}/y.npy'.format(N, M, C, P, B, p))
     loader_times += (time.time() - tt)
-    v_6, sum_6 = GWAS_lib.standardization_normalizers(1, P, p, 6)
-    v_7, sum_7 = GWAS_lib.standardization_normalizers(1, P, p, 7)
-    masked_y_sum = np.sum(y, axis=0) + v_6
+    r_y, sum_r_y = GWAS_lib.randomized_encoding_addtion(1, P, p, 6)
+    r_y_std, sum_r_y_std = GWAS_lib.randomized_encoding_addtion(1, P, p, 7)
+    masked_y_sum = np.sum(y, axis=0) + r_y
     red_time=time.time()
     total_comm_size+=utilities.get_size_in_gb(masked_y_sum)
     reduction_count+=time.time()-red_time
@@ -57,9 +58,9 @@ def main():
     red_time = time.time()
     total_comm_size += utilities.get_size_in_gb(aggregated_y)
     reduction_count += time.time() - red_time
-    y_mean = (aggregated_y - sum_6) / N
+    y_mean = (aggregated_y - sum_r_y) / N
     std_y = (np.sum(np.square(y - y_mean)) / (N - 1))
-    std_y = std_y + v_7
+    std_y = std_y + r_y_std
     red_time = time.time()
     total_comm_size += utilities.get_size_in_gb(std_y)
     reduction_count += time.time() - red_time
@@ -68,10 +69,14 @@ def main():
     red_time = time.time()
     total_comm_size += utilities.get_size_in_gb(agg_std_y)
     reduction_count += time.time() - red_time
+
     agg_std_y = agg_std_y.reshape(1, -1)
-    agg_std_y = np.sqrt(agg_std_y - sum_7)
+    agg_std_y = np.sqrt(agg_std_y - sum_r_y_std)
     S_y = 1 / agg_std_y
-    GWAS_lib.generate_Z_mask(M, B, p, P, N, C)
+    S_y_scalar = float(S_y)
+    GWAS_lib.generate_O_Z(M, B, p, P, N, C)
+    GWAS_lib.generate_O_Z_prime(M, B, p, P, N, C)
+
     start_index = (p - 1) * int(N / P)
     end_index = start_index + int(N / P)
     end_index = start_index + (N // P if p < P  else N - (N // P) * (P - 1))
@@ -84,51 +89,115 @@ def main():
     max_attempts = 1000
     attempts = 0
     delay = 0.025
-    Z_mask = None
+    O_Z = None
     while not file_loaded and attempts < max_attempts:
         try:
-            Z_mask = load_npz('../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks/Z_mask.npz'.format(N, M, C, P,B))
+            O_Z = load_npz(
+                '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Party_{}/Masks/O_Z.npz'.format(N, M, C, P, B, p))
             file_loaded = True
         except Exception as e:
             attempts += 1
             time.sleep(delay)
 
     if not file_loaded:
-        print("Failed to load the file after multiple attempts. Increase time for Z_mask.")
+        print("Failed to load the file after multiple attempts. Increase time for O_Z.")
 
-    Z_mask_party = Z_mask[:, start_index:end_index]
-    Z_masked = Z_mask_party @ Z
+    file_loaded = False
+    attempts = 0
+
+    O_Z_prime = None
+    while not file_loaded and attempts < max_attempts:
+        try:
+            O_Z_prime = load_npz(
+                '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Party_{}/Masks/O_Z_prime.npz'.format(N, M, C, P, B, p))
+            file_loaded = True
+        except Exception as e:
+            attempts += 1
+            time.sleep(delay)
+
+    if not file_loaded:
+        print("Failed to load the file after multiple attempts. Increase time for O_Z_prime.")
+
+    Q = O_Z.toarray()  # or use .A
+
+    QtQ = Q.T @ Q
+    diag_diff = np.abs(np.diag(QtQ) - 1)
+    off_diag = np.abs(QtQ - np.diag(np.diag(QtQ)))
+    off_diag_max = np.max(off_diag)
+
+    print("max |diag(QᵀQ) − 1| =", diag_diff.max())
+    print("max |off-diag(QᵀQ)| =", off_diag_max)
+
+
+    O_Z_p = O_Z[:, start_index:end_index]
+    Z_masked = O_Z_p @ Z
+    Z_masked = dot_product_mkl(Z_masked, O_Z_prime.transpose())
     red_time = time.time()
     total_comm_size += utilities.get_size_in_gb(Z_masked)
     reduction_count += time.time() - red_time
     communication.send_data_to_server(party_socket, Z_masked, p)
 
+    num_dummy_cols = 10
+    U = 1 + num_dummy_cols
+
+    np.random.seed(12345)
+    M_y = np.random.randn(N, num_dummy_cols).astype(np.float32)
+    M_y_p = M_y[start_index:end_index, :]
+
+    Y_concat = np.hstack((y, M_y_p))
+
+    np.random.seed(54321)
+    rho = np.random.permutation(U)
+    y_col_index = int(np.where(rho == 0)[0][0])
+    Y_permuted = Y_concat[:, rho]
+
+    O_y = GWAS_lib.get_O(U, 1, 999)
+    O_y = O_y.astype(np.float32)
+
     k_y = GWAS_lib.generate_a_number(0)
-    masked_y = Z_mask_party @ y
-    masked_y = k_y * masked_y
+
+    O_Z_p = O_Z_p.astype(np.float32)
+    Y_permuted = Y_permuted.astype(np.float32)
+
+    masked_Y = dot_product_mkl(O_Z_p, Y_permuted)
+    masked_Y = dot_product_mkl(masked_Y, O_y.transpose())
+    masked_Y = k_y * masked_Y
+
     red_time = time.time()
-    total_comm_size += utilities.get_size_in_gb(masked_y)
+    total_comm_size += utilities.get_size_in_gb(masked_Y)
     reduction_count += time.time() - red_time
-    communication.send_data_to_server(party_socket, masked_y, p)
+    communication.send_data_to_server(party_socket, masked_Y, p)
+
     Y_tilde = communication.receive_data_from_server(party_socket)
     red_time = time.time()
     total_comm_size += utilities.get_size_in_gb(Y_tilde)
     reduction_count += time.time() - red_time
-    Y_tilde = (Z_mask.transpose() @ Y_tilde @ S_y)[start_index:end_index]
-    Y_tilde = ((1 / k_y) * Y_tilde).astype(np.float32)
-    del Z_masked, masked_y, S_y, y
 
-    GWAS_lib.generate_O(M, B, K, p, P, N, C)
+    O_Z = O_Z.astype(np.float32)
+    Y_tilde = Y_tilde.astype(np.float32)
+
+    left = dot_product_mkl(O_Z.transpose(), Y_tilde)
+    O_y = O_y.astype(np.float32)
+    Y_full = dot_product_mkl(left, O_y)
+
+    Y_full = (1.0 / k_y) * Y_full
+    Y_full = Y_full * S_y_scalar
+
+    Y_tilde = Y_full[start_index:end_index, y_col_index:y_col_index + 1].astype(np.float32)
+
+    del Z_masked, M_y, M_y_p, Y_concat, Y_permuted, Y_full, S_y, y
+
+    GWAS_lib.generate_O_y_tilde(M, B, K, p, P, N, C)
 
     file_loaded = False
     max_attempts = 1000
     attempts = 0
     delay = 0.025
-    O = 0
+    O_y_tilde = 0
     while not file_loaded and attempts < max_attempts:
         try:
-            O = load_npz(
-                '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks/O.npz'.format(N, M, C, P,B))
+            O_y_tilde = load_npz(
+                '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Party_{}/Masks/O_y_tilde.npz'.format(N, M, C, P, B, p))
             file_loaded = True
         except Exception as e:
             attempts += 1
@@ -137,7 +206,7 @@ def main():
     if not file_loaded:
         print("Failed to load the file after multiple attempts. Increase time for O.")
 
-    O2 = O[:, start_index:end_index]
+    O_y_tilde_p = O_y_tilde[:, start_index:end_index]
     k_1 = GWAS_lib.generate_a_number(1)
     # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
 
@@ -152,9 +221,9 @@ def main():
         Y_tilde_copy = Y_tilde.copy()
 
         Y_tilde_copy[chunks[k], :] = 0
-        O2 = O2.astype(np.float32)
+        O_y_tilde_p = O_y_tilde_p.astype(np.float32)
         Y_tilde_copy = Y_tilde_copy.astype(np.float32)
-        masked_y_tilde = dot_product_mkl(O2, Y_tilde_copy)
+        masked_y_tilde = dot_product_mkl(O_y_tilde_p, Y_tilde_copy)
         masked_y_tilde *= k_1
         red_time = time.time()
         total_comm_size += utilities.get_size_in_gb(masked_y_tilde)
@@ -166,9 +235,9 @@ def main():
         mask = np.ones(Y_tilde.shape[0], bool)
         mask[chunks[k]] = 0
         Y_tilde_copy[mask, :] = 0
-        O2 = O2.astype(np.float32)
+        O_y_tilde_p = O_y_tilde_p.astype(np.float32)
         Y_tilde_copy = Y_tilde_copy.astype(np.float32)
-        masked_y_tilde = dot_product_mkl(O2, Y_tilde_copy)
+        masked_y_tilde = dot_product_mkl(O_y_tilde_p, Y_tilde_copy)
         masked_y_tilde *= k_1
         red_time = time.time()
         total_comm_size += utilities.get_size_in_gb(masked_y_tilde)
@@ -176,11 +245,15 @@ def main():
         communication.send_data_to_server(party_socket, masked_y_tilde, p)
 
     del Y_tilde, Y_tilde_copy, masked_y_tilde
+
+
+    np.random.seed(1234)
     extra_elements = [np.random.randint(1, 100) for _ in range(B)]
-    extra_elements[B-1]+= M%(int(M/B))
+    extra_elements[B - 1] += M % int(M / B)
     B_blocked = GWAS_lib.split_number(B, bulk)
     num_loops = len(B_blocked)
     initial_block_size = int(M / B)
+
     for n in range(num_loops):
 
         #####################################################################################################
@@ -230,22 +303,22 @@ def main():
         sums = np.append(sums, sums_random)
 
         del ones_random, twos_random, sums_random
-        v_2, sum_2 = GWAS_lib.standardization_normalizers(len(ones), P, p, 2)
-        v_3, sum_3 = GWAS_lib.standardization_normalizers(len(ones), P, p, 3)
-        v_4, sum_4 = GWAS_lib.standardization_normalizers(len(ones), P, p, 4)
-        ones = ones + v_2
-        twos = twos + v_3
-        sums = sums + v_4
+        r_one_freq, sum_r_one_freq = GWAS_lib.randomized_encoding_addtion(len(ones), P, p, 2)
+        r_two_freq, sum_r_two_freq = GWAS_lib.randomized_encoding_addtion(len(ones), P, p, 3)
+        r_total_freq, sum_r_total_freq = GWAS_lib.randomized_encoding_addtion(len(ones), P, p, 4)
+        ones = ones + r_one_freq
+        twos = twos + r_two_freq
+        sums = sums + r_total_freq
         red_time = time.time()
         total_comm_size += utilities.get_size_in_gb(ones)
         reduction_count += time.time() - red_time
         communication.send_data_to_server(party_socket, ones, p)
-        del ones, v_2, v_3, v_4
+        del ones, r_one_freq, r_two_freq, r_total_freq
         aggregated_vector = communication.receive_data_from_server(party_socket)
         red_time = time.time()
         total_comm_size += utilities.get_size_in_gb(aggregated_vector)
         reduction_count += time.time() - red_time
-        ones_count = (aggregated_vector - sum_2)[:-num_new_elements]
+        ones_count = (aggregated_vector - sum_r_one_freq)[:-num_new_elements]
         red_time = time.time()
         total_comm_size += utilities.get_size_in_gb(twos)
         reduction_count += time.time() - red_time
@@ -255,7 +328,7 @@ def main():
         red_time = time.time()
         total_comm_size += utilities.get_size_in_gb(aggregated_vector)
         reduction_count += time.time() - red_time
-        twos_count = (aggregated_vector - sum_3)[:-num_new_elements]
+        twos_count = (aggregated_vector - sum_r_two_freq)[:-num_new_elements]
         red_time = time.time()
         total_comm_size += utilities.get_size_in_gb(sums)
         reduction_count += time.time() - red_time
@@ -265,7 +338,7 @@ def main():
         red_time = time.time()
         total_comm_size += utilities.get_size_in_gb(aggregated_vector)
         reduction_count += time.time() - red_time
-        means = ((aggregated_vector - sum_4) / N)[:-num_new_elements]
+        means = ((aggregated_vector - sum_r_total_freq) / N)[:-num_new_elements]
         removable_column_indices = []
         maf = ((twos_count * 2) + ones_count) / (2 * N)
         obs_counts_array = np.vstack([(N - ones_count - twos_count), ones_count, twos_count]).T
@@ -278,15 +351,15 @@ def main():
             end_col = start_col + X.shape[1]
             local_means = means[start_col:end_col]
             sq_diffs = csr_matrix(X - local_means)
-            sum_sq = np.array(sq_diffs.power(2).sum(axis=0)).ravel()
-            stds[start_col:end_col] += sum_sq
+            sum_r_sq = np.array(sq_diffs.power(2).sum(axis=0)).ravel()
+            stds[start_col:end_col] += sum_r_sq
             start_col = end_col
         stds = (stds / (N - 1))
-        del start_col, end_col, local_means, sq_diffs, sum_sq
+        del start_col, end_col, local_means, sq_diffs, sum_r_sq
         stds_random = stds[rand_indices] + np.random.choice([-0.1, 0.1], size=num_new_elements)
         stds = np.append(stds, stds_random)
-        v_5, sum_5 = GWAS_lib.standardization_normalizers(len(stds), P, p, 5)
-        stds = stds + v_5
+        r_stds, sum_r_stds = GWAS_lib.randomized_encoding_addtion(len(stds), P, p, 5)
+        stds = stds + r_stds
         red_time = time.time()
         total_comm_size += utilities.get_size_in_gb(stds)
         reduction_count += time.time() - red_time
@@ -297,7 +370,7 @@ def main():
         total_comm_size += utilities.get_size_in_gb(aggregated_vector)
         reduction_count += time.time() - red_time
 
-        stds = np.sqrt(np.maximum(aggregated_vector - sum_5, 0))[:-num_new_elements]
+        stds = np.sqrt(np.maximum(aggregated_vector - sum_r_stds, 0))[:-num_new_elements]
 
         del aggregated_vector
         removed_so_far = 0
@@ -320,17 +393,16 @@ def main():
                                               if global_col_counter <= global_idx < global_col_counter + num_cols}
             keep_indices = [j for j in range(num_cols) if j not in valid_removable_column_indices]
             X_list[i] = X[:, keep_indices]
-            if (i+1)%P==0:
-                GWAS_lib.generate_O_X(M, B, p, P, N, C, X_list[i-p+1].shape[1],extra_elements[(i-p+1) + (n * bulk)] + initial_block_size -X_list[i-p+1].shape[1],(i-p+1) + (n * bulk))
-            if i ==len(X_list)-1:
-                if (i+1)%P!=0:
-                    temp =(i+1)%P
-                    if p <= temp:
-                        GWAS_lib.generate_O_X(M, B, p, P, N, C, X_list[i-p+1].shape[1], extra_elements[(i - p + 1) + (n * bulk)] + initial_block_size - X_list[i-p+1].shape[1], (i - p + 1) + (n * bulk))
+            block_number = B_blocked[n][i]
+            block_index = block_number - 1
+            block_size = X_list[i].shape[1]
+            additional_cols = extra_elements[block_index] + initial_block_size - block_size
+            GWAS_lib.generate_mask_X_block(M, B, p, P, N, C, block_size, additional_cols, block_index)
             global_col_counter += num_cols
             X_list[i] = X_list[i].astype(np.float32)
             if GWAS_lib.compute_sparsity(X_list[i]) < 0.7:
                 X_list[i] = X_list[i].toarray()
+
         start_col=0
         S=[]
         for X in X_list:
@@ -345,16 +417,21 @@ def main():
             max_attempts = 1000
             attempts = 0
             delay = 0.025
+            block_number = B_blocked[n][_]
             while not file_loaded and attempts < max_attempts:
                 try:
-                    O_X[_] = load_npz('../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks/O_X_block_{}.npz'.format(N, M, C, P, B, (_ + (n * bulk)) + 1))
+                    O_X[_] = load_npz(
+                        '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Party_{}/Masks/O_X_block_{}.npz'.format(
+                            N, M, C, P, B, p, block_number
+                        )
+                    )
                     file_loaded = True
                 except Exception as e:
                     attempts += 1
                     time.sleep(delay)
-            t2 = time.time()
             if not file_loaded:
-                print(f"Failed to load the file after multiple attempts. Increase time for O_X.")
+                print("Failed to load the file after multiple attempts. Increase time for O_X.")
+
         current_count = len(X_list)
         right = [[] for _ in range(current_count)]
         masked_X = [[] for _ in range(current_count)]
@@ -363,9 +440,9 @@ def main():
             O_X[i] = O_X[i].astype(np.float32)
 
             right[i] = dot_product_mkl(X, O_X[i].T)
-            Z_mask_party=Z_mask_party.astype(np.float32)
+            O_Z_p=O_Z_p.astype(np.float32)
 
-            masked_X[i] = dot_product_mkl(Z_mask_party, right[i])
+            masked_X[i] = dot_product_mkl(O_Z_p, right[i])
         for _ in range(current_count):
             red_time = time.time()
             total_comm_size += utilities.get_size_in_gb(masked_X[_])
@@ -385,21 +462,22 @@ def main():
             right = right.astype(np.float32)
             intermediate = dot_product_mkl(X, right)
             del right
-            Z_mask=Z_mask.astype(np.float32)
-            X_tilde[_] = dot_product_mkl(Z_mask.T, intermediate)[start_index:end_index, :]
+            O_Z = O_Z.astype(np.float32)
+            X_tilde[_] = dot_product_mkl(O_Z.T, intermediate)[start_index:end_index, :]
             del intermediate
 
             #####################################################################################################
-            #--------------------------------------LEVEL 1 RIDGE REGRESSION-------------------------------------#
+            # --------------------------------------LEVEL 1 RIDGE REGRESSION-------------------------------------#
             #####################################################################################################
 
-            if (_ +1) % P == 0:
-                GWAS_lib.generate_O_b(M, B, p, P, N, C, X_tilde[_-p+1].shape[1], int((_-p+1) + (n * bulk)))
-            if _==current_count-1:
-                if (_+1)%P != 0:
-                    temp = (_+1)%P
-                    if p<= temp:
-                        GWAS_lib.generate_O_b(M,B,p,P,N,C,X_tilde[_-p+1].shape[1],(_-p+1)+(n*bulk))
+            block_number = B_blocked[n][_]  # 1-based block id for this X_tilde[_]
+            block_index = block_number - 1  # 0-based index used for filenames / seeds
+
+            GWAS_lib.generate_mask_beta_block(
+                M, B, p, P, N, C,
+                X_tilde[_].shape[1],
+                block_index
+            )
         O_b=[[] for _ in range(current_count)]
         sending=[[] for _ in range(current_count)]
         for _ in range(current_count):
@@ -409,7 +487,10 @@ def main():
             delay = 0.025
             while not file_loaded and attempts < max_attempts:
                 try:
-                    O_b[_] = load_npz('../test_site/Data/N{}_M{}_C{}_P{}_B{}/Masks/O_b_block_{}.npz'.format(N, M, C, P, B, (_ + (n * bulk)) + 1))
+                    O_b[_] = load_npz(
+                        '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Party_{}/Masks/O_b_block_{}.npz'.format(N, M, C, P, B, p,
+                                                                                                       (_ + (
+                                                                                                                   n * bulk)) + 1))
                     file_loaded = True
                 except Exception as e:
                     attempts += 1
@@ -418,7 +499,7 @@ def main():
             X_tilde[_]=X_tilde[_].astype(np.float32)
             O_b[_]=O_b[_].astype(np.float32)
             intermediate = dot_product_mkl(X_tilde[_], O_b[_])
-            sending[_] = dot_product_mkl(O2, intermediate)
+            sending[_] = dot_product_mkl(O_y_tilde_p, intermediate)
         for _ in range(current_count):
             red_time = time.time()
             total_comm_size += utilities.get_size_in_gb(sending[_])
@@ -437,7 +518,7 @@ def main():
                 X_tilde_k=X_tilde_k.astype(np.float32)
                 O_b[_]=O_b[_].astype(np.float32)
                 intermediate = dot_product_mkl(X_tilde_k, O_b[_])
-                X_tilde_k = dot_product_mkl(O2, intermediate)
+                X_tilde_k = dot_product_mkl(O_y_tilde_p, intermediate)
                 red_time = time.time()
                 total_comm_size += utilities.get_size_in_gb(X_tilde_k)
                 reduction_count += time.time() - red_time
@@ -457,7 +538,7 @@ def main():
             diagonal_entries = np.array(diagonal_entries)
             diagonal_entries = diagonal_entries.astype(np.float32)
             D = diags(diagonal_entries).tocsr()
-            intermediate = dot_product_mkl(O2, X_tilde[_])
+            intermediate = dot_product_mkl(O_y_tilde_p, X_tilde[_])
             D = D.astype(np.float32)
             result_matrix= dot_product_mkl(intermediate,D)
             red_time = time.time()
@@ -469,6 +550,9 @@ def main():
     print(f'TIME TAKEN FOR {B} blocks is {time.time()-party_start_time-reduction_count}')
     #print(f'reduce from server {reduction_count}')
     print(f'SIZE OF DATA IN TOTAL FOR {B} blocks is {total_comm_size}')
+    directory = '../test_site/Data/N{}_M{}_C{}_P{}_B{}/Party_{}/Masks'.format(N, M, C, P, B, p)
+    if os.path.exists(directory):
+        shutil.rmtree(directory)
     party_socket.close()
 
 if __name__ == "__main__":
