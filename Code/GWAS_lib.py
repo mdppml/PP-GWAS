@@ -243,3 +243,4 @@ def compute_sparsity(matrix):
         raise ValueError("Unknown matrix type. Expected numpy ndarray or scipy sparse matrix.")
     sparsity = zero_elements / total_elements
     return sparsity
+ 
