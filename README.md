@@ -1,6 +1,6 @@
 # 🧬🔒 PP-GWAS: Privacy Preserving Multi-Site Genome-wide Association Studies
 
-This repository is associated with the paper titled **["PP-GWAS: Privacy Preserving Multi-Site Genome-wide Association Studies"](https://arxiv.org/abs/2410.08122)**. It provides all the necessary code to reproduce the experiments described in the paper, including synthetic dataset generation, dataset loading, distributed computations, and experiment results.
+This repository is associated with the paper titled **["PP-GWAS: Privacy Preserving Multi-Site Genome-wide Association Studies"](https://www.nature.com/articles/s41467-025-66771-z)**. It provides all the necessary code to reproduce the experiments described in the paper, including synthetic dataset generation, dataset loading, distributed computations, and experiment results.
 
 ---
 
@@ -41,11 +41,12 @@ Please consider citing our work if it is beneficial to your research.
 
 - **Paper**
 ```bibtex
-@article{swaminathan2024pp,
-  title={PP-GWAS: Privacy Preserving Multi-Site Genome-wide Association Studies},
+@article{swaminathan2025pp,
+  title={Pp-gwas: Privacy preserving multi-site genome-wide association studies},
   author={Swaminathan, Arjhun and Hannemann, Anika and {\"U}nal, Ali Burak and Pfeifer, Nico and Akg{\"u}n, Mete},
-  journal={arXiv preprint arXiv:2410.08122},
-  year={2024}
+  journal={Nature Communications},
+  year={2025},
+  publisher={Nature Publishing Group UK London}
 }
 ```
 - **Code**
