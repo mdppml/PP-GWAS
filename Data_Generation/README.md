@@ -75,6 +75,7 @@ The generated data will be saved in the following directory structure:
 
 ## Notes
 - Ensure sufficient memory and disk space to handle large datasets.
+- If you prepare your own data, remember to add padding.
 - The SLURM script assumes a cluster environment with Conda installed.
 - Modify paths in both scripts as per your directory structure.
 
